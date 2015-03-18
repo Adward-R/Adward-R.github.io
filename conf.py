@@ -25,7 +25,7 @@ SITE_URL = "http://adward-r.lofter.com"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://adward-r.lofter.com"
-BLOG_EMAIL = "adward_r@icloud.com"
+BLOG_EMAIL = "adwardpeverell@gmail.com"
 BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 
 # Nikola is multilingual!
@@ -388,18 +388,13 @@ REDIRECTIONS = []
 #     ]
 # }
 
-DEPLOY_COMMANDS = [
-'git --git-dir=output/.git --work-tree=output add -A ',
-'git --git-dir=output/.git --work-tree=output commit -m "latest auto deploy build"',
-'git --git-dir=output/.git --work-tree=output push origin master'
-]
 # For user.github.io OR organization.github.io pages, the DEPLOY branch
 # MUST be 'master', and 'gh-pages' for other repositories.
-# GITHUB_SOURCE_BRANCH = 'master'
-# GITHUB_DEPLOY_BRANCH = 'gh-pages'
+ GITHUB_SOURCE_BRANCH = 'deploy'
+ GITHUB_DEPLOY_BRANCH = 'master'
 
 # The name of the remote where you wish to push to, using github_deploy.
-# GITHUB_REMOTE_NAME = 'origin'
+ GITHUB_REMOTE_NAME = 'origin'
 
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
@@ -633,12 +628,12 @@ CONTENT_FOOTER_FORMATS = {
 # systems.  The following comment systems are supported by Nikola:
 #   disqus, facebook, googleplus, intensedebate, isso, livefyre, muut
 # You can leave this option blank to disable comments.
-COMMENT_SYSTEM = ""
+COMMENT_SYSTEM = "disqus"
 # And you also need to add your COMMENT_SYSTEM_ID which
 # depends on what comment system you use. The default is
 # "nikolademo" which is a test account for Disqus. More information
 # is in the manual.
-COMMENT_SYSTEM_ID = ""
+COMMENT_SYSTEM_ID = "shortname"
 
 # Enable annotations using annotateit.org?
 # If set to False, you can still enable them for individual posts and pages
