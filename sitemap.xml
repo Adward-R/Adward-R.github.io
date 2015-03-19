@@ -6,26 +6,42 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://adward-r.lofter.com/2015/index.html</loc>
-  <lastmod>2015-03-18</lastmod>
+  <lastmod>2015-03-19</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/archive.html</loc>
   <lastmod>2015-03-18</lastmod>
  </url>
  <url>
+  <loc>http://adward-r.lofter.com/categories/cat_cs.html</loc>
+  <lastmod>2015-03-19</lastmod>
+ </url>
+ <url>
+  <loc>http://adward-r.lofter.com/categories/computer-science.html</loc>
+  <lastmod>2015-03-19</lastmod>
+ </url>
+ <url>
   <loc>http://adward-r.lofter.com/categories/index.html</loc>
-  <lastmod>2015-03-18</lastmod>
+  <lastmod>2015-03-19</lastmod>
+ </url>
+ <url>
+  <loc>http://adward-r.lofter.com/categories/markdown.html</loc>
+  <lastmod>2015-03-19</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/index.html</loc>
-  <lastmod>2015-03-18</lastmod>
+  <lastmod>2015-03-19</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/hello.html</loc>
-  <lastmod>2015-03-18</lastmod>
+  <lastmod>2015-03-19</lastmod>
+ </url>
+ <url>
+  <loc>http://adward-r.lofter.com/posts/markdown-testing.html</loc>
+  <lastmod>2015-03-19</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/second.html</loc>
-  <lastmod>2015-03-18</lastmod>
+  <lastmod>2015-03-19</lastmod>
  </url>
 </urlset>
