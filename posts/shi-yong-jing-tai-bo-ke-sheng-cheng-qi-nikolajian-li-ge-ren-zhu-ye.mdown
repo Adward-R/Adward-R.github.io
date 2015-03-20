@@ -1,0 +1,36 @@
+<!-- 
+.. title: 使用静态博客生成器Nikola建立个人主页
+.. slug: shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye
+.. date: 2015-03-20 16:48:58 UTC+08:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+-->
+
+Establish Your Individual Blog Using Static Blog Generator NIKOLA
+==== 
+
+是的，这就是目前这个博客所利用的构建套件，基于Github上特殊的免费代码仓库[Github Pages](https://pages.github.com/)（300M空间）和静态博客生成工具Nikola（链接见底部）。
+
+> **Why Static Websites?**
+> Static websites are safer, use fewer resources, and avoid vendor and platform lock-in.
+
+相比较WordPress等功能完善强大、插件生态丰富的主流动态博客软件，静态博客软件的功能显得比较有限，但是胜在良好的平台迁移性、极快的渲染速度（根本就是提前渲染好的）以及很低的上手成本。Static Blog不需要配置Apache或者Nginx等服务器端软件来处理页面请求，而是使用Python构建的模拟服务器，serve已经预先渲染好的页面样式，因此响应速度非常令人满意，资源占用很低，环境配置也简化到了一定程度。对于不喜欢过分折腾者，这些特性应该足够使得静态博客软件成为首选。
+
+目前与Gitpages最紧密耦合的静态博客软件无疑是[Jekyll](http://jekyllrb.com/)，样式非常漂亮，也比较方便使用。但是本人作孽尝试了一下传说中丝一般顺滑的*Nikola*，也还是比较满意的。另外*Hexo*的风评也还不错。
+
+本人机器的平台是Mac OSX Yosemite，如果你是Windows用户，可能会在以下教程的Python环境搭建部分多费周折，并且我不一定能帮得上忙……
+
+## 使用Github Pages搭建个人博客
+### Prerequisites
+如果你是一个程序员，应该跳过以下列表的所有项目直奔主题……
+ - 首先你当然要有一个**包管理**软件，比如Homebrew、easy\_install之类（什么你告诉我你没有安装brew！pia~），当然最好两个都要有，因为我在安装接下来的**pip**时就遇到了一些小麻烦（撞墙），brew安装失败，easy\_install成功，两个包管理系统的源还是有一些差别的（最好的方案自然是开可靠的全局代理然后刷新缓存）；
+ - 然后你需要有**Python**，最好是2.7.x版本或者3.x（Yosemite自带的应该是2.7.6，足够了），Nikola和相关依赖套件都是基于Python的开发环境构建的；
+- Python的包管理软件是必备，比如（但不仅限于）**pip**，使用Mac的命令行包管理软件安装：`sudo brew install pip`或者`sudo easy_install pip`；
+- 需要有**Github**的账户，当然……
+- ……当然你还会在本地安装它全家：命令行版本管理工具**Git**，以及非必备的**Desktop客户端Github**；
+噢，准备就绪，开始吧。
+
+### 
