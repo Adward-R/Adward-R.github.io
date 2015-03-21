@@ -1,0 +1,107 @@
+<!-- 
+.. title: 让Windows 8.1与Xilinx ISE 14.7愉快地玩耍
+.. slug: rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua
+.. date: 2015-03-21 22:11:17 UTC+08:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+-->
+
+ISE 14.7是塞灵思开发的FPGA综合设计开发环境的最新、也是产品线上最后一个版本，之后转向其继承者——基于Eclipse构建的Vivaldo的开发。我从依然使用Thinkpad和Win7时便鼓捣过其10.1、12.4和14.6版本，迁移到OS X平台下后不得已换成Parallels Desktop 10 + Windows 8.1虚拟机方案来安装，期间遇到一些问题，随手整理一些Tips。
+
+## ISE拾零
+
+- ISE各个版本（10系列及之前的.ise时代除外）支持有限的向前兼容，即新版本可以打开旧版本的\*.xise工程文件并作migration，但是被移植后的工程无法再用旧版本软件打开。当然，如果不嫌麻烦，重新建立工程、导入所有的source file也是可行的……
+- 安装包有一个.tar和三个.zip.xz，解压.tar压缩包后，Win安装运行xsetup.exe，Linux运行xsetup可执行脚本。
+- 即便是免费License的WebPack也有17G以上的空间占用，安装过程需要至少23G，可谓巨无霸套件，如果用虚拟机或者SSD安装记得预留空间。
+- Place&Route很多机器上很慢，新版本愈发严重，多年槽点了……
+- 用虚拟机的话，记得让OS X与Windows共享全部磁盘（或者至少是工程代码存放的位置），使用Git或者Github作版本管理的时候会比较优雅一些www 当然愿意用Win命令行的Git我也不会拦着你的……
+
+## “并行配置不正确”的解决方案
+不止是安装ISE，甚至SPSS等软件也会在双击安装器时冒出如下警告：
+
+`应用程序无法启动，因为应用程序的并行配置不正确，有关详细信息，请参阅应用程序事件日志，或使用命令行sxstrace.exe工具。`
+
+蛤？这个***并行配置***是个什么鬼？
+
+谷歌一番后发现其实单就该论坛就可以写一壶，摘录一段[解决了我问题的博文](http://blog.sina.com.cn/s/blog_59732e990100ii6q.html)，虽然有些年头了但是原理还是通用的：
+
+> 【本文转载于kingcham空间： http://hi.baidu.com/kingcham/blog/item/28fa43951b2b2112d31b70d9.html】
+> 应用程序事件日志中：
+> 
+> 		“C:\windows\system32\test.exe”的激活上下文生成失败。 找不到从属程序集Microsoft.VC80.MFC,processorArchitecture="x86",publicKeyToken="1fc8b3b9a1e18e3b",type="win32",version="8.0.50727.762"。 请使用 sxstrace.exe 进行详细诊断。
+> 	
+> 出现这类问题，是由于VC2005编译出来的程序文件，采用了manifest方式来指定dll文件。对于win98、win2000系统，把exe文件和VC的dll连接库放到一起就成了。对于winxp、win2003系统就要麻烦的多了，VC的连接库默认是被放到了winsxs目录下。
+
+> 解决办法就是：使用vcredist\_x86.exe再次分发程序。下载地址：（http://download.microsoft.com/download/7/9/8/798325b7-8993-4ef9-9148-8db9ff4187fc/vcredist_x86.exe）
+
+> 1.	对解决方案来说，VS设置成debug版本和release版本是不一样的。关键在于打包的时候的manifest所制定的路径不同。
+> 2.	对于部署的程序，VS有两套方案，共享并行程序集和私有程序集部署方法，前者其实就是依赖的东西在目标机的windowswinsxs目录下，后者要求程序自带
+> 3.	编译程序的时候，主要设置在两个地方，第一个是项目的general配置里面的MFC，第二个是项目配置里面的C/C++下面的Code Generation里面的Runtime Library设置里面。如果你的程序在修改过之后还能编译的话，那就可以了。
+ 
+ 
+>
+今天在准备发布用VS2005写的那个程序时，拷贝到我同事机器上，双击突然出现了“由于应用程序的配置不正确，应用程序未能启动，重新安装应用程序可能会纠正这个问题“，这个问题很让我意外，以前只出现过缺少DLL的情况，而这次出现这个问题，让我一时没办法。想想，无非是两个原因引起的，要么是他没有安装VS2005的原因，要么是我的程序里依赖了其它的一些库。于是百度一下，发现好多相关主题。我是按照这个帖子解决的：
+
+>> 在VS2005下用C++写的程序，在一台未安装VS2005的系统上，
+>> 用命令行方式运行，提示：  
+>> “系统无法执行指定的程序”  
+>> 直接双击运行，提示：  
+>> “由于应用程序的配置不正确，应用程序未能启动，重新安装应用程序可能会纠正这个问题”
+>> 以前用VC6和VS2003的话, 如果缺少库文件，是会提示缺少“\*.dll”，但是用VS2005却没有这样的提示。
+>> 自己实验了一下，感觉以下几种解决办法是可行的：  
+>> ###方法一：  
+> 在类似C:Program FilesMicrosoft Visual Studio 8VCredi  
+> stDebug_NonRedistx86Microsoft.VC80.DebugCRT 下找到了下列文件：
+> msvcm80d.dll  
+> msvcp80d.dll  
+> msvcr80d.dll  
+> Microsoft.VC80.DebugCRT.manifest
+> 把这几个文件拷贝到目标机器上，与运行程序同一文件夹或放到system32下，就可以正确运行了。
+> 其他release版、MFC程序什么的都是拷redist下相应文件夹下的文件就可以了,文件夹后都有标识!
+> ###方法二：  
+> 修改编译选项，将/MD或/MDd 改为 /MT或/MTd，这样就实现了对VC运行时库的静态链接，在运行时就不再需要VC的dll了。
+> ###方法三:
+> 工程－》属性－》配置属性－》常规－》MFC的使用，选择“在静态库中使用mfc”  
+> 这样生成的exe文件应该就可以在其他机器上跑了。
+> ###方法四:
+> 你的vc8安装盘上找到再分发包vcredist\_xxx.exe和你的程序捆绑安装。
+
+**简要的来说，我在[MS的官网（点这个链接）](http://www.microsoft.com/en-us/download/details.aspx?id=14632)下载到了VC依赖库vcredist-x64，安装后解决了这个错误。原日志的地址已经失效。“纯净”的系统果然还是麻烦……**
+
+
+## 解决闪退问题
+
+[摘录如下](http://blog.csdn.net/lichao_ustc/article/details/37668413)。
+
+> 在64位windows8或者8.1上安装xilinx ise之后，加载 licence或者保存文件的时候，ise应用程序就会崩溃，出现闪退的情况。
+
+>**修复方法**：
+> ###第一步：
+> 找到Xilinx安装文件下的子文件，我的是安装在D盘。
+
+> `D:\Xilinx\14.4\ISE_DS\ISE\lib\nt64`
+
+> 在这个文件夹中搜索“libPortability”，会出来两个文件
+
+> 1. libPortabilityNOSH.dll  
+> 2. libPortability.dll    
+
+> 将libPortability.dll重名为libPortability.dll.orig
+
+> 将 libPortabilityNOSH.dll 复制一份，然后将这个复制重命名为libPortability.dll  
+
+>###第二步：
+
+> 将第一步中的libPortabilityNOSH.dll复制一份放到xilinx安装文件夹下的子文件夹
+>   
+> `D:\Xilinx\14.4\ISE_DS\common\lib\nt64`  
+
+> 然后在上述文件中：
+
+> 1. 将libPortability.dll重名为libPortability.dll.orig
+> 	2. 将 libPortabilityNOSH.dll重命名为libPortability.dll
+
+> 这样就可以运行ise了，可以加载license了，也可以保存文件了。
