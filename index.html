@@ -111,7 +111,6 @@ msvcr80d.dll<br>
 Microsoft.VC80.DebugCRT.manifest
 把这几个文件拷贝到目标机器上，与运行程序同一文件夹或放到system32下，就可以正确运行了。
 其他release版、MFC程序什么的都是拷redist下相应文件夹下的文件就可以了,文件夹后都有标识!</p>
-</blockquote>
 <h4>方法二：</h4>
 <p>修改编译选项，将/MD或/MDd 改为 /MT或/MTd，这样就实现了对VC运行时库的静态链接，在运行时就不再需要VC的dll了。</p>
 <h4>方法三:</h4>
@@ -119,6 +118,7 @@ Microsoft.VC80.DebugCRT.manifest
 这样生成的exe文件应该就可以在其他机器上跑了。</p>
 <h4>方法四:</h4>
 <p>你的vc8安装盘上找到再分发包vcredist_xxx.exe和你的程序捆绑安装。</p>
+</blockquote>
 </blockquote>
 <p><strong>简要的来说，我在<a href="http://www.microsoft.com/en-us/download/details.aspx?id=14632">MS的官网（点这个链接）</a>下载到了VC依赖库vcredist-x64，安装后解决了这个错误。原日志的地址已经失效。“纯净”的系统果然还是麻烦……</strong></p>
 <h3>解决闪退问题</h3>
