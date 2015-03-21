@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 20 Mar 2015 16:17:57 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>云服务纵览与选择</title><link>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;现今互联网上的云服务可谓是山头林立，然而其易用性和可靠性却大相径庭，因此深觉有必要作一番解说，并附上我的个人选择作为参考。这里讨论的是个人云服务，区别于购买VPS、云主机后自行架设的备份或者存储集群。&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sat, 21 Mar 2015 02:48:30 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>云服务纵览与选择</title><link>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;现今互联网上的云服务可谓是山头林立，然而其易用性和可靠性却大相径庭，因此深觉有必要作一番解说，并附上我的个人选择作为参考。这里讨论的是个人云服务，区别于购买VPS、云主机后自行架设的备份或者存储集群。&lt;/p&gt;
 &lt;p&gt;以下提及的诸多国际化的云服务，许多都有可能因为隐私保护、监管难以涉及的问题在中国大陆范围遭到block，如果需要享受乃至依赖这些相对优质的服务，请自行寻找可靠的梯子。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://db.tt/SFgA3uW8"&gt;我的Dropbox邀请链接&lt;/a&gt;   不谢。&lt;/p&gt;
 &lt;h3&gt;云服务是Safe-Guard而不是外接存储器&lt;/h3&gt;
@@ -72,6 +72,7 @@
 &lt;li&gt;备份重要的配置文件，如Emacs或Vim的插件包和配置、Firefox和Safari的扩展与书签等用户配置、Alfred的工作流等；&lt;/li&gt;
 &lt;li&gt;备份印象笔记的导出笔记集（每隔一段时间）；&lt;/li&gt;
 &lt;li&gt;备份1Password的密码文件，同步到手机（以前是用LastPass，后来改了）。&lt;/li&gt;
+&lt;li&gt;P.S. 亲测在使用DigitalOcean的旧金山机房时能够满带宽上传（杭州电信）！&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;坚果云&lt;/h4&gt;
 &lt;p&gt;（支持分散的多文件夹备份！客户端偶尔抽风，设计逻辑略奇怪，但是总体很优秀；因为服务器在国内，上传速度比较能够接受）&lt;/p&gt;
