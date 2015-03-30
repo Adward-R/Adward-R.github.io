@@ -31,6 +31,9 @@ Hail Github.
 > ## U.S. Coding Website GitHub Hit With Cyberattack
 > ### Security experts say attack is likely an attempt by China to shut down anticensorship tools
 
+<!-- TEASER_END -->
+
+
 > By **Eva Dou**
 `March 29, 2015 10:22 a.m. ET
 `

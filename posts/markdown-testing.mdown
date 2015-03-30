@@ -24,6 +24,7 @@
  	
  	- ***still...***
  	
+ <!-- TEASER_END -->
  
  ![Alt Text](../post3_img/img2.jpg)
  
