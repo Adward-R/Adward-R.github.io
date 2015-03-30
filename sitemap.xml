@@ -6,58 +6,62 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://adward-r.lofter.com/2015/index.html</loc>
-  <lastmod>2015-03-29</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/archive.html</loc>
-  <lastmod>2015-03-19</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/cat_cs.html</loc>
-  <lastmod>2015-03-19</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/computer-science.html</loc>
-  <lastmod>2015-03-19</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/index.html</loc>
-  <lastmod>2015-03-19</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/markdown.html</loc>
-  <lastmod>2015-03-19</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/index.html</loc>
-  <lastmod>2015-03-29</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/embeded-system-assignment-28-connect-to-zjuvpn-through-wrtnode.html</loc>
-  <lastmod>2015-03-29</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/hello.html</loc>
-  <lastmod>2015-03-19</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/markdown-testing.html</loc>
-  <lastmod>2015-03-20</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html</loc>
-  <lastmod>2015-03-29</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/second.html</loc>
-  <lastmod>2015-03-19</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-03-30</lastmod>
+ </url>
+ <url>
+  <loc>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</loc>
+  <lastmod>2015-03-30</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-03-30</lastmod>
  </url>
 </urlset>
