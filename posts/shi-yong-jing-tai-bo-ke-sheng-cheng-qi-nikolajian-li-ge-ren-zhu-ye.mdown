@@ -54,7 +54,8 @@ Establish Your Individual Blog Using Static Blog Generator NIKOLA
 
 			sudo brew install libxml2-dev libxslt1-dev zlib1g-dev
 
-		CentOS、RedHat之类用yum做包管理的需要把dev写成devel，下面一个常见错误同理：
+		
+	CentOS、RedHat之类用yum做包管理的需要把dev写成devel，下面一个常见错误同理：
 
 			sudo yum install libxslt-devel libxml2-devel zlib-devel
 
@@ -110,6 +111,7 @@ Establish Your Individual Blog Using Static Blog Generator NIKOLA
 Nikola的全局配置文件在站点根目录下的conf.py，官方文档讲得很详细，这里提及必不可少或者强烈推荐的几点优化。
 
 1. 基本信息
+
 		# Data about this site
 		BLOG_AUTHOR = "Your Name"  # (translatable)
 		BLOG_TITLE = "Demo Site"  # (translatable)
@@ -153,17 +155,20 @@ Nikola的全局配置文件在站点根目录下的conf.py，官方文档讲得�
 		    ("stories/*.rst", "stories", "story.tmpl"),
 		)
 
-要写Markdown的话，需要各加一行变成这样：
-	POSTS = (
-	    ("posts/*.txt", "posts", "post.tmpl"),
-	    ("posts/*.rst", "posts", "post.tmpl"),
-	    ("posts/*.mdown", "posts", "post.tmpl"),
-	)
-	PAGES = (
-	    ("stories/*.txt", "stories", "story.tmpl"),
-	    ("stories/*.rst", "stories", "story.tmpl"),
-	    ("stories/*.mdown", "stories", "story.tmpl"),
-	)
+
+		
+	要写Markdown的话，需要各加一行变成这样：
+	
+		POSTS = (
+	    	("posts/*.txt", "posts", "post.tmpl"),
+		    ("posts/*.rst", "posts", "post.tmpl"),
+		    ("posts/*.mdown", "posts", "post.tmpl"),
+		)
+		PAGES = (
+	    	("stories/*.txt", "stories", "story.tmpl"),
+		    ("stories/*.rst", "stories", "story.tmpl"),
+		    ("stories/*.mdown", "stories", "story.tmpl"),
+		)
 
 3. TEASERS
 	为了在首页INDEX和RSS订阅中只显示截取部分的文章预览，需要把`INDEX_TEASERS`和`RSS_TEASER`注释去掉，并且把值都设置为*True*；这样在*\*.mdown*文档中插入`<!-- TEASER_END -->`后，其下方的文章就会被自动折叠。

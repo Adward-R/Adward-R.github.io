@@ -121,10 +121,11 @@ Static websites are safer, us">
 <p>在<em>Nikola</em>文件夹中activate起来后，<code>pip install nikola</code>，看看缺啥，缺啥补啥。常见问题大致如下：
 - 缺失库依赖<em>libxml/libxslt</em>，用系统中带的包管理（apt-get、brew等）安装搞定： </p>
 <pre class="code literal-block">    sudo brew install libxml2-dev libxslt1-dev zlib1g-dev
+</pre>
 
-CentOS、RedHat之类用yum做包管理的需要把dev写成devel，下面一个常见错误同理：
 
-    sudo yum install libxslt-devel libxml2-devel zlib-devel
+<p>CentOS、RedHat之类用yum做包管理的需要把dev写成devel，下面一个常见错误同理：</p>
+<pre class="code literal-block">    sudo yum install libxslt-devel libxml2-devel zlib-devel
 </pre>
 
 
@@ -177,13 +178,16 @@ CentOS、RedHat之类用yum做包管理的需要把dev写成devel，下面一个
 <p>Nikola的全局配置文件在站点根目录下的conf.py，官方文档讲得很详细，这里提及必不可少或者强烈推荐的几点优化。</p>
 <ol>
 <li>
-<p>基本信息
-        # Data about this site
-        BLOG_AUTHOR = "Your Name"  # (translatable)
-        BLOG_TITLE = "Demo Site"  # (translatable)
-        SITE_URL = "http://getnikola.com/"
-        BLOG_EMAIL = "joe@demo.site"
-        BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)</p>
+<p>基本信息</p>
+<pre class="code literal-block"># Data about this site
+BLOG_AUTHOR = "Your Name"  # (translatable)
+BLOG_TITLE = "Demo Site"  # (translatable)
+SITE_URL = "http://getnikola.com/"
+BLOG_EMAIL = "joe@demo.site"
+BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
+</pre>
+
+
 </li>
 <li>
 <p>POSTS格式</p>
@@ -223,20 +227,21 @@ PAGES = (
 </pre>
 
 
+<p>要写Markdown的话，需要各加一行变成这样：</p>
+<pre class="code literal-block">POSTS = (
+    ("posts/*.txt", "posts", "post.tmpl"),
+    ("posts/*.rst", "posts", "post.tmpl"),
+    ("posts/*.mdown", "posts", "post.tmpl"),
+)
+PAGES = (
+    ("stories/*.txt", "stories", "story.tmpl"),
+    ("stories/*.rst", "stories", "story.tmpl"),
+    ("stories/*.mdown", "stories", "story.tmpl"),
+)
+</pre>
+
+
 </li>
-</ol>
-<p>要写Markdown的话，需要各加一行变成这样：
-    POSTS = (
-        ("posts/<em>.txt", "posts", "post.tmpl"),
-        ("posts/</em>.rst", "posts", "post.tmpl"),
-        ("posts/<em>.mdown", "posts", "post.tmpl"),
-    )
-    PAGES = (
-        ("stories/</em>.txt", "stories", "story.tmpl"),
-        ("stories/<em>.rst", "stories", "story.tmpl"),
-        ("stories/</em>.mdown", "stories", "story.tmpl"),
-    )</p>
-<ol>
 <li>
 <p>TEASERS
     为了在首页INDEX和RSS订阅中只显示截取部分的文章预览，需要把<code>INDEX_TEASERS</code>和<code>RSS_TEASER</code>注释去掉，并且把值都设置为<em>True</em>；这样在<em>*.mdown</em>文档中插入<code>&lt;!-- TEASER_END --&gt;</code>后，其下方的文章就会被自动折叠。</p>
