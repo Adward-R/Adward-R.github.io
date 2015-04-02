@@ -55,7 +55,7 @@ Establish Your Individual Blog Using Static Blog Generator NIKOLA
 			sudo brew install libxml2-dev libxslt1-dev zlib1g-dev
 
 		
-	CentOS、RedHat之类用yum做包管理的需要把dev写成devel，下面一个常见错误同理：
+	  CentOS、RedHat之类用yum做包管理的需要把dev写成devel，下面一个常见错误同理：
 
 			sudo yum install libxslt-devel libxml2-devel zlib-devel
 
@@ -119,6 +119,7 @@ Nikola的全局配置文件在站点根目录下的conf.py，官方文档讲得�
 		BLOG_EMAIL = "joe@demo.site"
 		BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 
+
 2. POSTS格式
 
 		# POSTS and PAGES contains (wildcard, destination, template) tuples.
@@ -154,8 +155,6 @@ Nikola的全局配置文件在站点根目录下的conf.py，官方文档讲得�
 		    ("stories/*.txt", "stories", "story.tmpl"),
 		    ("stories/*.rst", "stories", "story.tmpl"),
 		)
-
-
 		
 	要写Markdown的话，需要各加一行变成这样：
 	
@@ -170,8 +169,10 @@ Nikola的全局配置文件在站点根目录下的conf.py，官方文档讲得�
 		    ("stories/*.mdown", "stories", "story.tmpl"),
 		)
 
+
 3. TEASERS
 	为了在首页INDEX和RSS订阅中只显示截取部分的文章预览，需要把`INDEX_TEASERS`和`RSS_TEASER`注释去掉，并且把值都设置为*True*；这样在*\*.mdown*文档中插入`<!-- TEASER_END -->`后，其下方的文章就会被自动折叠。
+	
 
 4. Theme Installation
 	Nikola社群的主题不算很多，但是基本够用，而且都偏向大方干净。我现在使用的是**Zen**系列。因为不同的博客需要做不同的配置修改（一般都很容易），还是自行去[官方主页][5]去挑选比较靠谱，一般都需要修改一下导航栏即**NAVIGATION\_LINKS**。
