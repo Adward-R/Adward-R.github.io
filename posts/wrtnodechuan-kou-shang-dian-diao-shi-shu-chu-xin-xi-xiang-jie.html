@@ -86,406 +86,408 @@ U-Boot 1.1.3 - Modified by Manfeel (Jul  8 2014 - 18:53:1">
 <p><strong>ZJU - Embedded System Course</strong></p>
 <p>关于WRTnode上电时在串口终端上看到的那几百行输出信息的解释，Google并没有给出答案，许多名词也是我搜索+看Wiki得来，诸多不准确之处，欢迎指正。</p>
 <hr>
-<pre class="code literal-block"><span class="o">//</span>先加载由Manfeel修改过的适配该开发板的U<span class="o">-</span>Boot程序
+<pre class="code literal-block">//先加载由Manfeel修改过的适配该开发板的U-Boot程序
 
-U<span class="o">-</span>Boot <span class="m">1.1.3</span> <span class="o">-</span> Modified by Manfeel <span class="p">(</span>Jul  <span class="m">8</span> <span class="m">2014</span> <span class="o">-</span> <span class="m">18</span><span class="o">:</span><span class="m">53</span><span class="o">:</span><span class="m">13</span><span class="p">)</span>
+U-Boot 1.1.3 - Modified by Manfeel (Jul  8 2014 - 18:53:13)
 
-Board<span class="o">:</span> Ralink APSoC
+Board: Ralink APSoC
 
  __  __             ______        _
-<span class="o">|</span>  \<span class="o">/</span>  <span class="o">|</span>           <span class="o">|</span>  ____<span class="o">|</span>      <span class="o">|</span> <span class="o">|</span>
-<span class="o">|</span> \  <span class="o">/</span> <span class="o">|</span> __ _ _ __ <span class="o">|</span> <span class="o">|</span>__ ___  ___<span class="o">|</span> <span class="o">|</span>
-<span class="o">|</span> <span class="o">|</span>\<span class="o">/|</span> <span class="o">|/</span> _` <span class="o">|</span> <span class="s">'_ \|  __/ _ \/ _ \ |</span>
-<span class="s">| |  | | (_| | | | | | |  __/  __/ |</span>
-<span class="s">|_|  |_|\__,_|_| |_|_|  \___|\___|_|</span>
+|  \/  |           |  ____|      | |
+| \  / | __ _ _ __ | |__ ___  ___| |
+| |\/| |/ _` | '_ \|  __/ _ \/ _ \ |
+| |  | | (_| | | | | | |  __/  __/ |
+|_|  |_|\__,_|_| |_|_|  \___|\___|_|
+</pre>
 
-<span class="s">&lt;!-- TEASER_END --&gt;</span>
 
-<span class="s">//U-Boot读取核心组件的元数据信息：内存、闪存、SPI等</span>
-<span class="s">DRAM:  64 MB</span>
-<span class="s">relocate\_code Pointer at: 83f64000</span>
-<span class="s">enable ephy clock...done. rf reg 29 = 5</span>
-<span class="s">SSC disabled.</span>
-<span class="s">spi\_wait\_nsec: 28</span>
-<span class="s">spi device id: ef 40 18 0 0 (40180000)</span>
-<span class="s">find flash: W25Q128FV</span>
-<span class="s">raspi\_read: from:30000 len:1000</span>
-<span class="s">\*\*\* Warning - bad CRC, using default environment //检错编码CRC似乎失效</span>
+<!-- TEASER_END -->
 
-<span class="s">============================================</span>
-<span class="s">Ralink UBoot Version: 4.1.1.0 //启动Ralink的U-Boot启动装载程序</span>
-<span class="s">\-------------------------------------------- //预存的板子信息开始读取</span>
-<span class="s">ASIC 7620\_MP (Port5&lt;-&gt;None)</span>
-<span class="s">DRAM component: 512 Mbits DDR, width 16 //内存大小和出口宽度</span>
-<span class="s">DRAM bus: 16 bit //内存总线宽度</span>
-<span class="s">Total memory: 64 Mbytes //总内存</span>
-<span class="s">Flash component: SPI Flash //数据闪存类型</span>
-<span class="s">Date:Jul  8 2014  Time:18:53:13 //获取时间</span>
-<span class="s">============================================</span>
-<span class="s">icache: sets:512, ways:4, linesz:32 ,total:65536 //预估指令缓存区大小</span>
-<span class="s">dcache: sets:256, ways:4, linesz:32 ,total:32768 //预估数据缓存区大小</span>
+<pre class="code literal-block"><span class="o">//</span>U<span class="o">-</span>Boot读取核心组件的元数据信息：内存、闪存、SPI等
+DRAM<span class="o">:</span>  <span class="m">64</span> MB
+relocate\_code Pointer at<span class="o">:</span> <span class="m">83</span>f64000
+enable ephy clock...done. rf reg <span class="m">29</span> <span class="o">=</span> <span class="m">5</span>
+SSC disabled.
+spi\_wait\_nsec<span class="o">:</span> <span class="m">28</span>
+spi device id<span class="o">:</span> ef <span class="m">40</span> <span class="m">18</span> <span class="m">0</span> <span class="m">0</span> <span class="p">(</span><span class="m">40180000</span><span class="p">)</span>
+find flash<span class="o">:</span> W25Q128FV
+raspi\_read<span class="o">:</span> from<span class="o">:</span><span class="m">30000</span> len<span class="o">:</span><span class="m">1000</span>
+\<span class="o">*</span>\<span class="o">*</span>\<span class="o">*</span> Warning <span class="o">-</span> bad CRC<span class="p">,</span> using default environment <span class="o">//</span>检错编码CRC似乎失效
 
-<span class="s"> \##### The CPU freq = 600 MHZ #### //获得CPU时钟频率信息</span>
-<span class="s"> estimate memory size =64 Mbytes //估计RAM内存大小为64MB</span>
-<span class="s">MT7620 gpio init : wps / reset pin //初始化通用输入输出口（GPIO）和各PIN针脚</span>
-<span class="s">WRTNode LED init.  //板载的蓝色LED灯被点亮，指示已经接通电源</span>
+<span class="o">============================================</span>
+Ralink UBoot Version<span class="o">:</span> <span class="m">4.1.1.0</span> <span class="o">//</span>启动Ralink的U<span class="o">-</span>Boot启动装载程序
+\<span class="o">--------------------------------------------</span> <span class="o">//</span>预存的板子信息开始读取
+ASIC <span class="m">7620</span>\_MP <span class="p">(</span>Port5<span class="o">&lt;-&gt;</span>None<span class="p">)</span>
+DRAM component<span class="o">:</span> <span class="m">512</span> Mbits DDR<span class="p">,</span> width <span class="m">16</span> <span class="o">//</span>内存大小和出口宽度
+DRAM bus<span class="o">:</span> <span class="m">16</span> bit <span class="o">//</span>内存总线宽度
+Total memory<span class="o">:</span> <span class="m">64</span> Mbytes <span class="o">//</span>总内存
+Flash component<span class="o">:</span> SPI Flash <span class="o">//</span>数据闪存类型
+Date<span class="o">:</span>Jul  <span class="m">8</span> <span class="m">2014</span>  Time<span class="o">:</span><span class="m">18</span><span class="o">:</span><span class="m">53</span><span class="o">:</span><span class="m">13</span> <span class="o">//</span>获取时间
+<span class="o">============================================</span>
+icache<span class="o">:</span> sets<span class="o">:</span><span class="m">512</span><span class="p">,</span> ways<span class="o">:</span><span class="m">4</span><span class="p">,</span> linesz<span class="o">:</span><span class="m">32</span> <span class="p">,</span>total<span class="o">:</span><span class="m">65536</span> <span class="o">//</span>预估指令缓存区大小
+dcache<span class="o">:</span> sets<span class="o">:</span><span class="m">256</span><span class="p">,</span> ways<span class="o">:</span><span class="m">4</span><span class="p">,</span> linesz<span class="o">:</span><span class="m">32</span> <span class="p">,</span>total<span class="o">:</span><span class="m">32768</span> <span class="o">//</span>预估数据缓存区大小
 
-<span class="s">Please choose the operation: //以下为开机选项</span>
-<span class="s">   1: Load system code to SDRAM via TFTP. //使用小型文件传输协议将系统代码装载到内存</span>
-<span class="s">   2: Load system code then write to Flash via TFTP. //使用小型文件传输协议将系统代码装载到内存再写入闪存</span>
-<span class="s">   3: Boot system code via Flash (default). //从闪存加载系统代码并启动（默认）</span>
-<span class="s">   4: Entr boot command line interface. //进入boot程序的命令行交互节面</span>
-<span class="s">   7: Load Boot Loader code then write to Flash via Serial. //装载Boot Loader的代码，然后再用串口写入闪存</span>
-<span class="s">   9: Load Boot Loader code then write to Flash via TFTP. //装载Boot Loader的代码，然后再用TFTP写入闪存</span>
+ \<span class="c1">##### The CPU freq = 600 MHZ #### //获得CPU时钟频率信息</span>
+ estimate memory size <span class="o">=</span><span class="m">64</span> Mbytes <span class="o">//</span>估计RAM内存大小为<span class="m">64</span>MB
+MT7620 gpio init <span class="o">:</span> wps <span class="o">/</span> reset pin <span class="o">//</span>初始化通用输入输出口（GPIO）和各PIN针脚
+WRTNode LED init.  <span class="o">//</span>板载的蓝色LED灯被点亮，指示已经接通电源
 
-<span class="s">or long press RESET/WPS button to enter web failsafe mode. //或者长按RESET进入网络安全模式</span>
-<span class="s">before LEDON:</span>
-<span class="s">data:3c7f86                                                                   0</span>
+Please choose the operation<span class="o">:</span> <span class="o">//</span>以下为开机选项
+   <span class="m">1</span><span class="o">:</span> Load system code to SDRAM via TFTP. <span class="o">//</span>使用小型文件传输协议将系统代码装载到内存
+   <span class="m">2</span><span class="o">:</span> Load system code then write to Flash via TFTP. <span class="o">//</span>使用小型文件传输协议将系统代码装载到内存再写入闪存
+   <span class="m">3</span><span class="o">:</span> Boot system code via Flash <span class="p">(</span>default<span class="p">)</span><span class="m">.</span> <span class="o">//</span>从闪存加载系统代码并启动（默认）
+   <span class="m">4</span><span class="o">:</span> Entr boot command line interface. <span class="o">//</span>进入boot程序的命令行交互节面
+   <span class="m">7</span><span class="o">:</span> Load Boot Loader code then write to Flash via Serial. <span class="o">//</span>装载Boot Loader的代码，然后再用串口写入闪存
+   <span class="m">9</span><span class="o">:</span> Load Boot Loader code then write to Flash via TFTP. <span class="o">//</span>装载Boot Loader的代码，然后再用TFTP写入闪存
 
-<span class="s">3: System Boot system code via Flash. //未操作，采用默认选项</span>
-<span class="s">(Re)start USB… //重启USB端口控制器（usb\_init()函数）</span>
-<span class="s">USB:   usb\_lowlevel\_init //被上一步调用，去调用Host控制器的初始化函数</span>
-<span class="s">Mediatek/Ralink USB EHCI host init hccr b01c0000 and hcor b01c0010 hc\_length 16 //USB的Host控制器在上述内存被加载</span>
-<span class="s">Register 1111 NbrPorts 1 //?</span>
-<span class="s">USB EHCI 1.00 //版本信息是Extensible Host Controller Interface 1.00</span>
-<span class="s">scanning bus for devices... 1 USB Device(s) found //扫描总线来找到支持的USB存储设备</span>
-<span class="s">   scanning bus for storage devices... 0 Storage Device(s) found</span>
+or long press RESET<span class="o">/</span>WPS button to enter web failsafe mode. <span class="o">//</span>或者长按RESET进入网络安全模式
+before LEDON<span class="o">:</span>
+data<span class="o">:</span><span class="m">3</span>c7f86                                                                   <span class="m">0</span>
 
-<span class="s">\*\* Unable to use usb 0:1 for fatload \*\* //无法使用fatload通过usb口把内存镜像装载到内存</span>
-<span class="s">Booting image at 80c00000 … //尝试在预设位置寻找内核启动镜像</span>
-<span class="s">Bad Magic Number,7FF6F7F6 //失败</span>
-<span class="s">Booting image at bc050000 … //继续寻找</span>
-<span class="s">raspi\_read: from:50000 len:40 //从似乎是镜像开始地址的位置读取内核镜像信息</span>
-<span class="s">   Image Name:   MIPS OpenWrt Linux-3.10.44</span>
-<span class="s">   Image Type:   MIPS Linux Kernel Image (lzma compressed)</span>
-<span class="s">   Data Size:    1029095 Bytes = 1005 kB</span>
-<span class="s">   Load Address: 80000000</span>
-<span class="s">   Entry Point:  80000000</span>
-<span class="s">raspi\_read: from:50040 len:fb3e7</span>
-<span class="s">   Verifying Checksum ... OK //校验内核镜像完整性</span>
-<span class="s">   Uncompressing Kernel Image … //解压镜像</span>
-<span class="s">hdr-&gt;ih\_load = 0x00000080</span>
-<span class="s">data pointer = 0x80c00000</span>
-<span class="s">first 8 bytes data = 8000006D,2F609C00</span>
-<span class="s">data length = 1029095</span>
-<span class="s">OK //初始化解压后内核的初始地址指针，尝试读取开头数据和总长度信息</span>
-<span class="s">No initrd //?</span>
-<span class="s">Transferring control to Linux (at address 80000000) … //Boot Loader程序将板子的硬件参数、内存信息以内核镜像的参数形式转交给Linux Kernel</span>
-<span class="s">manfeel note, bootargs is : root=8:2 rootdelay=5 rootfstype=ext4 rw eth="00:11:22:33:44:55" //内核启动参数：root用户文件系统和网卡MAC参数</span>
-<span class="s">console=ttyS0,115200 //Linux Kernel控制台（虚拟终端）开启，名称ttyS0，速度115200</span>
-<span class="s">Giving linux memsize in MB, 64</span>
-<span class="s">83f033b0:linux\_argv\[1] = root=8:2</span>
-<span class="s">83f033b9:linux\_argv\[2] = rootdelay=5</span>
-<span class="s">83f033c5:linux\_argv\[3] = rootfstype=ext4</span>
-<span class="s">83f033d5:linux\_argv\[4] = rw</span>
-<span class="s">83f033d8:linux\_argv\[5] = eth="00:11:22:33:44:55"</span>
-<span class="s">83f033f0:linux\_argv\[6] = console=ttyS0,115200</span>
-<span class="s">83f03810:linux\_env\[0] = memsize=64</span>
-<span class="s">83f0381b:linux\_env\[1] = initrd\_start=0x00000000</span>
-<span class="s">83f03833:linux\_env\[2] = initrd\_size=0x0</span>
-<span class="s">83f03843:linux\_env\[3] = flash\_start=0x00000000</span>
-<span class="s">83f0385a:linux\_env\[4] = flash\_size=0x1000000</span>
-<span class="s">//Linux Kernel收到上述传递给它的参数，同时包括镜像的始末地址、闪存大小等，引导结束，启动</span>
-<span class="s">Starting kernel ...</span>
+<span class="m">3</span><span class="o">:</span> System Boot system code via Flash. <span class="o">//</span>未操作，采用默认选项
+<span class="p">(</span><span class="kp">Re</span><span class="p">)</span>start USB… <span class="o">//</span>重启USB端口控制器（usb\_init<span class="p">()</span>函数）
+USB<span class="o">:</span>   usb\_lowlevel\_init <span class="o">//</span>被上一步调用，去调用Host控制器的初始化函数
+Mediatek<span class="o">/</span>Ralink USB EHCI host init hccr b01c0000 and hcor b01c0010 hc\_length <span class="m">16</span> <span class="o">//</span>USB的Host控制器在上述内存被加载
+Register <span class="m">1111</span> NbrPorts <span class="m">1</span> <span class="o">//?</span>
+USB EHCI <span class="m">1.00</span> <span class="o">//</span>版本信息是Extensible Host Controller Interface <span class="m">1.00</span>
+scanning bus <span class="kr">for</span> devices... <span class="m">1</span> USB Device<span class="p">(</span>s<span class="p">)</span> found <span class="o">//</span>扫描总线来找到支持的USB存储设备
+   scanning bus <span class="kr">for</span> storage devices... <span class="m">0</span> Storage Device<span class="p">(</span>s<span class="p">)</span> found
 
-<span class="s">\[    0.000000] Linux version 3.10.44 (noel@na) (gcc version 4.8.3 (OpenWrt/Linaro GCC 4.8-2014.04 r41508) ) #20 Wed Aug 13 21:00:28 UTC 2014 //Linux内核版本、gcc版本、时间信息</span>
-<span class="s">\[    0.000000] Board has DDR2 //检测到板子载有DDR2规格的SDRAM内存芯片</span>
-<span class="s">\[    0.000000] Analog PMU set to hw control //模拟PMU驱动性能优化工具</span>
-<span class="s">\[    0.000000] Digital PMU set to hw control //数字PMU驱动性能优化工具</span>
-<span class="s">\[    0.000000] SoC Type: Ralink MT7620N ver:2 eco:6 //板子的型号是MT7620 Ver 2</span>
-<span class="s">\[    0.000000] bootconsole \[early0] enabled //启动控制台已经启用</span>
-<span class="s">\[    0.000000] CPU revision is: 00019650 (MIPS 24KEc) //CPU的指令集和型号信息</span>
-<span class="s">\[    0.000000] MIPS: machine is WRTNODE //CPU指令集确认到板子信息</span>
-<span class="s">\[    0.000000] Determined physical RAM map: //已经确认的物理内存映射表：</span>
-<span class="s">\[    0.000000]  memory: 04000000 @ 00000000 (usable) //可用的物理内存范围</span>
-<span class="s">\[    0.000000] Initrd not found or empty - disabling initrd //未在该范围你发现Linux内核启动镜像</span>
-<span class="s">\[    0.000000] Zone ranges:</span>
-<span class="s">\[    0.000000]   Normal   \[mem 0x00000000-0x03ffffff] //一般内存范围64M （符合板子的参数）</span>
-<span class="s">\[    0.000000] Movable zone start for each node</span>
-<span class="s">\[    0.000000] Early memory node ranges //内存范围确认</span>
-<span class="s">\[    0.000000]   node   0: \[mem 0x00000000-0x03ffffff]</span>
-<span class="s">\[    0.000000] Primary instruction cache 64kB, VIPT, 4-way, linesize 32 bytes. //指令缓存区元数据确认</span>
-<span class="s">\[    0.000000] Primary data cache 32kB, 4-way, PIPT, no aliases, linesize 32 bytes //数据缓存区元数据确认</span>
-<span class="s">\[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 16256 //计算分页</span>
-<span class="s">\[    0.000000] Kernel command line: console=ttyS0,115200 rootfstype=squashfs,jffs2 //确认kernel的控制台和root用户将要加载的文件系统类型</span>
-<span class="s">\[    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes) //进程表元数据</span>
-<span class="s">\[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes) //文件系统目录项元数据</span>
-<span class="s">\[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes) //文件系统inode的元数据</span>
-<span class="s">\[    0.000000] Writing ErrCtl register=0001c57c //设置出错控制寄存器号</span>
-<span class="s">\[    0.000000] Readback ErrCtl register=0001c57c //出错恢复时从该寄存器写回</span>
-<span class="s">\[    0.000000] Memory: 61652k/65536k available (2317k kernel code, 3884k reserved, 553k data, 200k init, 0k highmem) //查看一下内存占用</span>
-<span class="s">\[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1 //插槽占用情况</span>
-<span class="s">\[    0.000000] NR\_IRQS:256 //共256条中断请求的输出线</span>
-<span class="s">\[    0.000000] CPU Clock: 600MHz </span>
-<span class="s">\[    0.000000] Calibrating delay loop... 398.13 BogoMIPS (lpj=1990656) //测量设备回环（最大）延时数值，单位为MIPS Benchmark</span>
-<span class="s">\[    0.060000] pid\_max: default: 32768 minimum: 301 //进程信息表确认</span>
-<span class="s">\[    0.060000] Mount-cache hash table entries: 512 //挂载表元数据</span>
-<span class="s">\[    0.070000] pinctrl core: initialized pinctrl subsystem //启用板载针脚控制的子系统</span>
-<span class="s">\[    0.070000] NET: Registered protocol family 16 //初始化网络协议族16即AF\_INET</span>
-<span class="s">\[    0.090000] bio: create slab &lt;bio-0&gt; at 0 //块I/O：创建内核小对象的slab分配器</span>
-<span class="s">\[    0.100000] rt2880\_gpio 10000600.gpio: registering 24 gpios //初始各GPIO端口</span>
-<span class="s">\[    0.100000] rt2880\_gpio 10000600.gpio: registering 24 irq handlers //注册其中断处理器</span>
-<span class="s">\[    0.110000] rt2880\_gpio 10000638.gpio: registering 16 gpios</span>
-<span class="s">\[    0.110000] rt2880\_gpio 10000638.gpio: registering 16 irq handlers</span>
-<span class="s">\[    0.120000] rt2880\_gpio 10000660.gpio: registering 32 gpios</span>
-<span class="s">\[    0.120000] rt2880\_gpio 10000660.gpio: registering 32 irq handlers</span>
-<span class="s">\[    0.130000] rt2880\_gpio 10000688.gpio: registering 1 gpios</span>
-<span class="s">\[    0.130000] rt2880\_gpio 10000688.gpio: registering 1 irq handlers</span>
-<span class="s">\[    0.140000] Switching to clocksource MIPS //时钟驱动的MIPS指令集接管</span>
-<span class="s">\[    0.140000] NET: Registered protocol family 2 //初始化网络协议族16即AF\_NETLINK</span>
-<span class="s">\[    0.150000] TCP established hash table entries: 512 (order: 0, 4096 bytes) </span>
-<span class="s">\[    0.150000] TCP bind hash table entries: 512 (order: -1, 2048 bytes) </span>
-<span class="s">\[    0.160000] TCP: Hash tables configured (established 512 bind 512) //TCP表元数据（建立和绑定的）</span>
-<span class="s">\[    0.160000] TCP: reno registered</span>
-<span class="s">\[    0.160000] UDP hash table entries: 256 (order: 0, 4096 bytes) //UDP协议表元数据</span>
-<span class="s">\[    0.170000] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)</span>
-<span class="s">\[    0.180000] NET: Registered protocol family 1</span>
-<span class="s">\[    0.180000] rt-timer 10000100.timer: maximum frequncy is 2441Hz</span>
-<span class="s">\[    0.200000] squashfs: version 4.0 (2009/01/31) Phillip Lougher //加载文件系统</span>
-<span class="s">\[    0.210000] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE\_PRIORITY) (c) 2001-2006 Red Hat, Inc.</span>
-<span class="s">\[    0.220000] msgmni has been set to 120 //最大消息队列数</span>
-<span class="s">\[    0.220000] io scheduler noop registered //输入输出调度器NOOP已注册</span>
-<span class="s">\[    0.230000] io scheduler deadline registered (default)</span>
-<span class="s">\[    0.230000] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled //串口安装的驱动，端口数；禁用中断请求共享</span>
-<span class="s">\[    0.240000] 10000c00.uartlite: ttyS0 at MMIO 0x10000c00 (irq = 20) is a 16550A //找到可用的虚拟终端</span>
-<span class="s">\[    0.250000] console \[ttyS0] enabled, bootconsole disabled //正常的系统虚拟终端启用，boot的终端被关闭</span>
-<span class="s">\[    0.250000] console \[ttyS0] enabled, bootconsole disabled</span>
-<span class="s">\[    0.260000] m25p80 spi32766.0: found w25q128, expected mx25l12805d</span>
-<span class="s">\[    0.270000] m25p80 spi32766.0: w25q128 (16384 Kbytes) //扫描到16M的闪存</span>
-<span class="s">\[    0.280000] 4 ofpart partitions found on MTD device spi32766.0 //发现闪存转换层（介于物理闪存和高级应用层之间）MTD被分区成四块</span>
-<span class="s">\[    0.280000] Creating 4 MTD partitions on "spi32766.0": //把闪存地址的分区映射到文件系统</span>
-<span class="s">\[    0.290000] 0x000000000000-0x000000030000 : "u-boot"</span>
-<span class="s">\[    0.290000] 0x000000030000-0x000000040000 : "u-boot-env"</span>
-<span class="s">\[    0.300000] 0x000000040000-0x000000050000 : "factory"</span>
-<span class="s">\[    0.310000] 0x000000050000-0x000001000000 : "firmware"</span>
-<span class="s">\[    0.310000] 0x00000014b427-0x000001000000 : "rootfs"</span>
-<span class="s">\[    0.320000] mtd: partition "rootfs" must either start or end on erase block boundary or be smaller than an erase block -- forcing read-only //MTD指示rootfs分曲不可以跨erase block（MTD中的块概念，对应于磁盘的簇），以使其具有只读特性</span>
-<span class="s">\[    0.330000] mtd: device 4 (rootfs) set to be root filesystem //第四分区即闪存MTD上的逻辑设备4，被设置为根文件系统的挂载点</span>
-<span class="s">\[    0.340000] mtd: partition "rootfs\_data" created automatically, ofs=0x8b0000, len=0x750000</span>
-<span class="s">\[    0.350000] 0x0000008b0000-0x000001000000 : "rootfs\_data" //自动创建了文件系统根目录数据分区</span>
-<span class="s">\[    0.360000] ralink\_soc\_eth 10100000.ethernet: Enabling TSO // 以太网TCP Segment Offload技术启用</span>
-<span class="s">\[    0.360000] ralink\_soc\_eth 10100000.ethernet: loaded mt7530 driver //加载了以太网解决方案MT7530的驱动到Ralink的以太网系统芯片</span>
-<span class="s">\[    0.370000] eth0: done loading</span>
-<span class="s">\[    0.370000] rt3xxx-usbphy ubsphy.3: loaded //usb-phy驱动加载（ubs是打印错误）</span>
-<span class="s">\[    0.380000] rt2880\_wdt 10000120.watchdog: Initialized //无线网卡的看门狗程序初始化</span>
-<span class="s">\[    0.390000] leds-gpio gpio-leds.4: pins are not configured from the driver</span>
-<span class="s">\[    0.390000] TCP: cubic registered</span>
-<span class="s">\[    0.400000] NET: Registered protocol family 17</span>
-<span class="s">\[    0.400000] 8021q: 802.1Q VLAN Support v1.8</span>
-<span class="s">\[    0.420000] VFS: Mounted root (squashfs filesystem) readonly on device 31:4.</span>
-<span class="s">\[    0.430000] Freeing unused kernel memory: 200K (802ce000 - 80300000)</span>
-<span class="s">procd: Console is alive //守护进程procd确认控制台的活跃</span>
-<span class="s">procd: - watchdog - //守护进程启用了看门狗</span>
-<span class="s">\[    5.120000] usbcore: registered new interface driver usbfs //根据USB传输协议注册其文件系统、HUB和驱动等</span>
-<span class="s">\[    5.120000] usbcore: registered new interface driver hub</span>
-<span class="s">\[    5.130000] usbcore: registered new device driver usb</span>
-<span class="s">\[    5.170000] SCSI subsystem initialized //外设总线初始化</span>
-<span class="s">\[    5.180000] ehci\_hcd: USB 2.0 '</span>Enhanced<span class="s">' Host Controller (EHCI) Driver</span>
-<span class="s">\[    5.190000] ehci-platform: EHCI generic platform driver //EHCI通用平台驱动</span>
-<span class="s">\[    5.390000] rt3xxx-usbphy ubsphy.3: remote usb device wakeup disabled //远程USB设备唤醒未启用</span>
-<span class="s">\[    5.400000] rt3xxx-usbphy ubsphy.3: UTMI 16bit 30MHz //USB2.0接口模块定义的字长及速度</span>
-<span class="s">\[    5.400000] ehci-platform 101c0000.ehci: EHCI Host Controller</span>
-<span class="s">\[    5.410000] ehci-platform 101c0000.ehci: new USB bus registered, assigned bus number 1 //注册新USB总线为1号总线</span>
-<span class="s">\[    5.420000] ehci-platform 101c0000.ehci: irq 26, io mem 0x101c0000  //EHCI占用的中断请求线和其输入输出占用的内存区块</span>
-<span class="s">\[    5.440000] ehci-platform 101c0000.ehci: USB 2.0 started, EHCI 1.00  //USB 2.0协议可以在EHCI 1.0支持下启用了</span>
-<span class="s">\[    5.440000] hub 1-0:1.0: USB hub found //发现（定制USB-to-TTL线上的）USB集线口</span>
-<span class="s">\[    5.450000] hub 1-0:1.0: 1 port detected //HUB上有一个端口</span>
-<span class="s">\[    5.460000] usbcore: registered new interface driver usb-storage //注册一个USB存储的接口驱动</span>
-<span class="s">procd: - preinit -</span>
-<span class="s">Press the \[f] key and hit \[enter] to enter failsafe mode //键入f并enter可以进入安全模式</span>
-<span class="s">Press the \[1], \[2], \[3] or \[4] key and hit \[enter] to select the debug level //选择debug模式的指示</span>
-<span class="s">kmod: ran 1 iterations</span>
-<span class="s">\[   10.290000] jffs2: notice: (297) jffs2\_build\_xattr\_subsystem: complete building xattr subsystem, 1 of xdatum (1 unchecked, 0 orphan) and 15 of xref (0 dead, 0 orphan) found. //构建jffs文件系统的子系统</span>
-<span class="s">block: extroot: no root or overlay mount defined //ext文件系统根目录未检测到覆盖挂载的存在</span>
-<span class="s">jffs2 is ready //jffs2文件系统可以挂载了</span>
-<span class="s">jffs2 is ready</span>
-<span class="s">\[   10.470000] jffs2: notice: (294) jffs2\_build\_xattr\_subsystem: complete building xattr subsystem, 1 of xdatum (1 unchecked, 0 orphan) and 15 of xref (0 dead, 0 orphan) found.</span>
-<span class="s">switching to overlay //将jffs2覆盖挂载</span>
-<span class="s">procd: - early -</span>
-<span class="s">procd: - watchdog -</span>
-<span class="s">procd: - ubus -</span>
-<span class="s">procd: - init -</span>
-<span class="s">Failed to connect to ubus</span>
-<span class="s">Please press Enter to activate this console. //本控制台莫名与总线断开信号，回车恢复</span>
-<span class="s">\[   12.290000] NET: Registered protocol family 10</span>
-<span class="s">\[   12.300000] NTFS driver 2.1.30 \[Flags: R/O MODULE]. //初始化板子与PC上NTFS文件系统的接口驱动</span>
-<span class="s">\[   12.360000] nf\_conntrack version 0.5.0 (966 buckets, 3864 max)</span>
-<span class="s">\[   12.370000] ip6\_tables: (C) 2000-2006 Netfilter Core Team</span>
-<span class="s">\[   12.390000] Ralink/MTK WiFi EEPROM API Driver for OpenWrt Trunk. Copyright 2013 lintel[lintel.huang@gmail.com]</span>
-<span class="s">\[   12.400000] Ralink/MTK WiFi EEPROM API:Installed.</span>
-<span class="s">\[   12.400000] Ralink/MTK WiFi EEPROM API:SoC is MT7620. //将Ralink和联发科的闪存驱动安装到PC</span>
-<span class="s">\[   13.380000] rt2860v2\_ap: module license '</span>Proprietary<span class="s">' taints kernel. //这个模块的license和kernel的GPL不合……（模块不受信任）</span>
-<span class="s">\[   13.380000] Disabling lock debugging due to kernel taint //?</span>
-<span class="s">\[   13.460000]</span>
-<span class="s">\[   13.460000]</span>
-<span class="s">\[   13.460000] === pAd = c0551000, size = 871592 ===  //?</span>
-<span class="s">\[   13.460000]</span>
-<span class="s">\[   13.470000] &lt;-- RTMPAllocTxRxRingMemory, Status=0</span>
-<span class="s">\[   13.470000] &lt;-- RTMPAllocAdapterBlock, Status=0</span>
-<span class="s">\[   13.480000] AP Driver version-2.7.1.6 //网络接入点驱动版本</span>
-<span class="s">\[   13.500000] Linux video capture interface: v2.00 </span>
-<span class="s">\[   13.520000] fuse init (API version 7.22)</span>
-<span class="s">\[   13.560000] usbcore: registered new interface driver cdc\_acm</span>
-<span class="s">\[   13.560000] cdc\_acm: USB Abstract Control Model driver for USB modems and ISDN adapters //面向调制解调器的USB 虚拟控制模块驱动</span>
-<span class="s">\[   13.580000] ip\_tables: (C) 2000-2006 Netfilter Core Team</span>
-<span class="s">\[   13.610000] usbcore: registered new interface driver usbserial //注册了USB串口驱动</span>
-<span class="s">\[   13.620000] usbcore: registered new interface driver usbserial\_generic //注册了通用USB串口驱动</span>
-<span class="s">\[   13.630000] usbserial: USB Serial support registered for generic</span>
-<span class="s">\[   13.640000] usbcore: registered new interface driver uvcvideo</span>
-<span class="s">\[   13.650000] USB Video Class driver (1.1.1)</span>
-<span class="s">\[   13.680000] xt\_time: kernel timezone is -0000</span>
-<span class="s">\[   13.700000] usbcore: registered new interface driver ftdi\_sio</span>
-<span class="s">\[   13.700000] usbserial: USB Serial support registered for FTDI USB Serial Device</span>
-<span class="s">\[   13.720000] PPP generic driver version 2.4.2 //通用数据链路层PPP驱动版本</span>
-<span class="s">\[   13.740000] NET: Registered protocol family 24</span>
-<span class="s">\[   13.770000] usbcore: registered new interface driver snd-usb-audio</span>
-<span class="s">\[   17.200000] RtmpOSNetDevDetach(): RtmpOSNetDeviceDetach(), dev-&gt;name=ra0! //?</span>
-<span class="s">\[   17.710000]</span>
-<span class="s">\[   17.710000]</span>
-<span class="s">\[   17.710000] === pAd = c09e3000, size = 871592 ===</span>
-<span class="s">\[   17.710000]</span>
-<span class="s">\[   17.720000] &lt;-- RTMPAllocTxRxRingMemory, Status=0</span>
-<span class="s">\[   17.730000] &lt;-- RTMPAllocAdapterBlock, Status=0</span>
-<span class="s">\[   17.730000] AP Driver version-2.7.1.6</span>
-<span class="s">\[   17.770000] RX DESC a33be000  size = 2048 //发送一些包以填充路由表项</span>
-<span class="s">\[   17.810000] RTMP\_TimerListAdd: add timer obj c0a7aec8!</span>
-<span class="s">\[   17.810000] RTMP\_TimerListAdd: add timer obj c0a44878!</span>
-<span class="s">\[   17.820000] RTMP\_TimerListAdd: add timer obj c0a470c4!</span>
-<span class="s">\[   17.820000] RTMP\_TimerListAdd: add timer obj c0a47184!</span>
-<span class="s">\[   17.830000] RTMP\_TimerListAdd: add timer obj c0a47244!</span>
-<span class="s">\[   17.830000] RTMP\_TimerListAdd: add timer obj c0a47304!</span>
-<span class="s">\[   17.840000] RTMP\_TimerListAdd: add timer obj c0a473c4!</span>
-<span class="s">\[   17.840000] RTMP\_TimerListAdd: add timer obj c0a47484!</span>
-<span class="s">\[   17.850000] RTMP\_TimerListAdd: add timer obj c0a47544!</span>
-<span class="s">\[   17.850000] RTMP\_TimerListAdd: add timer obj c0a47604!</span>
-<span class="s">\[   17.860000] RTMP\_TimerListAdd: add timer obj c0a476c4!</span>
-<span class="s">\[   17.860000] RTMP\_TimerListAdd: add timer obj c0a47784!</span>
-<span class="s">\[   17.870000] RTMP\_TimerListAdd: add timer obj c0a47844!</span>
-<span class="s">\[   17.870000] RTMP\_TimerListAdd: add timer obj c0a47904!</span>
-<span class="s">\[   17.880000] RTMP\_TimerListAdd: add timer obj c0a479c4!</span>
-<span class="s">\[   17.880000] RTMP\_TimerListAdd: add timer obj c0a47a84!</span>
-<span class="s">\[   17.890000] RTMP\_TimerListAdd: add timer obj c0a47b44!</span>
-<span class="s">\[   17.890000] RTMP\_TimerListAdd: add timer obj c0a47c04!</span>
-<span class="s">\[   17.900000] RTMP\_TimerListAdd: add timer obj c0a4484c!</span>
-<span class="s">\[   17.910000] RTMP\_TimerListAdd: add timer obj c0a47098!</span>
-<span class="s">\[   17.910000] RTMP\_TimerListAdd: add timer obj c0a47158!</span>
-<span class="s">\[   17.920000] RTMP\_TimerListAdd: add timer obj c0a47218!</span>
-<span class="s">\[   17.920000] RTMP\_TimerListAdd: add timer obj c0a472d8!</span>
-<span class="s">\[   17.930000] RTMP\_TimerListAdd: add timer obj c0a47398!</span>
-<span class="s">\[   17.930000] RTMP\_TimerListAdd: add timer obj c0a47458!</span>
-<span class="s">\[   17.940000] RTMP\_TimerListAdd: add timer obj c0a47518!</span>
-<span class="s">\[   17.940000] RTMP\_TimerListAdd: add timer obj c0a475d8!</span>
-<span class="s">\[   17.950000] RTMP\_TimerListAdd: add timer obj c0a47698!</span>
-<span class="s">\[   17.950000] RTMP\_TimerListAdd: add timer obj c0a47758!</span>
-<span class="s">\[   17.960000] RTMP\_TimerListAdd: add timer obj c0a47818!</span>
-<span class="s">\[   17.960000] RTMP\_TimerListAdd: add timer obj c0a478d8!</span>
-<span class="s">\[   17.970000] RTMP\_TimerListAdd: add timer obj c0a47998!</span>
-<span class="s">\[   17.970000] RTMP\_TimerListAdd: add timer obj c0a47a58!</span>
-<span class="s">\[   17.980000] RTMP\_TimerListAdd: add timer obj c0a47b18!</span>
-<span class="s">\[   17.980000] RTMP\_TimerListAdd: add timer obj c0a47bd8!</span>
-<span class="s">\[   17.990000] RTMP\_TimerListAdd: add timer obj c0a44820!</span>
-<span class="s">\[   17.990000] RTMP\_TimerListAdd: add timer obj c0a470f0!</span>
-<span class="s">\[   18.000000] RTMP\_TimerListAdd: add timer obj c0a471b0!</span>
-<span class="s">\[   18.010000] RTMP\_TimerListAdd: add timer obj c0a47270!</span>
-<span class="s">\[   18.010000] RTMP\_TimerListAdd: add timer obj c0a47330!</span>
-<span class="s">\[   18.020000] RTMP\_TimerListAdd: add timer obj c0a473f0!</span>
-<span class="s">\[   18.020000] RTMP\_TimerListAdd: add timer obj c0a474b0!</span>
-<span class="s">\[   18.030000] RTMP\_TimerListAdd: add timer obj c0a47570!</span>
-<span class="s">\[   18.030000] RTMP\_TimerListAdd: add timer obj c0a47630!</span>
-<span class="s">\[   18.040000] RTMP\_TimerListAdd: add timer obj c0a476f0!</span>
-<span class="s">\[   18.040000] RTMP\_TimerListAdd: add timer obj c0a477b0!</span>
-<span class="s">\[   18.050000] RTMP\_TimerListAdd: add timer obj c0a47870!</span>
-<span class="s">\[   18.050000] RTMP\_TimerListAdd: add timer obj c0a47930!</span>
-<span class="s">\[   18.060000] RTMP\_TimerListAdd: add timer obj c0a479f0!</span>
-<span class="s">\[   18.060000] RTMP\_TimerListAdd: add timer obj c0a47ab0!</span>
-<span class="s">\[   18.070000] RTMP\_TimerListAdd: add timer obj c0a47b70!</span>
-<span class="s">\[   18.070000] RTMP\_TimerListAdd: add timer obj c0a47c30!</span>
-<span class="s">\[   18.080000] RTMP\_TimerListAdd: add timer obj c09eb1e8!</span>
-<span class="s">\[   18.080000] RTMP\_TimerListAdd: add timer obj c09eaddc!</span>
-<span class="s">\[   18.090000] RTMP\_TimerListAdd: add timer obj c09eb1b8!</span>
-<span class="s">\[   18.090000] RTMP\_TimerListAdd: add timer obj c09eb560!</span>
-<span class="s">\[   18.100000] RTMP\_TimerListAdd: add timer obj c09eb2b0!</span>
-<span class="s">\[   18.100000] RTMP\_TimerListAdd: add timer obj c09eb2e0!</span>
-<span class="s">\[   18.110000] RTMP\_TimerListAdd: add timer obj c09eb4a0!</span>
-<span class="s">\[   18.120000] RTMP\_TimerListAdd: add timer obj c09eb4d0!</span>
-<span class="s">\[   18.120000] RTMP\_TimerListAdd: add timer obj c09ee494!</span>
-<span class="s">\[   18.130000] RTMP\_TimerListAdd: add timer obj c09ee088!</span>
-<span class="s">\[   18.130000] RTMP\_TimerListAdd: add timer obj c09ee464!</span>
-<span class="s">\[   18.140000] RTMP\_TimerListAdd: add timer obj c09ee80c!</span>
-<span class="s">\[   18.140000] RTMP\_TimerLis\[   18.670000] APSDCapable\[0]=0</span>
-<span class="s">\[   18.680000] APSDCapable\[1]=0</span>
-<span class="s">\[   18.680000] APSDCapable\[2]=0</span>
-<span class="s">\[   18.680000] APSDCapable\[3]=0</span>
-<span class="s">\[   18.680000] APSDCapable\[4]=0</span>
-<span class="s">\[   18.690000] APSDCapable\[5]=0</span>
-<span class="s">\[   18.690000] APSDCapable\[6]=0</span>
-<span class="s">\[   18.690000] APSDCapable\[7]=0</span>
-<span class="s">\[   18.700000] APSDCapable\[8]=0</span>
-<span class="s">\[   18.700000] APSDCapable\[9]=0</span>
-<span class="s">\[   18.700000] APSDCapable\[10]=0</span>
-<span class="s">\[   18.700000] APSDCapable\[11]=0</span>
-<span class="s">\[   18.710000] APSDCapable\[12]=0</span>
-<span class="s">\[   18.710000] APSDCapable\[13]=0</span>
-<span class="s">\[   18.710000] APSDCapable\[14]=0</span>
-<span class="s">\[   18.720000] APSDCapable\[15]=0</span>
-<span class="s">\[   18.720000] default ApCliAPSDCapable\[0]=0</span>
-<span class="s">\[   18.920000] Key1Str is Invalid key length(0) or Type(0)</span>
-<span class="s">\[   18.930000] Key2Str is Invalid key length(0) or Type(0)</span>
-<span class="s">\[   18.940000] Key3Str is Invalid key length(0) or Type(0)</span>
-<span class="s">\[   18.940000] Key4Str is Invalid key length(0) or Type(0)</span>
-<span class="s">\[   18.990000] 1. Phy Mode = 9</span>
-<span class="s">\[   18.990000] 2. Phy Mode = 9</span>
-<span class="s">\[   18.990000] EEPROM:Read from \[factory] offset 0x0,length 0x200. //声明读取闪存时的预留地址（偏移量）</span>
-<span class="s">\[   19.220000] E2PROM: D0 target power=0xff20</span>
-<span class="s">\[   19.230000] E2PROM: 40 MW Power Delta= 0</span>
-<span class="s">\[   19.230000] 3. Phy Mode = 9</span>
-<span class="s">\[   19.230000] RTMP\_TimerListAdd: add timer obj c09e8260!</span>
-<span class="s">\[   19.240000] AntCfgInit: primary/secondary ant 0/1</span>
-<span class="s">Initialize RF Central Registers for E2 !!! //初始化一系列寄存器的值</span>
-<span class="s">\[   19.250000] Initialize RF Central Registers for E3 !!!</span>
-<span class="s">\[   19.250000] Initialize RF Channel Registers for E2 !!!</span>
-<span class="s">\[   19.260000] Initialize RF Channel Registers for E3 !!!</span>
-<span class="s">\[   19.260000] Initialize RF DCCal Registers for E2 !!!</span>
-<span class="s">\[   19.270000] Initialize RF DCCal Registers for E3 !!!</span>
-<span class="s">\[   19.280000] D1 = 0, D2 = 8, CalCode = 19 !!!</span>
-<span class="s">\[   19.280000] RT6352\_Temperature\_Init : BBPR49 = 0x0 //板载温度检控模块</span>
-<span class="s">\[   19.290000] RT6352\_Temperature\_Init : TemperatureRef25C = 0xfffffff6</span>
-<span class="s">\[   19.300000] Current Temperature from BBP\_R49=0xfffffff6</span>
-<span class="s">\[   19.300000] RT6352\_TssiTableAdjust: upper\_bound = 0x7F decimal: 127</span>
-<span class="s">\[   19.310000] RT6352\_TssiTableAdjust: lower\_bound = 0xFFFFFF80 decimal: -128</span>
-<span class="s">\[   19.310000] \*\*\* RT6352\_TssiTableAdjust: G Tssi\[-7 .. +7] = -128 -1 -1 -1 -128 -1 -1</span>
-<span class="s">\[   19.310000]  - -1 - -1 -1 -1 -1 -1 -1 -1, offset=-10, tuning=0 //数据链路层的令牌</span>
-<span class="s">\[   19.330000] RT6352\_TssiTableAdjust: G Tssi\[-7 .. +7] = -128 -11 -11 -11 -128 -11 -11 - -11 - -11 -11 -11 -11 -11 -11 -11, offset=-10, tuning=0</span>
-<span class="s">\[   19.340000] mp\_temperature=0xffffffff, step = +7</span>
-<span class="s">\[   19.350000] E2PROM: G Tssi\[-7 .. +7] = -128 -11 -11 -11 -128 -11 -11 - -11 - -11 -11 -11 -11 -11 -11 -11, offset=-10, tuning=0 //作若干检错通信测试</span>
-<span class="s">\[   19.360000]  TX BW Filter Calibration !!! //开始校准各个模块</span>
-<span class="s">\[   19.470000]  RX BW Filter Calibration !!!</span>
-<span class="s">\[   19.680000] LOFT Calibration Done!</span>
-<span class="s">\[   19.680000] IQCalibration Start!</span>
-<span class="s">\[   19.700000] IQCalibration Done! CH = 0, (gain= 3, phase=3c)</span>
-<span class="s">\[   19.700000] IQCalibration Start!</span>
-<span class="s">\[   19.720000] IQCalibration Done! CH = 1, (gain= 1, phase=3d)</span>
-<span class="s">\[   19.720000] TX IQ Calibration Done!</span>
-<span class="s">\[   19.770000] internal ALC is not enabled in NVM ! //?</span>
-<span class="s">\[   19.770000] bAutoTxAgcG = 0</span>
-<span class="s">\[   19.770000] MCS Set = ff ff 00 00 01</span>
-<span class="s">\[   19.850000] Main bssid = 64:51:7e:80:17:d0 //网卡的MAC地址</span>
-<span class="s">\[   19.860000] &lt;==== rt28xx\_init, Status=0</span>
-<span class="s">\[   20.000000] 0x1300 = 00064380</span>
-<span class="s">\[   20.840000] device eth0.1 entered promiscuous mode //将网卡设置成混杂模式</span>
-<span class="s">\[   20.850000] device eth0 entered promiscuous mode</span>
-<span class="s">\[   20.860000] br-lan: port 1(eth0.1) entered forwarding state //一个LAN口进入转发态</span>
-<span class="s">\[   20.860000] br-lan: port 1(eth0.1) entered forwarding state</span>
-<span class="s">\[   21.500000] device ra0 entered promiscuous mode</span>
-<span class="s">\[   21.510000] br-lan: port 2(ra0) entered forwarding state</span>
-<span class="s">\[   21.510000] br-lan: port 2(ra0) entered forwarding state</span>
-<span class="s">\[   22.860000] br-lan: port 1(eth0.1) entered forwarding state</span>
-<span class="s">procd: - init complete - //守护进程得到初始化完成的信息</span>
+\<span class="o">*</span>\<span class="o">*</span> Unable to use usb <span class="m">0</span><span class="o">:</span><span class="m">1</span> <span class="kr">for</span> fatload \<span class="o">*</span>\<span class="o">*</span> <span class="o">//</span>无法使用fatload通过usb口把内存镜像装载到内存
+Booting image at <span class="m">80</span>c00000 … <span class="o">//</span>尝试在预设位置寻找内核启动镜像
+Bad Magic Number<span class="p">,</span><span class="m">7</span>FF6F7F6 <span class="o">//</span>失败
+Booting image at bc050000 … <span class="o">//</span>继续寻找
+raspi\_read<span class="o">:</span> from<span class="o">:</span><span class="m">50000</span> len<span class="o">:</span><span class="m">40</span> <span class="o">//</span>从似乎是镜像开始地址的位置读取内核镜像信息
+   Image Name<span class="o">:</span>   MIPS OpenWrt Linux<span class="m">-3.10.44</span>
+   Image Type<span class="o">:</span>   MIPS Linux Kernel Image <span class="p">(</span>lzma compressed<span class="p">)</span>
+   Data Size<span class="o">:</span>    <span class="m">1029095</span> Bytes <span class="o">=</span> <span class="m">1005</span> kB
+   Load Address<span class="o">:</span> <span class="m">80000000</span>
+   Entry Point<span class="o">:</span>  <span class="m">80000000</span>
+raspi\_read<span class="o">:</span> from<span class="o">:</span><span class="m">50040</span> len<span class="o">:</span>fb3e7
+   Verifying Checksum <span class="kc">...</span> OK <span class="o">//</span>校验内核镜像完整性
+   Uncompressing Kernel Image … <span class="o">//</span>解压镜像
+hdr<span class="o">-&gt;</span>ih\_load <span class="o">=</span> <span class="mh">0x00000080</span>
+data pointer <span class="o">=</span> <span class="mh">0x80c00000</span>
+first <span class="m">8</span> bytes data <span class="o">=</span> <span class="m">8000006</span>D<span class="p">,</span><span class="m">2</span>F609C00
+data length <span class="o">=</span> <span class="m">1029095</span>
+OK <span class="o">//</span>初始化解压后内核的初始地址指针，尝试读取开头数据和总长度信息
+No initrd <span class="o">//?</span>
+Transferring control to Linux <span class="p">(</span>at address <span class="m">80000000</span><span class="p">)</span> … <span class="o">//</span>Boot Loader程序将板子的硬件参数、内存信息以内核镜像的参数形式转交给Linux Kernel
+manfeel note<span class="p">,</span> bootargs is <span class="o">:</span> root<span class="o">=</span><span class="m">8</span><span class="o">:</span><span class="m">2</span> rootdelay<span class="o">=</span><span class="m">5</span> rootfstype<span class="o">=</span>ext4 rw eth<span class="o">=</span><span class="s">"00:11:22:33:44:55"</span> <span class="o">//</span>内核启动参数：root用户文件系统和网卡MAC参数
+console<span class="o">=</span>ttyS0<span class="p">,</span><span class="m">115200</span> <span class="o">//</span>Linux Kernel控制台（虚拟终端）开启，名称ttyS0，速度<span class="m">115200</span>
+Giving linux memsize <span class="kr">in</span> MB<span class="p">,</span> <span class="m">64</span>
+<span class="m">83</span>f033b0<span class="o">:</span>linux\_argv\<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">=</span> root<span class="o">=</span><span class="m">8</span><span class="o">:</span><span class="m">2</span>
+<span class="m">83</span>f033b9<span class="o">:</span>linux\_argv\<span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">=</span> rootdelay<span class="o">=</span><span class="m">5</span>
+<span class="m">83</span>f033c5<span class="o">:</span>linux\_argv\<span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">=</span> rootfstype<span class="o">=</span>ext4
+<span class="m">83</span>f033d5<span class="o">:</span>linux\_argv\<span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="o">=</span> rw
+<span class="m">83</span>f033d8<span class="o">:</span>linux\_argv\<span class="p">[</span><span class="m">5</span><span class="p">]</span> <span class="o">=</span> eth<span class="o">=</span><span class="s">"00:11:22:33:44:55"</span>
+<span class="m">83</span>f033f0<span class="o">:</span>linux\_argv\<span class="p">[</span><span class="m">6</span><span class="p">]</span> <span class="o">=</span> console<span class="o">=</span>ttyS0<span class="p">,</span><span class="m">115200</span>
+<span class="m">83</span>f03810<span class="o">:</span>linux\_env\<span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="o">=</span> memsize<span class="o">=</span><span class="m">64</span>
+<span class="m">83</span>f0381b<span class="o">:</span>linux\_env\<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">=</span> initrd\_start<span class="o">=</span><span class="mh">0x00000000</span>
+<span class="m">83</span>f03833<span class="o">:</span>linux\_env\<span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">=</span> initrd\_size<span class="o">=</span><span class="mh">0x0</span>
+<span class="m">83</span>f03843<span class="o">:</span>linux\_env\<span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">=</span> flash\_start<span class="o">=</span><span class="mh">0x00000000</span>
+<span class="m">83</span>f0385a<span class="o">:</span>linux\_env\<span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="o">=</span> flash\_size<span class="o">=</span><span class="mh">0x1000000</span>
+<span class="o">//</span>Linux Kernel收到上述传递给它的参数，同时包括镜像的始末地址、闪存大小等，引导结束，启动
+Starting kernel <span class="kc">...</span>
 
-<span class="s">//以下为OpenWRT的开机信息</span>
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Linux version <span class="m">3.10.44</span> <span class="p">(</span>noel<span class="o">@</span>na<span class="p">)</span> <span class="p">(</span>gcc version <span class="m">4.8.3</span> <span class="p">(</span>OpenWrt<span class="o">/</span>Linaro GCC <span class="m">4.8-2014.04</span> r41508<span class="p">)</span> <span class="p">)</span> <span class="c1">#20 Wed Aug 13 21:00:28 UTC 2014 //Linux内核版本、gcc版本、时间信息</span>
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Board has DDR2 <span class="o">//</span>检测到板子载有DDR2规格的SDRAM内存芯片
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Analog PMU set to hw control <span class="o">//</span>模拟PMU驱动性能优化工具
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Digital PMU set to hw control <span class="o">//</span>数字PMU驱动性能优化工具
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> SoC Type<span class="o">:</span> Ralink MT7620N ver<span class="o">:</span><span class="m">2</span> eco<span class="o">:</span><span class="m">6</span> <span class="o">//</span>板子的型号是MT7620 Ver <span class="m">2</span>
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> bootconsole \<span class="p">[</span>early0<span class="p">]</span> enabled <span class="o">//</span>启动控制台已经启用
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> CPU revision is<span class="o">:</span> <span class="m">00019650</span> <span class="p">(</span>MIPS <span class="m">24</span>KEc<span class="p">)</span> <span class="o">//</span>CPU的指令集和型号信息
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> MIPS<span class="o">:</span> machine is WRTNODE <span class="o">//</span>CPU指令集确认到板子信息
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Determined physical RAM map<span class="o">:</span> <span class="o">//</span>已经确认的物理内存映射表：
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span>  memory<span class="o">:</span> <span class="m">04000000</span> <span class="o">@</span> <span class="m">00000000</span> <span class="p">(</span>usable<span class="p">)</span> <span class="o">//</span>可用的物理内存范围
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Initrd not found or empty <span class="o">-</span> disabling initrd <span class="o">//</span>未在该范围你发现Linux内核启动镜像
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Zone ranges<span class="o">:</span>
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span>   Normal   \<span class="p">[</span>mem <span class="mh">0x00000000</span><span class="m">-0</span>x03ffffff<span class="p">]</span> <span class="o">//</span>一般内存范围<span class="m">64</span>M （符合板子的参数）
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Movable zone start <span class="kr">for</span> each node
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Early memory node ranges <span class="o">//</span>内存范围确认
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span>   node   <span class="m">0</span><span class="o">:</span> \<span class="p">[</span>mem <span class="mh">0x00000000</span><span class="m">-0</span>x03ffffff<span class="p">]</span>
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Primary instruction cache <span class="m">64</span>kB<span class="p">,</span> VIPT<span class="p">,</span> <span class="m">4</span><span class="o">-</span>way<span class="p">,</span> linesize <span class="m">32</span> bytes. <span class="o">//</span>指令缓存区元数据确认
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Primary data cache <span class="m">32</span>kB<span class="p">,</span> <span class="m">4</span><span class="o">-</span>way<span class="p">,</span> PIPT<span class="p">,</span> no aliases<span class="p">,</span> linesize <span class="m">32</span> bytes <span class="o">//</span>数据缓存区元数据确认
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Built <span class="m">1</span> zonelists <span class="kr">in</span> Zone <span class="kp">order</span><span class="p">,</span> mobility grouping on.  Total pages<span class="o">:</span> <span class="m">16256</span> <span class="o">//</span>计算分页
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Kernel command line<span class="o">:</span> console<span class="o">=</span>ttyS0<span class="p">,</span><span class="m">115200</span> rootfstype<span class="o">=</span>squashfs<span class="p">,</span>jffs2 <span class="o">//</span>确认kernel的控制台和root用户将要加载的文件系统类型
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> PID hash table entries<span class="o">:</span> <span class="m">256</span> <span class="p">(</span><span class="kp">order</span><span class="o">:</span> <span class="m">-2</span><span class="p">,</span> <span class="m">1024</span> bytes<span class="p">)</span> <span class="o">//</span>进程表元数据
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Dentry cache hash table entries<span class="o">:</span> <span class="m">8192</span> <span class="p">(</span><span class="kp">order</span><span class="o">:</span> <span class="m">3</span><span class="p">,</span> <span class="m">32768</span> bytes<span class="p">)</span> <span class="o">//</span>文件系统目录项元数据
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Inode<span class="o">-</span>cache hash table entries<span class="o">:</span> <span class="m">4096</span> <span class="p">(</span><span class="kp">order</span><span class="o">:</span> <span class="m">2</span><span class="p">,</span> <span class="m">16384</span> bytes<span class="p">)</span> <span class="o">//</span>文件系统inode的元数据
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Writing ErrCtl register<span class="o">=</span><span class="m">0001</span>c57c <span class="o">//</span>设置出错控制寄存器号
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Readback ErrCtl register<span class="o">=</span><span class="m">0001</span>c57c <span class="o">//</span>出错恢复时从该寄存器写回
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Memory<span class="o">:</span> <span class="m">61652</span>k<span class="o">/</span><span class="m">65536</span>k available <span class="p">(</span><span class="m">2317</span>k kernel code<span class="p">,</span> <span class="m">3884</span>k reserved<span class="p">,</span> <span class="m">553</span>k data<span class="p">,</span> <span class="m">200</span>k init<span class="p">,</span> <span class="m">0</span>k highmem<span class="p">)</span> <span class="o">//</span>查看一下内存占用
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> SLUB<span class="o">:</span> HWalign<span class="o">=</span><span class="m">32</span><span class="p">,</span> Order<span class="o">=</span><span class="m">0-3</span><span class="p">,</span> MinObjects<span class="o">=</span><span class="m">0</span><span class="p">,</span> CPUs<span class="o">=</span><span class="m">1</span><span class="p">,</span> Nodes<span class="o">=</span><span class="m">1</span> <span class="o">//</span>插槽占用情况
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> NR\_IRQS<span class="o">:</span><span class="m">256</span> <span class="o">//</span>共<span class="m">256</span>条中断请求的输出线
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> CPU Clock<span class="o">:</span> <span class="m">600</span>MHz 
+\<span class="p">[</span>    <span class="m">0.000000</span><span class="p">]</span> Calibrating delay loop... <span class="m">398.13</span> BogoMIPS <span class="p">(</span>lpj<span class="o">=</span><span class="m">1990656</span><span class="p">)</span> <span class="o">//</span>测量设备回环（最大）延时数值，单位为MIPS Benchmark
+\<span class="p">[</span>    <span class="m">0.060000</span><span class="p">]</span> pid\_<span class="kp">max</span><span class="o">:</span> default<span class="o">:</span> <span class="m">32768</span> minimum<span class="o">:</span> <span class="m">301</span> <span class="o">//</span>进程信息表确认
+\<span class="p">[</span>    <span class="m">0.060000</span><span class="p">]</span> Mount<span class="o">-</span>cache hash table entries<span class="o">:</span> <span class="m">512</span> <span class="o">//</span>挂载表元数据
+\<span class="p">[</span>    <span class="m">0.070000</span><span class="p">]</span> pinctrl core<span class="o">:</span> initialized pinctrl subsystem <span class="o">//</span>启用板载针脚控制的子系统
+\<span class="p">[</span>    <span class="m">0.070000</span><span class="p">]</span> NET<span class="o">:</span> Registered protocol family <span class="m">16</span> <span class="o">//</span>初始化网络协议族<span class="m">16</span>即AF\_INET
+\<span class="p">[</span>    <span class="m">0.090000</span><span class="p">]</span> bio<span class="o">:</span> create slab <span class="o">&lt;</span>bio<span class="m">-0</span><span class="o">&gt;</span> at <span class="m">0</span> <span class="o">//</span>块<span class="kp">I</span><span class="o">/</span>O：创建内核小对象的slab分配器
+\<span class="p">[</span>    <span class="m">0.100000</span><span class="p">]</span> rt2880\_gpio <span class="m">10000600.</span>gpio<span class="o">:</span> registering <span class="m">24</span> gpios <span class="o">//</span>初始各GPIO端口
+\<span class="p">[</span>    <span class="m">0.100000</span><span class="p">]</span> rt2880\_gpio <span class="m">10000600.</span>gpio<span class="o">:</span> registering <span class="m">24</span> irq handlers <span class="o">//</span>注册其中断处理器
+\<span class="p">[</span>    <span class="m">0.110000</span><span class="p">]</span> rt2880\_gpio <span class="m">10000638.</span>gpio<span class="o">:</span> registering <span class="m">16</span> gpios
+\<span class="p">[</span>    <span class="m">0.110000</span><span class="p">]</span> rt2880\_gpio <span class="m">10000638.</span>gpio<span class="o">:</span> registering <span class="m">16</span> irq handlers
+\<span class="p">[</span>    <span class="m">0.120000</span><span class="p">]</span> rt2880\_gpio <span class="m">10000660.</span>gpio<span class="o">:</span> registering <span class="m">32</span> gpios
+\<span class="p">[</span>    <span class="m">0.120000</span><span class="p">]</span> rt2880\_gpio <span class="m">10000660.</span>gpio<span class="o">:</span> registering <span class="m">32</span> irq handlers
+\<span class="p">[</span>    <span class="m">0.130000</span><span class="p">]</span> rt2880\_gpio <span class="m">10000688.</span>gpio<span class="o">:</span> registering <span class="m">1</span> gpios
+\<span class="p">[</span>    <span class="m">0.130000</span><span class="p">]</span> rt2880\_gpio <span class="m">10000688.</span>gpio<span class="o">:</span> registering <span class="m">1</span> irq handlers
+\<span class="p">[</span>    <span class="m">0.140000</span><span class="p">]</span> Switching to clocksource MIPS <span class="o">//</span>时钟驱动的MIPS指令集接管
+\<span class="p">[</span>    <span class="m">0.140000</span><span class="p">]</span> NET<span class="o">:</span> Registered protocol family <span class="m">2</span> <span class="o">//</span>初始化网络协议族<span class="m">16</span>即AF\_NETLINK
+\<span class="p">[</span>    <span class="m">0.150000</span><span class="p">]</span> TCP established hash table entries<span class="o">:</span> <span class="m">512</span> <span class="p">(</span><span class="kp">order</span><span class="o">:</span> <span class="m">0</span><span class="p">,</span> <span class="m">4096</span> bytes<span class="p">)</span> 
+\<span class="p">[</span>    <span class="m">0.150000</span><span class="p">]</span> TCP bind hash table entries<span class="o">:</span> <span class="m">512</span> <span class="p">(</span><span class="kp">order</span><span class="o">:</span> <span class="m">-1</span><span class="p">,</span> <span class="m">2048</span> bytes<span class="p">)</span> 
+\<span class="p">[</span>    <span class="m">0.160000</span><span class="p">]</span> TCP<span class="o">:</span> Hash tables configured <span class="p">(</span>established <span class="m">512</span> bind <span class="m">512</span><span class="p">)</span> <span class="o">//</span>TCP表元数据（建立和绑定的）
+\<span class="p">[</span>    <span class="m">0.160000</span><span class="p">]</span> TCP<span class="o">:</span> reno registered
+\<span class="p">[</span>    <span class="m">0.160000</span><span class="p">]</span> UDP hash table entries<span class="o">:</span> <span class="m">256</span> <span class="p">(</span><span class="kp">order</span><span class="o">:</span> <span class="m">0</span><span class="p">,</span> <span class="m">4096</span> bytes<span class="p">)</span> <span class="o">//</span>UDP协议表元数据
+\<span class="p">[</span>    <span class="m">0.170000</span><span class="p">]</span> UDP<span class="o">-</span>Lite hash table entries<span class="o">:</span> <span class="m">256</span> <span class="p">(</span><span class="kp">order</span><span class="o">:</span> <span class="m">0</span><span class="p">,</span> <span class="m">4096</span> bytes<span class="p">)</span>
+\<span class="p">[</span>    <span class="m">0.180000</span><span class="p">]</span> NET<span class="o">:</span> Registered protocol family <span class="m">1</span>
+\<span class="p">[</span>    <span class="m">0.180000</span><span class="p">]</span> rt<span class="o">-</span>timer <span class="m">10000100.</span>timer<span class="o">:</span> maximum frequncy is <span class="m">2441</span>Hz
+\<span class="p">[</span>    <span class="m">0.200000</span><span class="p">]</span> squashfs<span class="o">:</span> version <span class="m">4.0</span> <span class="p">(</span><span class="m">2009</span><span class="o">/</span><span class="m">01</span><span class="o">/</span><span class="m">31</span><span class="p">)</span> Phillip Lougher <span class="o">//</span>加载文件系统
+\<span class="p">[</span>    <span class="m">0.210000</span><span class="p">]</span> jffs2<span class="o">:</span> version <span class="m">2.2</span> <span class="p">(</span>NAND<span class="p">)</span> <span class="p">(</span>SUMMARY<span class="p">)</span> <span class="p">(</span>LZMA<span class="p">)</span> <span class="p">(</span>RTIME<span class="p">)</span> <span class="p">(</span>CMODE\_PRIORITY<span class="p">)</span> <span class="p">(</span><span class="kt">c</span><span class="p">)</span> <span class="m">2001-2006</span> Red Hat<span class="p">,</span> Inc.
+\<span class="p">[</span>    <span class="m">0.220000</span><span class="p">]</span> msgmni has been set to <span class="m">120</span> <span class="o">//</span>最大消息队列数
+\<span class="p">[</span>    <span class="m">0.220000</span><span class="p">]</span> io scheduler noop registered <span class="o">//</span>输入输出调度器NOOP已注册
+\<span class="p">[</span>    <span class="m">0.230000</span><span class="p">]</span> io scheduler deadline registered <span class="p">(</span>default<span class="p">)</span>
+\<span class="p">[</span>    <span class="m">0.230000</span><span class="p">]</span> Serial<span class="o">:</span> <span class="m">8250</span><span class="o">/</span><span class="m">16550</span> driver<span class="p">,</span> <span class="m">2</span> ports<span class="p">,</span> IRQ sharing disabled <span class="o">//</span>串口安装的驱动，端口数；禁用中断请求共享
+\<span class="p">[</span>    <span class="m">0.240000</span><span class="p">]</span> <span class="m">10000</span>c00.uartlite<span class="o">:</span> ttyS0 at MMIO <span class="mh">0x10000c00</span> <span class="p">(</span>irq <span class="o">=</span> <span class="m">20</span><span class="p">)</span> is a <span class="m">16550</span>A <span class="o">//</span>找到可用的虚拟终端
+\<span class="p">[</span>    <span class="m">0.250000</span><span class="p">]</span> console \<span class="p">[</span>ttyS0<span class="p">]</span> enabled<span class="p">,</span> bootconsole disabled <span class="o">//</span>正常的系统虚拟终端启用，boot的终端被关闭
+\<span class="p">[</span>    <span class="m">0.250000</span><span class="p">]</span> console \<span class="p">[</span>ttyS0<span class="p">]</span> enabled<span class="p">,</span> bootconsole disabled
+\<span class="p">[</span>    <span class="m">0.260000</span><span class="p">]</span> m25p80 spi32766.0<span class="o">:</span> found w25q128<span class="p">,</span> expected mx25l12805d
+\<span class="p">[</span>    <span class="m">0.270000</span><span class="p">]</span> m25p80 spi32766.0<span class="o">:</span> w25q128 <span class="p">(</span><span class="m">16384</span> Kbytes<span class="p">)</span> <span class="o">//</span>扫描到<span class="m">16</span>M的闪存
+\<span class="p">[</span>    <span class="m">0.280000</span><span class="p">]</span> <span class="m">4</span> ofpart partitions found on MTD device spi32766.0 <span class="o">//</span>发现闪存转换层（介于物理闪存和高级应用层之间）MTD被分区成四块
+\<span class="p">[</span>    <span class="m">0.280000</span><span class="p">]</span> Creating <span class="m">4</span> MTD partitions on <span class="s">"spi32766.0"</span><span class="o">:</span> <span class="o">//</span>把闪存地址的分区映射到文件系统
+\<span class="p">[</span>    <span class="m">0.290000</span><span class="p">]</span> <span class="mh">0x000000000000</span><span class="m">-0</span>x000000030000 <span class="o">:</span> <span class="s">"u-boot"</span>
+\<span class="p">[</span>    <span class="m">0.290000</span><span class="p">]</span> <span class="mh">0x000000030000</span><span class="m">-0</span>x000000040000 <span class="o">:</span> <span class="s">"u-boot-env"</span>
+\<span class="p">[</span>    <span class="m">0.300000</span><span class="p">]</span> <span class="mh">0x000000040000</span><span class="m">-0</span>x000000050000 <span class="o">:</span> <span class="s">"factory"</span>
+\<span class="p">[</span>    <span class="m">0.310000</span><span class="p">]</span> <span class="mh">0x000000050000</span><span class="m">-0</span>x000001000000 <span class="o">:</span> <span class="s">"firmware"</span>
+\<span class="p">[</span>    <span class="m">0.310000</span><span class="p">]</span> <span class="mh">0x00000014b427</span><span class="m">-0</span>x000001000000 <span class="o">:</span> <span class="s">"rootfs"</span>
+\<span class="p">[</span>    <span class="m">0.320000</span><span class="p">]</span> mtd<span class="o">:</span> partition <span class="s">"rootfs"</span> must either start or end on erase block boundary or be smaller than an erase block <span class="o">--</span> forcing read<span class="o">-</span>only <span class="o">//</span>MTD指示rootfs分曲不可以跨erase block（MTD中的块概念，对应于磁盘的簇），以使其具有只读特性
+\<span class="p">[</span>    <span class="m">0.330000</span><span class="p">]</span> mtd<span class="o">:</span> device <span class="m">4</span> <span class="p">(</span>rootfs<span class="p">)</span> set to be root filesystem <span class="o">//</span>第四分区即闪存MTD上的逻辑设备<span class="m">4</span>，被设置为根文件系统的挂载点
+\<span class="p">[</span>    <span class="m">0.340000</span><span class="p">]</span> mtd<span class="o">:</span> partition <span class="s">"rootfs\_data"</span> created automatically<span class="p">,</span> ofs<span class="o">=</span><span class="mh">0x8b0000</span><span class="p">,</span> len<span class="o">=</span><span class="mh">0x750000</span>
+\<span class="p">[</span>    <span class="m">0.350000</span><span class="p">]</span> <span class="mh">0x0000008b0000</span><span class="m">-0</span>x000001000000 <span class="o">:</span> <span class="s">"rootfs\_data"</span> <span class="o">//</span>自动创建了文件系统根目录数据分区
+\<span class="p">[</span>    <span class="m">0.360000</span><span class="p">]</span> ralink\_soc\_eth <span class="m">10100000.</span>ethernet<span class="o">:</span> Enabling TSO <span class="o">//</span> 以太网TCP Segment Offload技术启用
+\<span class="p">[</span>    <span class="m">0.360000</span><span class="p">]</span> ralink\_soc\_eth <span class="m">10100000.</span>ethernet<span class="o">:</span> loaded mt7530 driver <span class="o">//</span>加载了以太网解决方案MT7530的驱动到Ralink的以太网系统芯片
+\<span class="p">[</span>    <span class="m">0.370000</span><span class="p">]</span> eth0<span class="o">:</span> done loading
+\<span class="p">[</span>    <span class="m">0.370000</span><span class="p">]</span> rt3xxx<span class="o">-</span>usbphy ubsphy.3<span class="o">:</span> loaded <span class="o">//</span>usb<span class="o">-</span>phy驱动加载（ubs是打印错误）
+\<span class="p">[</span>    <span class="m">0.380000</span><span class="p">]</span> rt2880\_wdt <span class="m">10000120.</span>watchdog<span class="o">:</span> Initialized <span class="o">//</span>无线网卡的看门狗程序初始化
+\<span class="p">[</span>    <span class="m">0.390000</span><span class="p">]</span> leds<span class="o">-</span>gpio gpio<span class="o">-</span>leds.4<span class="o">:</span> pins are not configured from the driver
+\<span class="p">[</span>    <span class="m">0.390000</span><span class="p">]</span> TCP<span class="o">:</span> cubic registered
+\<span class="p">[</span>    <span class="m">0.400000</span><span class="p">]</span> NET<span class="o">:</span> Registered protocol family <span class="m">17</span>
+\<span class="p">[</span>    <span class="m">0.400000</span><span class="p">]</span> <span class="m">8021</span><span class="kp">q</span><span class="o">:</span> <span class="m">802.1</span>Q VLAN Support v1.8
+\<span class="p">[</span>    <span class="m">0.420000</span><span class="p">]</span> VFS<span class="o">:</span> Mounted root <span class="p">(</span>squashfs filesystem<span class="p">)</span> readonly on device <span class="m">31</span><span class="o">:</span><span class="m">4.</span>
+\<span class="p">[</span>    <span class="m">0.430000</span><span class="p">]</span> Freeing unused kernel memory<span class="o">:</span> <span class="m">200</span>K <span class="p">(</span><span class="m">802</span>ce000 <span class="o">-</span> <span class="m">80300000</span><span class="p">)</span>
+procd<span class="o">:</span> Console is alive <span class="o">//</span>守护进程procd确认控制台的活跃
+procd<span class="o">:</span> <span class="o">-</span> watchdog <span class="o">-</span> <span class="o">//</span>守护进程启用了看门狗
+\<span class="p">[</span>    <span class="m">5.120000</span><span class="p">]</span> usbcore<span class="o">:</span> registered new interface driver usbfs <span class="o">//</span>根据USB传输协议注册其文件系统、HUB和驱动等
+\<span class="p">[</span>    <span class="m">5.120000</span><span class="p">]</span> usbcore<span class="o">:</span> registered new interface driver hub
+\<span class="p">[</span>    <span class="m">5.130000</span><span class="p">]</span> usbcore<span class="o">:</span> registered new device driver usb
+\<span class="p">[</span>    <span class="m">5.170000</span><span class="p">]</span> SCSI subsystem initialized <span class="o">//</span>外设总线初始化
+\<span class="p">[</span>    <span class="m">5.180000</span><span class="p">]</span> ehci\_hcd<span class="o">:</span> USB <span class="m">2.0</span> <span class="s">'Enhanced'</span> Host Controller <span class="p">(</span>EHCI<span class="p">)</span> Driver
+\<span class="p">[</span>    <span class="m">5.190000</span><span class="p">]</span> ehci<span class="o">-</span>platform<span class="o">:</span> EHCI generic platform driver <span class="o">//</span>EHCI通用平台驱动
+\<span class="p">[</span>    <span class="m">5.390000</span><span class="p">]</span> rt3xxx<span class="o">-</span>usbphy ubsphy.3<span class="o">:</span> remote usb device wakeup disabled <span class="o">//</span>远程USB设备唤醒未启用
+\<span class="p">[</span>    <span class="m">5.400000</span><span class="p">]</span> rt3xxx<span class="o">-</span>usbphy ubsphy.3<span class="o">:</span> UTMI <span class="m">16</span>bit <span class="m">30</span>MHz <span class="o">//</span>USB2.0接口模块定义的字长及速度
+\<span class="p">[</span>    <span class="m">5.400000</span><span class="p">]</span> ehci<span class="o">-</span>platform <span class="m">101</span>c0000.ehci<span class="o">:</span> EHCI Host Controller
+\<span class="p">[</span>    <span class="m">5.410000</span><span class="p">]</span> ehci<span class="o">-</span>platform <span class="m">101</span>c0000.ehci<span class="o">:</span> new USB bus registered<span class="p">,</span> assigned bus number <span class="m">1</span> <span class="o">//</span>注册新USB总线为<span class="m">1</span>号总线
+\<span class="p">[</span>    <span class="m">5.420000</span><span class="p">]</span> ehci<span class="o">-</span>platform <span class="m">101</span>c0000.ehci<span class="o">:</span> irq <span class="m">26</span><span class="p">,</span> io mem <span class="mh">0x101c0000</span>  <span class="o">//</span>EHCI占用的中断请求线和其输入输出占用的内存区块
+\<span class="p">[</span>    <span class="m">5.440000</span><span class="p">]</span> ehci<span class="o">-</span>platform <span class="m">101</span>c0000.ehci<span class="o">:</span> USB <span class="m">2.0</span> started<span class="p">,</span> EHCI <span class="m">1.00</span>  <span class="o">//</span>USB <span class="m">2.0</span>协议可以在EHCI <span class="m">1.0</span>支持下启用了
+\<span class="p">[</span>    <span class="m">5.440000</span><span class="p">]</span> hub <span class="m">1-0</span><span class="o">:</span><span class="m">1.0</span><span class="o">:</span> USB hub found <span class="o">//</span>发现（定制USB<span class="o">-</span>to<span class="o">-</span>TTL线上的）USB集线口
+\<span class="p">[</span>    <span class="m">5.450000</span><span class="p">]</span> hub <span class="m">1-0</span><span class="o">:</span><span class="m">1.0</span><span class="o">:</span> <span class="m">1</span> port detected <span class="o">//</span>HUB上有一个端口
+\<span class="p">[</span>    <span class="m">5.460000</span><span class="p">]</span> usbcore<span class="o">:</span> registered new interface driver usb<span class="o">-</span>storage <span class="o">//</span>注册一个USB存储的接口驱动
+procd<span class="o">:</span> <span class="o">-</span> preinit <span class="o">-</span>
+Press the \<span class="p">[</span>f<span class="p">]</span> key and hit \<span class="p">[</span>enter<span class="p">]</span> to enter failsafe mode <span class="o">//</span>键入f并enter可以进入安全模式
+Press the \<span class="p">[</span><span class="m">1</span><span class="p">],</span> \<span class="p">[</span><span class="m">2</span><span class="p">],</span> \<span class="p">[</span><span class="m">3</span><span class="p">]</span> or \<span class="p">[</span><span class="m">4</span><span class="p">]</span> key and hit \<span class="p">[</span>enter<span class="p">]</span> to select the debug level <span class="o">//</span>选择<span class="kp">debug</span>模式的指示
+kmod<span class="o">:</span> ran <span class="m">1</span> iterations
+\<span class="p">[</span>   <span class="m">10.290000</span><span class="p">]</span> jffs2<span class="o">:</span> notice<span class="o">:</span> <span class="p">(</span><span class="m">297</span><span class="p">)</span> jffs2\_build\_xattr\_subsystem<span class="o">:</span> complete building xattr subsystem<span class="p">,</span> <span class="m">1</span> of xdatum <span class="p">(</span><span class="m">1</span> unchecked<span class="p">,</span> <span class="m">0</span> orphan<span class="p">)</span> and <span class="m">15</span> of xref <span class="p">(</span><span class="m">0</span> dead<span class="p">,</span> <span class="m">0</span> orphan<span class="p">)</span> found. <span class="o">//</span>构建jffs文件系统的子系统
+block<span class="o">:</span> extroot<span class="o">:</span> no root or overlay mount defined <span class="o">//</span>ext文件系统根目录未检测到覆盖挂载的存在
+jffs2 is ready <span class="o">//</span>jffs2文件系统可以挂载了
+jffs2 is ready
+\<span class="p">[</span>   <span class="m">10.470000</span><span class="p">]</span> jffs2<span class="o">:</span> notice<span class="o">:</span> <span class="p">(</span><span class="m">294</span><span class="p">)</span> jffs2\_build\_xattr\_subsystem<span class="o">:</span> complete building xattr subsystem<span class="p">,</span> <span class="m">1</span> of xdatum <span class="p">(</span><span class="m">1</span> unchecked<span class="p">,</span> <span class="m">0</span> orphan<span class="p">)</span> and <span class="m">15</span> of xref <span class="p">(</span><span class="m">0</span> dead<span class="p">,</span> <span class="m">0</span> orphan<span class="p">)</span> found.
+switching to overlay <span class="o">//</span>将jffs2覆盖挂载
+procd<span class="o">:</span> <span class="o">-</span> early <span class="o">-</span>
+procd<span class="o">:</span> <span class="o">-</span> watchdog <span class="o">-</span>
+procd<span class="o">:</span> <span class="o">-</span> ubus <span class="o">-</span>
+procd<span class="o">:</span> <span class="o">-</span> init <span class="o">-</span>
+Failed to connect to ubus
+Please press Enter to activate this console. <span class="o">//</span>本控制台莫名与总线断开信号，回车恢复
+\<span class="p">[</span>   <span class="m">12.290000</span><span class="p">]</span> NET<span class="o">:</span> Registered protocol family <span class="m">10</span>
+\<span class="p">[</span>   <span class="m">12.300000</span><span class="p">]</span> NTFS driver <span class="m">2.1.30</span> \<span class="p">[</span>Flags<span class="o">:</span> R<span class="o">/</span>O MODULE<span class="p">]</span><span class="m">.</span> <span class="o">//</span>初始化板子与PC上NTFS文件系统的接口驱动
+\<span class="p">[</span>   <span class="m">12.360000</span><span class="p">]</span> nf\_conntrack version <span class="m">0.5.0</span> <span class="p">(</span><span class="m">966</span> buckets<span class="p">,</span> <span class="m">3864</span> <span class="kp">max</span><span class="p">)</span>
+\<span class="p">[</span>   <span class="m">12.370000</span><span class="p">]</span> ip6\_tables<span class="o">:</span> <span class="p">(</span>C<span class="p">)</span> <span class="m">2000-2006</span> Netfilter Core Team
+\<span class="p">[</span>   <span class="m">12.390000</span><span class="p">]</span> Ralink<span class="o">/</span>MTK WiFi EEPROM API Driver <span class="kr">for</span> OpenWrt Trunk. Copyright <span class="m">2013</span> lintel<span class="p">[</span>lintel.huang<span class="o">@</span>gmail.com<span class="p">]</span>
+\<span class="p">[</span>   <span class="m">12.400000</span><span class="p">]</span> Ralink<span class="o">/</span>MTK WiFi EEPROM API<span class="o">:</span>Installed.
+\<span class="p">[</span>   <span class="m">12.400000</span><span class="p">]</span> Ralink<span class="o">/</span>MTK WiFi EEPROM API<span class="o">:</span>SoC is MT7620. <span class="o">//</span>将Ralink和联发科的闪存驱动安装到PC
+\<span class="p">[</span>   <span class="m">13.380000</span><span class="p">]</span> rt2860v2\_ap<span class="o">:</span> module license <span class="s">'Proprietary'</span> taints kernel. <span class="o">//</span>这个模块的<span class="kp">license</span>和kernel的GPL不合……（模块不受信任）
+\<span class="p">[</span>   <span class="m">13.380000</span><span class="p">]</span> Disabling lock debugging due to kernel taint <span class="o">//?</span>
+\<span class="p">[</span>   <span class="m">13.460000</span><span class="p">]</span>
+\<span class="p">[</span>   <span class="m">13.460000</span><span class="p">]</span>
+\<span class="p">[</span>   <span class="m">13.460000</span><span class="p">]</span> <span class="o">===</span> pAd <span class="o">=</span> c0551000<span class="p">,</span> size <span class="o">=</span> <span class="m">871592</span> <span class="o">===</span>  <span class="o">//?</span>
+\<span class="p">[</span>   <span class="m">13.460000</span><span class="p">]</span>
+\<span class="p">[</span>   <span class="m">13.470000</span><span class="p">]</span> <span class="o">&lt;--</span> RTMPAllocTxRxRingMemory<span class="p">,</span> Status<span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">13.470000</span><span class="p">]</span> <span class="o">&lt;--</span> RTMPAllocAdapterBlock<span class="p">,</span> Status<span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">13.480000</span><span class="p">]</span> AP Driver <span class="kp">version</span><span class="m">-2.7.1.6</span> <span class="o">//</span>网络接入点驱动版本
+\<span class="p">[</span>   <span class="m">13.500000</span><span class="p">]</span> Linux video capture interface<span class="o">:</span> v2.00 
+\<span class="p">[</span>   <span class="m">13.520000</span><span class="p">]</span> fuse init <span class="p">(</span>API version <span class="m">7.22</span><span class="p">)</span>
+\<span class="p">[</span>   <span class="m">13.560000</span><span class="p">]</span> usbcore<span class="o">:</span> registered new interface driver cdc\_acm
+\<span class="p">[</span>   <span class="m">13.560000</span><span class="p">]</span> cdc\_acm<span class="o">:</span> USB Abstract Control Model driver <span class="kr">for</span> USB modems and ISDN adapters <span class="o">//</span>面向调制解调器的USB 虚拟控制模块驱动
+\<span class="p">[</span>   <span class="m">13.580000</span><span class="p">]</span> ip\_tables<span class="o">:</span> <span class="p">(</span>C<span class="p">)</span> <span class="m">2000-2006</span> Netfilter Core Team
+\<span class="p">[</span>   <span class="m">13.610000</span><span class="p">]</span> usbcore<span class="o">:</span> registered new interface driver usbserial <span class="o">//</span>注册了USB串口驱动
+\<span class="p">[</span>   <span class="m">13.620000</span><span class="p">]</span> usbcore<span class="o">:</span> registered new interface driver usbserial\_generic <span class="o">//</span>注册了通用USB串口驱动
+\<span class="p">[</span>   <span class="m">13.630000</span><span class="p">]</span> usbserial<span class="o">:</span> USB Serial support registered <span class="kr">for</span> generic
+\<span class="p">[</span>   <span class="m">13.640000</span><span class="p">]</span> usbcore<span class="o">:</span> registered new interface driver uvcvideo
+\<span class="p">[</span>   <span class="m">13.650000</span><span class="p">]</span> USB Video Class driver <span class="p">(</span><span class="m">1.1.1</span><span class="p">)</span>
+\<span class="p">[</span>   <span class="m">13.680000</span><span class="p">]</span> xt\_time<span class="o">:</span> kernel timezone is <span class="m">-0000</span>
+\<span class="p">[</span>   <span class="m">13.700000</span><span class="p">]</span> usbcore<span class="o">:</span> registered new interface driver ftdi\_sio
+\<span class="p">[</span>   <span class="m">13.700000</span><span class="p">]</span> usbserial<span class="o">:</span> USB Serial support registered <span class="kr">for</span> FTDI USB Serial Device
+\<span class="p">[</span>   <span class="m">13.720000</span><span class="p">]</span> PPP generic driver version <span class="m">2.4.2</span> <span class="o">//</span>通用数据链路层PPP驱动版本
+\<span class="p">[</span>   <span class="m">13.740000</span><span class="p">]</span> NET<span class="o">:</span> Registered protocol family <span class="m">24</span>
+\<span class="p">[</span>   <span class="m">13.770000</span><span class="p">]</span> usbcore<span class="o">:</span> registered new interface driver snd<span class="o">-</span>usb<span class="o">-</span>audio
+\<span class="p">[</span>   <span class="m">17.200000</span><span class="p">]</span> RtmpOSNetDevDetach<span class="p">()</span><span class="o">:</span> RtmpOSNetDeviceDetach<span class="p">(),</span> dev<span class="o">-&gt;</span>name<span class="o">=</span>ra0<span class="o">!</span> <span class="o">//?</span>
+\<span class="p">[</span>   <span class="m">17.710000</span><span class="p">]</span>
+\<span class="p">[</span>   <span class="m">17.710000</span><span class="p">]</span>
+\<span class="p">[</span>   <span class="m">17.710000</span><span class="p">]</span> <span class="o">===</span> pAd <span class="o">=</span> c09e3000<span class="p">,</span> size <span class="o">=</span> <span class="m">871592</span> <span class="o">===</span>
+\<span class="p">[</span>   <span class="m">17.710000</span><span class="p">]</span>
+\<span class="p">[</span>   <span class="m">17.720000</span><span class="p">]</span> <span class="o">&lt;--</span> RTMPAllocTxRxRingMemory<span class="p">,</span> Status<span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">17.730000</span><span class="p">]</span> <span class="o">&lt;--</span> RTMPAllocAdapterBlock<span class="p">,</span> Status<span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">17.730000</span><span class="p">]</span> AP Driver <span class="kp">version</span><span class="m">-2.7.1.6</span>
+\<span class="p">[</span>   <span class="m">17.770000</span><span class="p">]</span> RX DESC a33be000  size <span class="o">=</span> <span class="m">2048</span> <span class="o">//</span>发送一些包以填充路由表项
+\<span class="p">[</span>   <span class="m">17.810000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a7aec8<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.810000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a44878<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.820000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a470c4<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.820000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47184<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.830000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47244<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.830000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47304<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.840000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a473c4<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.840000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47484<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.850000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47544<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.850000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47604<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.860000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a476c4<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.860000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47784<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.870000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47844<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.870000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47904<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.880000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a479c4<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.880000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47a84<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.890000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47b44<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.890000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47c04<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.900000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a4484c<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.910000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47098<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.910000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47158<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.920000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47218<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.920000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a472d8<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.930000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47398<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.930000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47458<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.940000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47518<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.940000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a475d8<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.950000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47698<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.950000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47758<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.960000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47818<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.960000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a478d8<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.970000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47998<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.970000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47a58<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.980000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47b18<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.980000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47bd8<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.990000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a44820<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">17.990000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a470f0<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.000000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a471b0<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.010000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47270<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.010000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47330<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.020000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a473f0<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.020000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a474b0<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.030000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47570<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.030000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47630<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.040000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a476f0<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.040000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a477b0<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.050000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47870<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.050000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47930<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.060000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a479f0<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.060000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47ab0<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.070000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47b70<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.070000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c0a47c30<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.080000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09eb1e8<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.080000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09eaddc<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.090000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09eb1b8<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.090000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09eb560<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.100000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09eb2b0<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.100000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09eb2e0<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.110000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09eb4a0<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.120000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09eb4d0<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.120000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09ee494<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.130000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09ee088<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.130000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09ee464<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.140000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09ee80c<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">18.140000</span><span class="p">]</span> RTMP\_TimerLis\<span class="p">[</span>   <span class="m">18.670000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">0</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.680000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.680000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.680000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.680000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">4</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.690000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.690000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">6</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.690000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">7</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.700000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">8</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.700000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">9</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.700000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">10</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.700000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">11</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.710000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">12</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.710000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">13</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.710000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">14</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.720000</span><span class="p">]</span> APSDCapable\<span class="p">[</span><span class="m">15</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.720000</span><span class="p">]</span> default ApCliAPSDCapable\<span class="p">[</span><span class="m">0</span><span class="p">]</span><span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">18.920000</span><span class="p">]</span> Key1Str is Invalid key <span class="kp">length</span><span class="p">(</span><span class="m">0</span><span class="p">)</span> or Type<span class="p">(</span><span class="m">0</span><span class="p">)</span>
+\<span class="p">[</span>   <span class="m">18.930000</span><span class="p">]</span> Key2Str is Invalid key <span class="kp">length</span><span class="p">(</span><span class="m">0</span><span class="p">)</span> or Type<span class="p">(</span><span class="m">0</span><span class="p">)</span>
+\<span class="p">[</span>   <span class="m">18.940000</span><span class="p">]</span> Key3Str is Invalid key <span class="kp">length</span><span class="p">(</span><span class="m">0</span><span class="p">)</span> or Type<span class="p">(</span><span class="m">0</span><span class="p">)</span>
+\<span class="p">[</span>   <span class="m">18.940000</span><span class="p">]</span> Key4Str is Invalid key <span class="kp">length</span><span class="p">(</span><span class="m">0</span><span class="p">)</span> or Type<span class="p">(</span><span class="m">0</span><span class="p">)</span>
+\<span class="p">[</span>   <span class="m">18.990000</span><span class="p">]</span> <span class="m">1.</span> Phy Mode <span class="o">=</span> <span class="m">9</span>
+\<span class="p">[</span>   <span class="m">18.990000</span><span class="p">]</span> <span class="m">2.</span> Phy Mode <span class="o">=</span> <span class="m">9</span>
+\<span class="p">[</span>   <span class="m">18.990000</span><span class="p">]</span> EEPROM<span class="o">:</span>Read from \<span class="p">[</span>factory<span class="p">]</span> offset <span class="mh">0x0</span><span class="p">,</span>length <span class="mh">0x200</span><span class="m">.</span> <span class="o">//</span>声明读取闪存时的预留地址（偏移量）
+\<span class="p">[</span>   <span class="m">19.220000</span><span class="p">]</span> E2PROM<span class="o">:</span> D0 target power<span class="o">=</span><span class="mh">0xff20</span>
+\<span class="p">[</span>   <span class="m">19.230000</span><span class="p">]</span> E2PROM<span class="o">:</span> <span class="m">40</span> MW Power Delta<span class="o">=</span> <span class="m">0</span>
+\<span class="p">[</span>   <span class="m">19.230000</span><span class="p">]</span> <span class="m">3.</span> Phy Mode <span class="o">=</span> <span class="m">9</span>
+\<span class="p">[</span>   <span class="m">19.230000</span><span class="p">]</span> RTMP\_TimerListAdd<span class="o">:</span> add timer obj c09e8260<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">19.240000</span><span class="p">]</span> AntCfgInit<span class="o">:</span> primary<span class="o">/</span>secondary ant <span class="m">0</span><span class="o">/</span><span class="m">1</span>
+Initialize RF Central Registers <span class="kr">for</span> E2 <span class="o">!!!</span> <span class="o">//</span>初始化一系列寄存器的值
+\<span class="p">[</span>   <span class="m">19.250000</span><span class="p">]</span> Initialize RF Central Registers <span class="kr">for</span> E3 <span class="o">!!!</span>
+\<span class="p">[</span>   <span class="m">19.250000</span><span class="p">]</span> Initialize RF Channel Registers <span class="kr">for</span> E2 <span class="o">!!!</span>
+\<span class="p">[</span>   <span class="m">19.260000</span><span class="p">]</span> Initialize RF Channel Registers <span class="kr">for</span> E3 <span class="o">!!!</span>
+\<span class="p">[</span>   <span class="m">19.260000</span><span class="p">]</span> Initialize RF DCCal Registers <span class="kr">for</span> E2 <span class="o">!!!</span>
+\<span class="p">[</span>   <span class="m">19.270000</span><span class="p">]</span> Initialize RF DCCal Registers <span class="kr">for</span> E3 <span class="o">!!!</span>
+\<span class="p">[</span>   <span class="m">19.280000</span><span class="p">]</span> D1 <span class="o">=</span> <span class="m">0</span><span class="p">,</span> D2 <span class="o">=</span> <span class="m">8</span><span class="p">,</span> CalCode <span class="o">=</span> <span class="m">19</span> <span class="o">!!!</span>
+\<span class="p">[</span>   <span class="m">19.280000</span><span class="p">]</span> RT6352\_Temperature\_Init <span class="o">:</span> BBPR49 <span class="o">=</span> <span class="mh">0x0</span> <span class="o">//</span>板载温度检控模块
+\<span class="p">[</span>   <span class="m">19.290000</span><span class="p">]</span> RT6352\_Temperature\_Init <span class="o">:</span> TemperatureRef25C <span class="o">=</span> <span class="mh">0xfffffff6</span>
+\<span class="p">[</span>   <span class="m">19.300000</span><span class="p">]</span> Current Temperature from BBP\_R49<span class="o">=</span><span class="mh">0xfffffff6</span>
+\<span class="p">[</span>   <span class="m">19.300000</span><span class="p">]</span> RT6352\_TssiTableAdjust<span class="o">:</span> upper\_bound <span class="o">=</span> <span class="mh">0x7F</span> decimal<span class="o">:</span> <span class="m">127</span>
+\<span class="p">[</span>   <span class="m">19.310000</span><span class="p">]</span> RT6352\_TssiTableAdjust<span class="o">:</span> lower\_bound <span class="o">=</span> <span class="mh">0xFFFFFF80</span> decimal<span class="o">:</span> <span class="m">-128</span>
+\<span class="p">[</span>   <span class="m">19.310000</span><span class="p">]</span> \<span class="o">*</span>\<span class="o">*</span>\<span class="o">*</span> RT6352\_TssiTableAdjust<span class="o">:</span> G Tssi\<span class="p">[</span><span class="m">-7</span> <span class="m">..</span> <span class="m">+7</span><span class="p">]</span> <span class="o">=</span> <span class="m">-128</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-128</span> <span class="m">-1</span> <span class="m">-1</span>
+\<span class="p">[</span>   <span class="m">19.310000</span><span class="p">]</span>  <span class="o">-</span> <span class="m">-1</span> <span class="o">-</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span> <span class="m">-1</span><span class="p">,</span> offset<span class="o">=</span><span class="m">-10</span><span class="p">,</span> tuning<span class="o">=</span><span class="m">0</span> <span class="o">//</span>数据链路层的令牌
+\<span class="p">[</span>   <span class="m">19.330000</span><span class="p">]</span> RT6352\_TssiTableAdjust<span class="o">:</span> G Tssi\<span class="p">[</span><span class="m">-7</span> <span class="m">..</span> <span class="m">+7</span><span class="p">]</span> <span class="o">=</span> <span class="m">-128</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-128</span> <span class="m">-11</span> <span class="m">-11</span> <span class="o">-</span> <span class="m">-11</span> <span class="o">-</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-11</span><span class="p">,</span> offset<span class="o">=</span><span class="m">-10</span><span class="p">,</span> tuning<span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">19.340000</span><span class="p">]</span> mp\_temperature<span class="o">=</span><span class="mh">0xffffffff</span><span class="p">,</span> step <span class="o">=</span> <span class="m">+7</span>
+\<span class="p">[</span>   <span class="m">19.350000</span><span class="p">]</span> E2PROM<span class="o">:</span> G Tssi\<span class="p">[</span><span class="m">-7</span> <span class="m">..</span> <span class="m">+7</span><span class="p">]</span> <span class="o">=</span> <span class="m">-128</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-128</span> <span class="m">-11</span> <span class="m">-11</span> <span class="o">-</span> <span class="m">-11</span> <span class="o">-</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-11</span> <span class="m">-11</span><span class="p">,</span> offset<span class="o">=</span><span class="m">-10</span><span class="p">,</span> tuning<span class="o">=</span><span class="m">0</span> <span class="o">//</span>作若干检错通信测试
+\<span class="p">[</span>   <span class="m">19.360000</span><span class="p">]</span>  TX BW Filter Calibration <span class="o">!!!</span> <span class="o">//</span>开始校准各个模块
+\<span class="p">[</span>   <span class="m">19.470000</span><span class="p">]</span>  RX BW Filter Calibration <span class="o">!!!</span>
+\<span class="p">[</span>   <span class="m">19.680000</span><span class="p">]</span> LOFT Calibration Done<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">19.680000</span><span class="p">]</span> IQCalibration Start<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">19.700000</span><span class="p">]</span> IQCalibration Done<span class="o">!</span> CH <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="p">(</span>gain<span class="o">=</span> <span class="m">3</span><span class="p">,</span> phase<span class="o">=</span><span class="m">3</span><span class="kt">c</span><span class="p">)</span>
+\<span class="p">[</span>   <span class="m">19.700000</span><span class="p">]</span> IQCalibration Start<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">19.720000</span><span class="p">]</span> IQCalibration Done<span class="o">!</span> CH <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="p">(</span>gain<span class="o">=</span> <span class="m">1</span><span class="p">,</span> phase<span class="o">=</span><span class="m">3</span>d<span class="p">)</span>
+\<span class="p">[</span>   <span class="m">19.720000</span><span class="p">]</span> TX IQ Calibration Done<span class="o">!</span>
+\<span class="p">[</span>   <span class="m">19.770000</span><span class="p">]</span> internal ALC is not enabled <span class="kr">in</span> NVM <span class="o">!</span> <span class="o">//?</span>
+\<span class="p">[</span>   <span class="m">19.770000</span><span class="p">]</span> bAutoTxAgcG <span class="o">=</span> <span class="m">0</span>
+\<span class="p">[</span>   <span class="m">19.770000</span><span class="p">]</span> MCS Set <span class="o">=</span> ff ff <span class="m">00</span> <span class="m">00</span> <span class="m">01</span>
+\<span class="p">[</span>   <span class="m">19.850000</span><span class="p">]</span> Main bssid <span class="o">=</span> <span class="m">64</span><span class="o">:</span><span class="m">51</span><span class="o">:</span><span class="m">7</span>e<span class="o">:</span><span class="m">80</span><span class="o">:</span><span class="m">17</span><span class="o">:</span>d0 <span class="o">//</span>网卡的MAC地址
+\<span class="p">[</span>   <span class="m">19.860000</span><span class="p">]</span> <span class="o">&lt;====</span> rt28xx\_init<span class="p">,</span> Status<span class="o">=</span><span class="m">0</span>
+\<span class="p">[</span>   <span class="m">20.000000</span><span class="p">]</span> <span class="mh">0x1300</span> <span class="o">=</span> <span class="m">00064380</span>
+\<span class="p">[</span>   <span class="m">20.840000</span><span class="p">]</span> device eth0.1 entered promiscuous mode <span class="o">//</span>将网卡设置成混杂模式
+\<span class="p">[</span>   <span class="m">20.850000</span><span class="p">]</span> device eth0 entered promiscuous <span class="kp">mode</span>
+\<span class="p">[</span>   <span class="m">20.860000</span><span class="p">]</span> br<span class="o">-</span>lan<span class="o">:</span> port <span class="m">1</span><span class="p">(</span>eth0.1<span class="p">)</span> entered forwarding state <span class="o">//</span>一个LAN口进入转发态
+\<span class="p">[</span>   <span class="m">20.860000</span><span class="p">]</span> br<span class="o">-</span>lan<span class="o">:</span> port <span class="m">1</span><span class="p">(</span>eth0.1<span class="p">)</span> entered forwarding state
+\<span class="p">[</span>   <span class="m">21.500000</span><span class="p">]</span> device ra0 entered promiscuous <span class="kp">mode</span>
+\<span class="p">[</span>   <span class="m">21.510000</span><span class="p">]</span> br<span class="o">-</span>lan<span class="o">:</span> port <span class="m">2</span><span class="p">(</span>ra0<span class="p">)</span> entered forwarding state
+\<span class="p">[</span>   <span class="m">21.510000</span><span class="p">]</span> br<span class="o">-</span>lan<span class="o">:</span> port <span class="m">2</span><span class="p">(</span>ra0<span class="p">)</span> entered forwarding state
+\<span class="p">[</span>   <span class="m">22.860000</span><span class="p">]</span> br<span class="o">-</span>lan<span class="o">:</span> port <span class="m">1</span><span class="p">(</span>eth0.1<span class="p">)</span> entered forwarding state
+procd<span class="o">:</span> <span class="o">-</span> init complete <span class="o">-</span> <span class="o">//</span>守护进程得到初始化完成的信息
 
-<span class="s">BusyBox v1.22.1 (2014-08-13 19:31:12 UTC) built-in shell (ash)</span>
-<span class="s">Enter '</span>help<span class="s">'</span><span class="err"> for a list of built-in commands.</span>
+<span class="o">//</span>以下为OpenWRT的开机信息
+
+BusyBox v1.22.1 <span class="p">(</span><span class="m">2014-08-13</span> <span class="m">19</span><span class="o">:</span><span class="m">31</span><span class="o">:</span><span class="m">12</span> UTC<span class="p">)</span> built<span class="o">-</span><span class="kr">in</span> shell <span class="p">(</span>ash<span class="p">)</span>
+Enter <span class="s">'help'</span> <span class="kr">for</span> a <span class="kt">list</span> of built<span class="o">-</span><span class="kr">in</span> commands.
 
  
   _______                     ________        __
