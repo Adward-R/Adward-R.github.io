@@ -9,6 +9,8 @@
 .. type: text
 -->
 
+### [工具包][1] 密码: lqy8
+
 原先买Moto G的时候除了缺一款支持电信的手机、对于本体性价比和做工还比较满意之外，一部分原因便是冲着其搭载的原生Android Lollipop 5.0.2系统。可曾想到手的ROM虽然被预装的软件很少（总共6款吧，我Root后也只卸了两款而已，摩托良心），但是阉割了Google Play Service框架和服务，显得空空荡荡；且国内市场能够找到的Service框架都不适配安卓5.0，导致需要GMS的谷歌系应用完全无法正常运行，非常苦恼。于是折腾了一下午终于成功将其改造为本来模样，并尽数获得权限。
 
 本文中所述手机型号为Motorola XT1077，若型号不符合，请自行对照各项参数，适用或者更改部分刷机用到的工具。建议照以下内容步骤操作之前，充分了解刷机的风险，比如解锁失去保修、刷错ROM手机变砖乃至Root后需要手动谨慎管理应用权限等。
@@ -16,7 +18,7 @@
 刷机环境为Mac OS X Yosemite。记得手机用USB连电脑要打开**开发者模式-\>USB调试**。
 
 ## 安装android-sdks
-[下载地址][1]
+[下载地址][2]
 
 单纯用来刷机的话，Stand-alone SDK Tools已经足够了，因为需要用到的无非也就是adb命令行调试工具+fastboot而已。
 
@@ -25,7 +27,7 @@
 下载和解压后，需要用到的工具都在android-sdks/platform-tools/中，Windows、Mac OS X和Linux的版本是不一样的。如果没有导出环境变量，即使cd到了该文件夹下应该也是要`./adb`和`./fastboot`执行的。
 
 ## 安装Motorola手机驱动
-[下载地址][2]
+[下载地址][3]
 
 如果是Windows用户这一步兴许可以跳过。
 
@@ -36,7 +38,7 @@
 ## 解锁BootLoader
 这个网上的教程基本都有而且基本都可以用，手机用数据线连电脑并进入fastboot模式（这里是同时按住Volume Down和Power键至少五秒后松开Power，记得不要单独让Power处于按下状态），在终端里使用adb和fastboot获得oem信息，去Motorola官网申请解锁码，再用命令行解锁即可。
 
-[这个教程][3]讲得还不错。
+[这个教程][4]讲得还不错。
 
 解锁以后看到白屏的警告不要慌。
 
@@ -44,11 +46,11 @@
 这一步有点tricky的。先上两个别的教程里类似手机（比如Moto X）成功了但我失败了的方法（粗体标注的包在云盘分享里都有）：
 
 1. Chainfire的Auto Root方式刷入Root（关键一步）
-	根据LiGux的[这篇文章][4]，用**CF-Auto-Root-titanumtsds-titanretde-xt1068.zip**。文章很有参考意义，但是方法并不完全适用，要做一些变通；猜测主要不成功原因是我在手机进入BootLoader模式后经常从Mac终端莫名访问不到它，甚至`adb devices -l`可以，`fastboot devices`啥也没有……
+	根据LiGux的[这篇文章][5]，用**CF-Auto-Root-titanumtsds-titanretde-xt1068.zip**。文章很有参考意义，但是方法并不完全适用，要做一些变通；猜测主要不成功原因是我在手机进入BootLoader模式后经常从Mac终端莫名访问不到它，甚至`adb devices -l`可以，`fastboot devices`啥也没有……
 
 2. 用**r2-motog-superboot.zip**这个自动Root脚本，方法与前一种很类似，具体方法如果需要了解可以直接Google包名，挺多的。
 
-3. 知乎上[这个言简意赅的答案][5]信息量还是挺大的（包括评论回复也要看），据说可以不需要Root，用TWRP（某第三方Recovery）在手机的fastboot-\>recovery模式下直接刷入MD5码为`367ce76d6b7772c92810720b8b0c931e`的GAPPS for Android L即可，遗憾我没有成功……说得对，国行适配的TWRP要另外去找，大概隐藏在某些论坛深深的角落里orz
+3. 知乎上[这个言简意赅的答案][6]信息量还是挺大的（包括评论回复也要看），据说可以不需要Root，用TWRP（某第三方Recovery）在手机的fastboot-\>recovery模式下直接刷入MD5码为`367ce76d6b7772c92810720b8b0c931e`的GAPPS for Android L即可，遗憾我没有成功……说得对，国行适配的TWRP要另外去找，大概隐藏在某些论坛深深的角落里orz
 
 **最终成功的方法还是主要借鉴了LiGux，但做了修改，如下：**
 
@@ -63,8 +65,9 @@
 
 ## 参考文献（...）
 
-[1]:	https://developer.android.com/sdk/installing/index.html
-[2]:	https://motorola-global-zn-ch.custhelp.com/app/answers/detail/a_id/91628
-[3]:	http://bbs.gfan.com/android-7121074-1-1.html
-[4]:	http://ligux.com/?p=133
-[5]:	http://www.zhihu.com/question/27800031/answer/39007940
+[1]:	http://pan.baidu.com/s/1eQphktk
+[2]:	https://developer.android.com/sdk/installing/index.html
+[3]:	https://motorola-global-zn-ch.custhelp.com/app/answers/detail/a_id/91628
+[4]:	http://bbs.gfan.com/android-7121074-1-1.html
+[5]:	http://ligux.com/?p=133
+[6]:	http://www.zhihu.com/question/27800031/answer/39007940
