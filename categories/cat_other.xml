@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R (Other)</title><link>http://adward-r.lofter.com</link><description></description><atom:link href="http://adward-r.lofter.com/categories/cat_other.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 09 Apr 2015 13:57:48 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>云服务纵览与选择</title><link>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;现今互联网上的云服务可谓是山头林立，然而其易用性和可靠性却大相径庭，因此深觉有必要作一番解说，并附上我的个人选择作为参考。这里讨论的是个人云服务，区别于购买VPS、云主机后自行架设的备份或者存储集群。&lt;/p&gt;
+&lt;p&gt;以下提及的诸多国际化的云服务，许多都有可能因为隐私保护、监管难以涉及的问题在中国大陆范围遭到block，如果需要享受乃至依赖这些相对优质的服务，请自行寻找可靠的梯子。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://db.tt/SFgA3uW8"&gt;我的Dropbox邀请链接&lt;/a&gt;   不谢。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Cloud</category><guid>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</guid><pubDate>Fri, 20 Mar 2015 16:10:23 GMT</pubDate></item><item><title>Markdown Testing</title><link>http://adward-r.lofter.com/posts/markdown-testing.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Begin with a title&lt;/h2&gt;
+&lt;h3&gt;And the second level title...&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;List&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;List &lt;code&gt;include high light&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;second level list items..&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;second level list item italic&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;second level list item that is bold&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;still...&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/markdown-testing.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Markdown</category><guid>http://adward-r.lofter.com/posts/markdown-testing.html</guid><pubDate>Thu, 19 Mar 2015 02:46:36 GMT</pubDate></item></channel></rss>

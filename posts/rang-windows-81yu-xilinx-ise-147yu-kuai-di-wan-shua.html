@@ -36,6 +36,8 @@
 ">
     <meta property="og:type" content="article">
     <meta property="article:published_time" content="2015-03-21T22:11:17+08:00">
+           <meta property="article:tag" content="Windows">
+           <meta property="article:tag" content="Xilinx ISE">
 
     
 
@@ -76,6 +78,13 @@
 
             </div>
             
+        <div itemprop="keywords" class="tags">
+        <ul>
+        Tags : 
+           <li><a class="tag p-category" href="../categories/windows.html" rel="tag">Windows</a></li>
+           <li><a class="tag p-category" href="../categories/xilinx-ise.html" rel="tag">Xilinx ISE</a></li>
+        </ul>
+        </div>
 
         </div>
         <div class="body">
@@ -99,7 +108,7 @@
 <blockquote>
 <p>【本文转载于kingcham空间： http://hi.baidu.com/kingcham/blog/item/28fa43951b2b2112d31b70d9.html】
 应用程序事件日志中：</p>
-<pre class="code literal-block">  “C:\windows\system32\test.exe”的激活上下文生成失败。 找不到从属程序集Microsoft.VC80.MFC,processorArchitecture="x86",publicKeyToken="1fc8b3b9a1e18e3b",type="win32",version="8.0.50727.762"。 请使用 sxstrace.exe 进行详细诊断。
+<pre class="code literal-block">“C:\windows\system32\test.exe”的激活上下文生成失败。 找不到从属程序集Microsoft.VC80.MFC,processorArchitecture="x86",publicKeyToken="1fc8b3b9a1e18e3b",type="win32",version="8.0.50727.762"。 请使用 sxstrace.exe 进行详细诊断。
 </pre>
 
 
@@ -108,9 +117,7 @@
 <ol>
 <li>对解决方案来说，VS设置成debug版本和release版本是不一样的。关键在于打包的时候的manifest所制定的路径不同。</li>
 <li>对于部署的程序，VS有两套方案，共享并行程序集和私有程序集部署方法，前者其实就是依赖的东西在目标机的windowswinsxs目录下，后者要求程序自带</li>
-<li>编译程序的时候，主要设置在两个地方，第一个是项目的general配置里面的MFC，第二个是项目配置里面的C/C++下面的Code Generation里面的Runtime Library设置里面。如果你的程序在修改过之后还能编译的话，那就可以了。
- 
- </li>
+<li>编译程序的时候，主要设置在两个地方，第一个是项目的general配置里面的MFC，第二个是项目配置里面的C/C++下面的Code Generation里面的Runtime Library设置里面。如果你的程序在修改过之后还能编译的话，那就可以了。</li>
 </ol>
 <p>今天在准备发布用VS2005写的那个程序时，拷贝到我同事机器上，双击突然出现了“由于应用程序的配置不正确，应用程序未能启动，重新安装应用程序可能会纠正这个问题“，这个问题很让我意外，以前只出现过缺少DLL的情况，而这次出现这个问题，让我一时没办法。想想，无非是两个原因引起的，要么是他没有安装VS2005的原因，要么是我的程序里依赖了其它的一些库。于是百度一下，发现好多相关主题。我是按照这个帖子解决的：</p>
 <blockquote>

@@ -1,47 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 09 Apr 2015 13:34:43 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>国行电信4G版Moto G 2014之Root与刷ROM恢复谷歌服务</title><link>http://adward-r.lofter.com/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h4&gt;&lt;a href="http://pan.baidu.com/s/1eQphktk"&gt;工具包&lt;/a&gt; 密码: lqy8&lt;/h4&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 09 Apr 2015 13:57:48 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>国行电信4G版Moto G 2014之Root与刷ROM恢复谷歌服务</title><link>http://adward-r.lofter.com/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h4&gt;&lt;a href="http://pan.baidu.com/s/1eQphktk"&gt;工具包&lt;/a&gt; 密码: lqy8&lt;/h4&gt;
 &lt;p&gt;原先买Moto G的时候除了缺一款支持电信的手机、对于本体性价比和做工还比较满意之外，一部分原因便是冲着其搭载的原生Android Lollipop 5.0.2系统。可曾想到手的ROM虽然被预装的软件很少（总共6款吧，我Root后也只卸了两款而已，摩托良心），但是阉割了Google Play Service框架和服务，显得空空荡荡；且国内市场能够找到的Service框架都不适配安卓5.0，导致需要GMS的谷歌系应用完全无法正常运行，非常苦恼。于是折腾了一下午终于成功将其改造为本来模样，并尽数获得权限。&lt;/p&gt;
 &lt;p&gt;本文中所述手机型号为Motorola XT1077，若型号不符合，请自行对照各项参数，适用或者更改部分刷机用到的工具。建议照以下内容步骤操作之前，充分了解刷机的风险，比如解锁失去保修、刷错ROM手机变砖乃至Root后需要手动谨慎管理应用权限等。&lt;/p&gt;
 &lt;p&gt;刷机环境为Mac OS X Yosemite。记得手机用USB连电脑要打开&lt;strong&gt;开发者模式-&amp;gt;USB调试&lt;/strong&gt;。&lt;/p&gt;
 &lt;h3&gt;安装android-sdks&lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://developer.android.com/sdk/installing/index.html"&gt;下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;单纯用来刷机的话，Stand-alone SDK Tools已经足够了，因为需要用到的无非也就是adb命令行调试工具+fastboot而已。&lt;/p&gt;
-&lt;p&gt;当然如果是安卓开发者，也可以通过Android Studio、Intellij IDEA或者Eclipse ADT带的SDK Manager下载。下载前看好自己手机信息里的Android Version和Kernel Build Version，主要根据前者去查相应的SDK Build Number（比如Android 4.4.2对应SDK 19）。完整的SDK很大，一个版本就将近5G，所以用哪个下哪个。什么你问我单独的工具多大？抱歉我也不知道，应该不大……吧……之前装过完整的SDK因此就不需要关心这个了，嗯。&lt;/p&gt;
-&lt;p&gt;下载和解压后，需要用到的工具都在android-sdks/platform-tools/中，Windows、Mac OS X和Linux的版本是不一样的。如果没有导出环境变量，即使cd到了该文件夹下应该也是要&lt;code&gt;./adb&lt;/code&gt;和&lt;code&gt;./fastboot&lt;/code&gt;执行的。&lt;/p&gt;
-&lt;h3&gt;安装Motorola手机驱动&lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://motorola-global-zn-ch.custhelp.com/app/answers/detail/a_id/91628"&gt;下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;如果是Windows用户这一步兴许可以跳过。&lt;/p&gt;
-&lt;p&gt;很多教程里链的、或者是Google容易搜出来的国外官网上的Mac驱动都下不动！必须去上面那个链接对应的中文版官方网站下载。&lt;/p&gt;
-&lt;p&gt;我盘里分享的工具包里也有：&lt;strong&gt;Motorila USB Cable Driver for Mac Yosemite - MDM Installer_2.2.9.dmg&lt;/strong&gt;&lt;/p&gt;
-&lt;h3&gt;解锁BootLoader&lt;/h3&gt;
-&lt;p&gt;这个网上的教程基本都有而且基本都可以用，手机用数据线连电脑并进入fastboot模式（这里是同时按住Volume Down和Power键至少五秒后松开Power，记得不要单独让Power处于按下状态），在终端里使用adb和fastboot获得oem信息，去Motorola官网申请解锁码，再用命令行解锁即可。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://bbs.gfan.com/android-7121074-1-1.html"&gt;这个教程&lt;/a&gt;讲得还不错。&lt;/p&gt;
-&lt;p&gt;解锁以后看到白屏的警告不要慌。&lt;/p&gt;
-&lt;h3&gt;刷Recovery和Root&lt;/h3&gt;
-&lt;p&gt;这一步有点tricky的。先上两个别的教程里类似手机（比如Moto X）成功了但我失败了的方法（粗体标注的包在云盘分享里都有）：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Chainfire的Auto Root方式刷入Root（关键一步）
-    根据LiGux的&lt;a href="http://ligux.com/?p=133"&gt;这篇文章&lt;/a&gt;，用&lt;strong&gt;CF-Auto-Root-titanumtsds-titanretde-xt1068.zip&lt;/strong&gt;。文章很有参考意义，但是方法并不完全适用，要做一些变通；猜测主要不成功原因是我在手机进入BootLoader模式后经常从Mac终端莫名访问不到它，甚至&lt;code&gt;adb devices -l&lt;/code&gt;可以，&lt;code&gt;fastboot devices&lt;/code&gt;啥也没有……&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用&lt;strong&gt;r2-motog-superboot.zip&lt;/strong&gt;这个自动Root脚本，方法与前一种很类似，具体方法如果需要了解可以直接Google包名，挺多的。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;知乎上&lt;a href="http://www.zhihu.com/question/27800031/answer/39007940"&gt;这个言简意赅的答案&lt;/a&gt;信息量还是挺大的（包括评论回复也要看），据说可以不需要Root，用TWRP（某第三方Recovery）在手机的fastboot-&amp;gt;recovery模式下直接刷入MD5码为&lt;code&gt;367ce76d6b7772c92810720b8b0c931e&lt;/code&gt;的GAPPS for Android L即可，遗憾我没有成功……说得对，国行适配的TWRP要另外去找，大概隐藏在某些论坛深深的角落里orz&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;最终成功的方法还是主要借鉴了LiGux，但做了修改，如下：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在正常模式下用&lt;code&gt;adb push -p [source] [target_dir]&lt;/code&gt;将&lt;strong&gt;busybox.zip&lt;/strong&gt;、&lt;strong&gt;UPDATE-SuperSU-v2.46&lt;/strong&gt;通过USB传输到手机的内部存储或者外置miniSD卡上（一般是&lt;code&gt;/storage/emulated/0/&lt;/code&gt;和&lt;code&gt;/storage/sdcard1/&lt;/code&gt;之类）；这两个工具都在不断更新，最好去Google搜索它们的官网地址然后下载最新版才能保证成功；&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;adb shell&lt;/code&gt;在终端里进入安卓的内置Shell，&lt;code&gt;reboot bootloader&lt;/code&gt;重启进入fastboot模式（物理关机再重启不一定每次都可以重新连接上这样……）；&lt;/li&gt;
-&lt;li&gt;解压第三方Recovery&lt;strong&gt;CWM_Touch_Titan_v2.img&lt;/strong&gt;的镜像并置于fastboot工具同目录下（放在手机里的几个安装包都不需要解压，维持*.zip即可），&lt;code&gt;fastboot flash recovery CWM_Touch_Titan_v2.img&lt;/code&gt;将CWM装载到闪存的Recovery上，这时手机屏幕会提示成功；&lt;/li&gt;
-&lt;li&gt;可以用Volume Down向下移动光标、Volume Up确定进入Recovery模式（唔，不是Power，我被坑了至少二十分钟），发现已经是炫酷的骚紫色CWM界面了，还支持触控哦……赶紧干活，不要手贱在上一步的命令以后重启，否则会导致重载最初的BootLoader程序，显示小机器人倒地而亡，强行再重启以后要再刷一次CWM才能正常进入Recovery刷ROM什么的哦；&lt;/li&gt;
-&lt;li&gt;根据俩*.zip包放置的位置找到它们并安装，顺序好像是不重要的（我也记不清了），只要都显示成功装上，小机器人没有倒地即可；&lt;/li&gt;
-&lt;li&gt;重启，发现手机里出现了超级权限管理工具SuperSU，Root成功了！原样把&lt;strong&gt;gapps-lp-20141109-signed.zip&lt;/strong&gt;放到手机里，原样进入BootLoader，再刷一次CWM，然后就可以正常安装了。如果没有前导的Root过程，这里是刷不上的（亲测），但是不确定是不是上一步以后不用重启直接刷GAPPS就可以搞定（八成可以）。因为是全新的基于ART而不是Dalvik虚拟机的Android萝莉炮系统，因此对GAPPS的版本要求比较严格。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;常用命令&lt;/h3&gt;
-&lt;h3&gt;参考文献（...）&lt;/h3&gt;&lt;/div&gt;</description><guid>http://adward-r.lofter.com/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html</guid><pubDate>Thu, 09 Apr 2015 12:03:22 GMT</pubDate></item><item><title>WRTnode串口上电调试输出信息详解</title><link>http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;strong&gt;ZJU - Embedded System Course&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://developer.android.com/sdk/installing/index.html"&gt;下载地址&lt;/a&gt;
+&lt;/p&gt;&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Google</category><category>Moto G</category><guid>http://adward-r.lofter.com/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html</guid><pubDate>Thu, 09 Apr 2015 12:03:22 GMT</pubDate></item><item><title>WRTnode串口上电调试输出信息详解</title><link>http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;strong&gt;ZJU - Embedded System Course&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;关于WRTnode上电时在串口终端上看到的那几百行输出信息的解释，Google并没有给出答案，许多名词也是我搜索+看Wiki得来，诸多不准确之处，欢迎指正。&lt;/p&gt;
 &lt;hr&gt;
 &lt;pre class="code literal-block"&gt;//先加载由Manfeel修改过的适配该开发板的U-Boot程序
@@ -59,7 +23,7 @@ Board: Ralink APSoC
 &lt;/pre&gt;
 
 
-&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html"&gt;Read more…&lt;/a&gt; (13 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html</guid><pubDate>Sat, 04 Apr 2015 13:31:30 GMT</pubDate></item><item><title>The Ongoing Nation-scale Net Attack Striking GITHUB from PRC Authority</title><link>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html"&gt;Read more…&lt;/a&gt; (13 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>OpenWRT</category><guid>http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html</guid><pubDate>Sat, 04 Apr 2015 13:31:30 GMT</pubDate></item><item><title>The Ongoing Nation-scale Net Attack Striking GITHUB from PRC Authority</title><link>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;blockquote&gt;
 &lt;p&gt;来自 http://www.solidot.org/story?sid=43506 的信息:&lt;/p&gt;
 &lt;p&gt;第一波是创造性的劫持百度JS文件利用中国海外用户的浏览器每2秒向托管在GitHub上的两个反审查项目发出请求，这一手段被GitHub用弹出JS警告alert()防住；&lt;/p&gt;
 &lt;p&gt;第二轮是跨域 \&amp;lt;img&amp;gt; 攻击，被GitHub检查Referer挡住；&lt;/p&gt;
@@ -74,18 +38,18 @@ Board: Ralink APSoC
 &lt;h3&gt;U.S. Coding Website GitHub Hit With Cyberattack&lt;/h3&gt;
 &lt;h4&gt;Security experts say attack is likely an attempt by China to shut down anticensorship tools&lt;/h4&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</guid><pubDate>Mon, 30 Mar 2015 04:09:10 GMT</pubDate></item><item><title>让Windows 8.1与Xilinx ISE 14.7愉快地玩耍</title><link>http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;ISE 14.7是塞灵思开发的FPGA综合设计开发环境的最新、也是产品线上最后一个版本，之后转向其继承者——基于Eclipse构建的Vivaldo的开发。我从依然使用Thinkpad和Win7时便鼓捣过其10.1、12.4和14.6版本，迁移到OS X平台下后不得已换成Parallels Desktop 10 + Windows 8.1虚拟机方案来安装，期间遇到一些问题，随手整理一些Tips。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html</guid><pubDate>Sat, 21 Mar 2015 14:11:17 GMT</pubDate></item><item><title>云服务纵览与选择</title><link>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;现今互联网上的云服务可谓是山头林立，然而其易用性和可靠性却大相径庭，因此深觉有必要作一番解说，并附上我的个人选择作为参考。这里讨论的是个人云服务，区别于购买VPS、云主机后自行架设的备份或者存储集群。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>GFW</category><category>Github</category><guid>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</guid><pubDate>Mon, 30 Mar 2015 04:09:10 GMT</pubDate></item><item><title>让Windows 8.1与Xilinx ISE 14.7愉快地玩耍</title><link>http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;ISE 14.7是塞灵思开发的FPGA综合设计开发环境的最新、也是产品线上最后一个版本，之后转向其继承者——基于Eclipse构建的Vivaldo的开发。我从依然使用Thinkpad和Win7时便鼓捣过其10.1、12.4和14.6版本，迁移到OS X平台下后不得已换成Parallels Desktop 10 + Windows 8.1虚拟机方案来安装，期间遇到一些问题，随手整理一些Tips。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Windows</category><category>Xilinx ISE</category><guid>http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html</guid><pubDate>Sat, 21 Mar 2015 14:11:17 GMT</pubDate></item><item><title>云服务纵览与选择</title><link>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;现今互联网上的云服务可谓是山头林立，然而其易用性和可靠性却大相径庭，因此深觉有必要作一番解说，并附上我的个人选择作为参考。这里讨论的是个人云服务，区别于购买VPS、云主机后自行架设的备份或者存储集群。&lt;/p&gt;
 &lt;p&gt;以下提及的诸多国际化的云服务，许多都有可能因为隐私保护、监管难以涉及的问题在中国大陆范围遭到block，如果需要享受乃至依赖这些相对优质的服务，请自行寻找可靠的梯子。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://db.tt/SFgA3uW8"&gt;我的Dropbox邀请链接&lt;/a&gt;   不谢。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</guid><pubDate>Fri, 20 Mar 2015 16:10:23 GMT</pubDate></item><item><title>使用静态博客生成器Nikola建立个人主页</title><link>http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Establish Your Individual Blog Using Static Blog Generator NIKOLA&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Cloud</category><guid>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</guid><pubDate>Fri, 20 Mar 2015 16:10:23 GMT</pubDate></item><item><title>使用静态博客生成器Nikola建立个人主页</title><link>http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Establish Your Individual Blog Using Static Blog Generator NIKOLA&lt;/h2&gt;
 &lt;p&gt;是的，这就是目前这个博客所利用的构建套件，基于Github上特殊的免费代码仓库&lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt;（300M空间）和静态博客生成工具Nikola（链接见底部）。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Why Static Websites?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Static websites are safer, use fewer resources, and avoid vendor and platform lock-in.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;相比较WordPress等功能完善强大、插件生态丰富的主流动态博客软件，静态博客软件的功能显得比较有限，但是胜在良好的平台迁移性、极快的渲染速度（根本就是提前渲染好的）以及很低的上手成本。Static Blog不需要配置Apache或者Nginx等服务器端软件来处理页面请求，而是使用Python构建的模拟服务器，serve已经预先渲染好的页面样式，因此响应速度非常令人满意，资源占用很低，环境配置也简化到了一定程度。对于不喜欢过分折腾者，这些特性应该足够使得静态博客软件成为首选。然而遇到问题时，如果对于前端技术没有了解的话恐怕折腾起来也会比较头疼的吧。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html</guid><pubDate>Fri, 20 Mar 2015 08:48:58 GMT</pubDate></item><item><title>Markdown Testing</title><link>http://adward-r.lofter.com/posts/markdown-testing.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Begin with a title&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Github</category><category>Static Blog</category><guid>http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html</guid><pubDate>Fri, 20 Mar 2015 08:48:58 GMT</pubDate></item><item><title>Markdown Testing</title><link>http://adward-r.lofter.com/posts/markdown-testing.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Begin with a title&lt;/h2&gt;
 &lt;h3&gt;And the second level title...&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -109,4 +73,4 @@ Board: Ralink APSoC
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/markdown-testing.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Computer Science</category><category>Markdown</category><guid>http://adward-r.lofter.com/posts/markdown-testing.html</guid><pubDate>Thu, 19 Mar 2015 02:46:36 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/markdown-testing.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Markdown</category><guid>http://adward-r.lofter.com/posts/markdown-testing.html</guid><pubDate>Thu, 19 Mar 2015 02:46:36 GMT</pubDate></item></channel></rss>

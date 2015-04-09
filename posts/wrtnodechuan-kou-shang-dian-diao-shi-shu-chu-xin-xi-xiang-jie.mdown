@@ -2,8 +2,8 @@
 .. title: WRTnode串口上电调试输出信息详解
 .. slug: wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie
 .. date: 2015-04-04 21:31:30 UTC+08:00
-.. tags: 
-.. category: 
+.. tags: OpenWRT
+.. category: Embedded Systems
 .. link: 
 .. description: 
 .. type: text
@@ -27,7 +27,7 @@
 	| |\/| |/ _` | '_ \|  __/ _ \/ _ \ |
 	| |  | | (_| | | | | | |  __/  __/ |
 	|_|  |_|\__,_|_| |_|_|  \___|\___|_|
-	
+ 
 
 <!-- TEASER_END -->
 
@@ -416,8 +416,8 @@
 	
 	BusyBox v1.22.1 (2014-08-13 19:31:12 UTC) built-in shell (ash)
 	Enter 'help' for a list of built-in commands.
-	
-	 
+ 
+  
 	  _______                     ________        __
 	 |       |.-----.-----.-----.|  |  |  |.----.|  |_
 	 |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
@@ -432,5 +432,4 @@
 	2 tsp. Creme de Cacao
 	
 	root@OpenWrt:/# //可以在root权限下正常使用了
-
 

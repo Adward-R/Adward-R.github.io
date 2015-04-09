@@ -2,8 +2,8 @@
 .. title: 使用静态博客生成器Nikola建立个人主页
 .. slug: shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye
 .. date: 2015-03-20 16:48:58 UTC+08:00
-.. tags: 
-.. category: 
+.. tags: Github,Static Blog
+.. category: Blog
 .. link: 
 .. description: 
 .. type: text
@@ -54,10 +54,10 @@ Establish Your Individual Blog Using Static Blog Generator NIKOLA
 
 			sudo brew install libxml2-dev libxslt1-dev zlib1g-dev
 
-		
+		 
 	  CentOS、RedHat之类用yum做包管理的需要把dev写成devel，下面一个常见错误同理：
 
-			sudo yum install libxslt-devel libxml2-devel zlib-devel
+		    sudo yum install libxslt-devel libxml2-devel zlib-devel
 
 	- 编译时提示缺失*Python.h*，如果之前做过Python开发用过Django什么的应该已经知道如何解决（或者不会遇到）：
 
@@ -73,11 +73,10 @@ Establish Your Individual Blog Using Static Blog Generator NIKOLA
 		> No more free memory on lowest cost DigitalOcean VPS…
 
 		> Add swapfile:
-				  
-		> 	sudo dd if=/dev/zero of=/swapfile bs=1024 count=524288
-		> 	sudo chmod 600 /swapfile
-		> 	sudo mkswap /swapfile
-		> 	sudo swapon /swapfile
+		>   sudo dd if=/dev/zero of=/swapfile bs=1024 count=524288
+		>   sudo chmod 600 /swapfile
+		>   sudo mkswap /swapfile
+		>   sudo swapon /swapfile
 
 		> From:
 
@@ -155,16 +154,16 @@ Nikola的全局配置文件在站点根目录下的conf.py，官方文档讲得�
 		    ("stories/*.txt", "stories", "story.tmpl"),
 		    ("stories/*.rst", "stories", "story.tmpl"),
 		)
-		
+		 
 	要写Markdown的话，需要各加一行变成这样：
-	
+	 
 		POSTS = (
-	    	("posts/*.txt", "posts", "post.tmpl"),
+		    ("posts/*.txt", "posts", "post.tmpl"),
 		    ("posts/*.rst", "posts", "post.tmpl"),
 		    ("posts/*.mdown", "posts", "post.tmpl"),
 		)
 		PAGES = (
-	    	("stories/*.txt", "stories", "story.tmpl"),
+		    ("stories/*.txt", "stories", "story.tmpl"),
 		    ("stories/*.rst", "stories", "story.tmpl"),
 		    ("stories/*.mdown", "stories", "story.tmpl"),
 		)
@@ -172,7 +171,7 @@ Nikola的全局配置文件在站点根目录下的conf.py，官方文档讲得�
 
 3. TEASERS
 	为了在首页INDEX和RSS订阅中只显示截取部分的文章预览，需要把`INDEX_TEASERS`和`RSS_TEASER`注释去掉，并且把值都设置为*True*；这样在*\*.mdown*文档中插入`<!-- TEASER_END -->`后，其下方的文章就会被自动折叠。
-	
+	 
 
 4. Theme Installation
 	Nikola社群的主题不算很多，但是基本够用，而且都偏向大方干净。我现在使用的是**Zen**系列。因为不同的博客需要做不同的配置修改（一般都很容易），还是自行去[官方主页][5]去挑选比较靠谱，一般都需要修改一下导航栏即**NAVIGATION\_LINKS**。

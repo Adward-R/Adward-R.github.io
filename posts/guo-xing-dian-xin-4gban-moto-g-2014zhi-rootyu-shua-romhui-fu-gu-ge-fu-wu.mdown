@@ -2,8 +2,8 @@
 .. title: 国行电信4G版Moto G 2014之Root与刷ROM恢复谷歌服务
 .. slug: guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu
 .. date: 2015-04-09 20:03:22 UTC+08:00
-.. tags: 
-.. category: 
+.. tags: Moto G,Google
+.. category: Android
 .. link: 
 .. description: 
 .. type: text
@@ -19,6 +19,7 @@
 
 ## 安装android-sdks
 [下载地址][2]
+<!-- TEASER_END -->
 
 单纯用来刷机的话，Stand-alone SDK Tools已经足够了，因为需要用到的无非也就是adb命令行调试工具+fastboot而已。
 

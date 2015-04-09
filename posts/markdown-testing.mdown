@@ -2,8 +2,8 @@
 .. title: Markdown Testing
 .. slug: markdown-testing
 .. date: 2015-03-19 10:46:36 UTC+08:00
-.. tags: Markdown,Computer Science
-.. category: CS
+.. tags: Markdown
+.. category: Other
 .. link: http://adward-r.me
 .. description: This is a description~
 .. type: text
@@ -13,35 +13,37 @@
 ## And the second level title...
 
  - List
- 
+	 
  - List `include high light`
- 
- 	- second level list items..
- 	
- 	- *second level list item italic*
- 	
- 	- **second level list item that is bold**
- 	
- 	- ***still...***
- 	
+	 
+	- second level list items..
+			 
+	- *second level list item italic*
+			 
+	- **second level list item that is bold**
+			 
+	- ***still...***
+			 
  <!-- TEASER_END -->
  
- ![Alt Text](../post3_img/img2.jpg)
+ ![Alt Text][image-1]
  
  
- > quotes
+ \> quotes
 
- > quotes for second line
+ \> quotes for second line
 
 	//code section
 	#include <iostream>
 	using namespace std;
 	int main(){
-		cout<<"Hello World!"<<endl;
-		return 0;
+	    cout<<"Hello World!"<<endl;
+	    return 0;
 	}
-	
-	
-###third title..
+ 
+ 
+### third title..
 
 _try highlighting in another way_
+
+[image-1]:	../post3_img/img2.jpg

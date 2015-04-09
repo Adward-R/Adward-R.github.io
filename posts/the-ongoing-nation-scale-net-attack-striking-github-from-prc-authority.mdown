@@ -2,8 +2,8 @@
 .. title: The Ongoing Nation-scale Net Attack Striking GITHUB from PRC Authority
 .. slug: the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority
 .. date: 2015-03-30 12:09:10 UTC+08:00
-.. tags: 
-.. category: 
+.. tags: Github,GFW
+.. category: Wa11 Break
 .. link: 
 .. description: 
 .. type: text
@@ -35,8 +35,8 @@ Hail Github.
 
 
 > By **Eva Dou**
-`March 29, 2015 10:22 a.m. ET
-`
+\`March 29, 2015 10:22 a.m. ET
+\`
 > **BEIJING** — A popular U.S. coding website is enduring an onslaught of Internet traffic meant for China’s most popular search engine, and security experts say the episode likely represents an attempt by China to shut down anticensorship tools.
 > 
 > The attack on San Francisco-based GitHub Inc., a service used by programmers and major tech firms world-wide to develop software, appears to underscore how China’s Internet censors increasingly reach outside the country to clamp down on content they find objectionable.

@@ -38,6 +38,8 @@ Why Static Websites?
 Static websites are safer, us">
     <meta property="og:type" content="article">
     <meta property="article:published_time" content="2015-03-20T16:48:58+08:00">
+           <meta property="article:tag" content="Github">
+           <meta property="article:tag" content="Static Blog">
 
     
 
@@ -78,6 +80,13 @@ Static websites are safer, us">
 
             </div>
             
+        <div itemprop="keywords" class="tags">
+        <ul>
+        Tags : 
+           <li><a class="tag p-category" href="../categories/github.html" rel="tag">Github</a></li>
+           <li><a class="tag p-category" href="../categories/static-blog.html" rel="tag">Static Blog</a></li>
+        </ul>
+        </div>
 
         </div>
         <div class="body">
@@ -144,8 +153,8 @@ Static websites are safer, us">
 <p>Google了一下，发现StackOverflow上还挺多人遇到过<a href="http://stackoverflow.com/questions/24455238/lxml-installation-error-ubuntu-14-04-internal-compiler-error">这个问题</a>的：</p>
 <blockquote>
 <p>No more free memory on lowest cost DigitalOcean VPS…</p>
-<p>Add swapfile:</p>
-<p>sudo dd if=/dev/zero of=/swapfile bs=1024 count=524288
+<p>Add swapfile:
+  sudo dd if=/dev/zero of=/swapfile bs=1024 count=524288
   sudo chmod 600 /swapfile
   sudo mkswap /swapfile
   sudo swapon /swapfile</p>
