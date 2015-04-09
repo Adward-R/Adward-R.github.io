@@ -67,16 +67,18 @@
 <p>本文中所述手机型号为Motorola XT1077，若型号不符合，请自行对照各项参数，适用或者更改部分刷机用到的工具。建议照以下内容步骤操作之前，充分了解刷机的风险，比如解锁失去保修、刷错ROM手机变砖乃至Root后需要手动谨慎管理应用权限等。</p>
 <p>刷机环境为Mac OS X Yosemite。记得手机用USB连电脑要打开<strong>开发者模式-&gt;USB调试</strong>。</p>
 <h3>安装android-sdks</h3>
-<p><a href="https://developer.android.com/sdk/installing/index.html">下载地址</a>
-单纯用来刷机的话，Stand-alone SDK Tools已经足够了，因为需要用到的无非也就是adb命令行调试工具+fastboot而已。当然如果是安卓开发者，也可以通过Android Studio、Intellij IDEA或者Eclipse ADT带的SDK Manager下载。下载前看好自己手机信息里的Android Version和Kernel Build Version，主要根据前者去查相应的SDK Build Number（比如Android 4.4.2对应SDK 19）。完整的SDK很大，一个版本就将近5G，所以用哪个下哪个。什么你问我单独的工具多大？抱歉我也不知道，应该不大……吧……之前装过完整的SDK因此就不需要关心这个了，嗯。</p>
+<p><a href="https://developer.android.com/sdk/installing/index.html">下载地址</a></p>
+<p>单纯用来刷机的话，Stand-alone SDK Tools已经足够了，因为需要用到的无非也就是adb命令行调试工具+fastboot而已。</p>
+<p>当然如果是安卓开发者，也可以通过Android Studio、Intellij IDEA或者Eclipse ADT带的SDK Manager下载。下载前看好自己手机信息里的Android Version和Kernel Build Version，主要根据前者去查相应的SDK Build Number（比如Android 4.4.2对应SDK 19）。完整的SDK很大，一个版本就将近5G，所以用哪个下哪个。什么你问我单独的工具多大？抱歉我也不知道，应该不大……吧……之前装过完整的SDK因此就不需要关心这个了，嗯。</p>
 <p>下载和解压后，需要用到的工具都在android-sdks/platform-tools/中，Windows、Mac OS X和Linux的版本是不一样的。如果没有导出环境变量，即使cd到了该文件夹下应该也是要<code>./adb</code>和<code>./fastboot</code>执行的。</p>
 <h3>安装Motorola手机驱动</h3>
-<p><a href="https://motorola-global-zn-ch.custhelp.com/app/answers/detail/a_id/91628">下载地址</a>
-如果是Windows用户这一步兴许可以跳过。
-很多教程里链的、或者是Google容易搜出来的国外官网上的Mac驱动都下不动！必须去上面那个链接对应的中文版官方网站下载。
-我盘里分享的工具包里也有：<strong>Motorila USB Cable Driver for Mac Yosemite - MDM Installer_2.2.9.dmg</strong></p>
+<p><a href="https://motorola-global-zn-ch.custhelp.com/app/answers/detail/a_id/91628">下载地址</a></p>
+<p>如果是Windows用户这一步兴许可以跳过。</p>
+<p>很多教程里链的、或者是Google容易搜出来的国外官网上的Mac驱动都下不动！必须去上面那个链接对应的中文版官方网站下载。</p>
+<p>我盘里分享的工具包里也有：<strong>Motorila USB Cable Driver for Mac Yosemite - MDM Installer_2.2.9.dmg</strong></p>
 <h3>解锁BootLoader</h3>
-<p>这个网上的教程基本都有而且基本都可以用，手机用数据线连电脑并进入fastboot模式（这里是同时按住Volume Down和Power键至少五秒后松开Power，记得不要单独让Power处于按下状态），在终端里使用adb和fastboot获得oem信息，去Motorola官网申请解锁码，再用命令行解锁即可。<a href="http://bbs.gfan.com/android-7121074-1-1.html">这个教程</a>讲得还不错。</p>
+<p>这个网上的教程基本都有而且基本都可以用，手机用数据线连电脑并进入fastboot模式（这里是同时按住Volume Down和Power键至少五秒后松开Power，记得不要单独让Power处于按下状态），在终端里使用adb和fastboot获得oem信息，去Motorola官网申请解锁码，再用命令行解锁即可。</p>
+<p><a href="http://bbs.gfan.com/android-7121074-1-1.html">这个教程</a>讲得还不错。</p>
 <p>解锁以后看到白屏的警告不要慌。</p>
 <h3>刷Recovery和Root</h3>
 <p>这一步有点tricky的。先上两个别的教程里类似手机（比如Moto X）成功了但我失败了的方法（粗体标注的包在云盘分享里都有）：</p>
@@ -92,7 +94,7 @@
 <p>知乎上<a href="http://www.zhihu.com/question/27800031/answer/39007940">这个言简意赅的答案</a>信息量还是挺大的（包括评论回复也要看），据说可以不需要Root，用TWRP（某第三方Recovery）在手机的fastboot-&gt;recovery模式下直接刷入MD5码为<code>367ce76d6b7772c92810720b8b0c931e</code>的GAPPS for Android L即可，遗憾我没有成功……说得对，国行适配的TWRP要另外去找，大概隐藏在某些论坛深深的角落里orz</p>
 </li>
 </ol>
-<p>最终成功的方法还是主要借鉴了LiGux，但做了修改，如下：</p>
+<p><strong>最终成功的方法还是主要借鉴了LiGux，但做了修改，如下：</strong></p>
 <ul>
 <li>在正常模式下用<code>adb push -p [source] [target_dir]</code>将<strong>busybox.zip</strong>、<strong>UPDATE-SuperSU-v2.46</strong>通过USB传输到手机的内部存储或者外置miniSD卡上（一般是<code>/storage/emulated/0/</code>和<code>/storage/sdcard1/</code>之类）；这两个工具都在不断更新，最好去Google搜索它们的官网地址然后下载最新版才能保证成功；</li>
 <li>
