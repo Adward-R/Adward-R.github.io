@@ -14,87 +14,86 @@ Embedded System Lab 2 on WRTnode
 
 ---- 
 
-## 1. 器材列表
+# 1. 器材列表
 
 - WRTnode核心板，专用USB线，USB-to-TTL串口线
 
-## 2. 接线方法
+# 2. 接线方法
 
 - 电插座\<-\>手机充电头\<-\>专用USB线的单个USB头\<-\>专用USB的OTG头\<-\>WRTnode核心板\<-\>GND、RXD2、TXD2三个针脚\<-\>USB-to-TTL线的杜邦线头\<-\> USB-to-TTL线的USB头\<-\>电脑USB口；
 - 针脚具体接线方法同第一次实验报告，可在[WRTnode Wiki][1]找到，细节不再作冗余说明；
 - 实验的大部分流程都是通过`$ ssh root@192.168.8.1`在Mac OS X的终端中**以root身份**完成的，WRTnode的作用相当于局域网路由器，通过它使得Macbook、手机等终端可以连接Internet。
 
-## 3. Samba配置
+# 3. Samba配置
 
- - ###Samba Server Port的安装：
+ - ##Samba Server Port的安装：
 <!-- TEASER_END -->
 	
 需要在VPN或者代理环境（Shadowsocks透明路由，或者Macbook上的全局和精确模式的PAC分流VPN均可，因为似乎wrtnode的官方源访问不稳定）下，在WRTnode的模拟终端下`$ opkg update`，然后`$ opkg install samba36-server`；Samba版本号日后可能有变化。
 
- - ###Samba Server Port的配置：
+ - ##Samba Server Port的配置：
 
-  1. **配置全局共享参数：**
+###1. 配置全局共享参数
+将`/etc/samba/smb.conf.template`中原有的限制行`invalid users = root`注释掉（如果希望以root从本机登录而没有在OpenWRT上安装添加其它用户的模块），其它保持默认即可；
 
-	将`/etc/samba/smb.conf.template`中原有的限制行`invalid users = root`注释掉（如果希望以root从本机登录而没有在OpenWRT上安装添加其它用户的模块），其它保持默认即可；
-
-  2. **配置共享目录和参数：**
-	 
-	例如要以root身份访问并读写开发板上`/root`文件夹，便可以创建一个名为**home**的共享，即在`/etc/config/samba`中修改**sambashare**部分如下：
+###2. 配置共享目录和参数
+例如要以root身份访问并读写开发板上`/root`文件夹，便可以创建一个名为**home**的共享，即在`/etc/config/samba`中修改**sambashare**部分如下：
 	 
 	   
-	    config sambashare
-	            option 'name'                   'home' //共享名称
-	            option 'path'                   '/root' //共享文件夹位置
-	            option 'read_only'              'no' //远程可以有读写权限
-	            option 'guest_ok'               'yes' //可以以客人身份                				option 'create_mask'            '0750' //登录者创建的文件的权限掩码（默认权限）
-	           	option 'dir_mask'               '0750' //文件夹的默认权限
-	            #option 'users'                 'abc'
+	config sambashare
+	   	option 'name'           'home' //共享名称
+	    option 'path'           '/root' //共享文件夹位置
+	    option 'read_only'      'no' //远程可以有读写权限
+	    option 'guest_ok'       'yes' //可以以客人身份            
+	    option 'create_mask'    '0750' //登录者创建的文件的权限掩码（默认权限）
+	    option 'dir_mask'       '0750' //文件夹的默认权限
+	    #option 'users'         'abc'
 
-	当然也可以按照同样格式再配置多个不同的共享目录，共享给本机上的不同（或者相同）用户。
+当然也可以按照同样格式再配置多个不同的共享目录，共享给本机上的不同（或者相同）用户。
 
-3. **配置共享登录的密码：**
+###3. 配置共享登录的密码
 
-	直接运行`smbpasswd`命令会遇到问题，显示如下错误信息：
+直接运行`smbpasswd`命令会遇到问题，显示如下错误信息：
 
 	Failed to open /etc/samba/smbpasswd
 
-	因此需要先在该位置建立一个空文件，然后再运行`$ smbpasswd -a root`命令，赋予root被远程共享登录的权限并随之设置其密码。密码会以加密文本方式保存在上述文件中，root用户有权限查看乃至修改（但是不建议）。
+因此需要先在该位置建立一个空文件，然后再运行`$ smbpasswd -a root`命令，赋予root被远程共享登录的权限并随之设置其密码。密码会以加密文本方式保存在上述文件中，root用户有权限查看乃至修改（但是不建议）。
 
-4. **完成：**
+###4. 完成
 
-	`$/etc/init.d/samba start`启动服务即可；其它参数包括重启服务、设置为开机自启动等。
+`$/etc/init.d/samba start`启动服务即可；其它参数包括重启服务、设置为开机自启动等。
 
-- ###本机远程登录共享文件夹
+- ##本机远程登录共享文件夹
 
-	完成上述配置后，如果是Windows需要在本地安装Samba客户端，而Mac OS X作为\*nix操作系统，对于基于NFS的smb协议有较好的支持，可以直接登录，步骤如下：
+完成上述配置后，如果是Windows需要在本地安装Samba客户端，而Mac OS X作为\*nix操作系统，对于基于NFS的smb协议有较好的支持，可以直接登录，步骤如下：
  
-	打开Finder，`cmd+shift+G`唤出“Goto”，再按`cmd+k`，出现如下窗口：
+打开Finder，`cmd+shift+G`唤出“Goto”，再按`cmd+k`，出现如下窗口：
  
-	![][image-1]
+![][image-1]
  
-	下一步，输入设置的用户名（root）和密码后，成功连接，再选择要加载的宗卷（root），就会打开相应的窗口。至此，已经通过smb协议将WRTnode上的文件路径映射为Mac的一个网络位置，并挂载到了`/Volumes/`下，如图：
+下一步，输入设置的用户名（root）和密码后，成功连接，再选择要加载的宗卷（root），就会打开相应的窗口。至此，已经通过smb协议将WRTnode上的文件路径映射为Mac的一个网络位置，并挂载到了`/Volumes/`下，如图：
 
-	![][image-2]
+![][image-2]
 
-	 双向的传输和读写都是允许的，并且几乎是立即就能同步完成。
+双向的传输和读写都是允许的，并且几乎是立即就能同步完成。
 
-## 4. 其它文件传输方式
+# 4. 其它文件传输方式
 
- - WiFi：sftp
+ - ##WiFi：sftp
 
- - WiFi：scp
+ - ##WiFi：scp
 
- - TTL串口：xmodem
+ - ##TTL串口：xmodem
 
-## 5. 文件传输和共享方法的比较
+# 5. 文件传输和共享方法的比较
 
-## 6. 交叉编译环境搭建
+# 6. 交叉编译环境搭建
 
- - ###第一步：从源码编译固件
+ - ##第一步：从源码编译固件
 
 	因为Mac OS X的默认文件系统不区分大小写，而OpenWRT等Linux区分大小写，若在本机上编译会需要分出一块磁盘区域供交叉编译使用，因此选择在阿里云ECS的Ubuntu 14.04 LTS环境下进行编译。
 
-	根据官方指南——[「WRTnode静态SDK编译」]()[6]()——的说明，并稍作修改，依次执行了以下步骤：
+	根据官方指南——[「WRTnode静态SDK编译」](4)——的说明，并稍作修改，依次执行了以下步骤：
 
 	配置Linux编译环境的Dependencies：
 
@@ -127,7 +126,7 @@ Embedded System Lab 2 on WRTnode
 
 	经过一段漫长的编译之后生成的固件在 `./bin/ramips/openwrt-ramips-mt7620n-wrtnode-squashfs-sysupgrade.bin` 。
 
- - ###应用Cross Compile工具链
+ - ##应用Cross Compile工具链
 
 	解压上述固件同文件夹`ramips/`里的SDK压缩包：
 
@@ -135,10 +134,10 @@ Embedded System Lab 2 on WRTnode
 
 	然后进入解压出来的SDK文件夹，会发现其中文件结构与整个wrtnode-sdks源码包非常接近；需要编译的工程文件放置在`packages/`下，这里为了试验创建了一个**helloworld**，但是print到stdout的内容是“Hell World!”……具体结构如下：
 
-		OpenWrt-SDK-ramips-for-linux-x86\_64-gcc-4.8-linaro\_uClibc-0.9.33.2 ➤ ls                                                                           git:master\*
+		OpenWrt-SDK-ramips-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2 ➤ ls                                                                           git:master\*
 		bin        Config-build.in  dl    feeds.conf.default  LICENSE   package     rules.mk  staging\_dir  tmp
 		build\_dir  Config.in        docs  include             Makefile  README.SDK  scripts   target
-		OpenWrt-SDK-ramips-for-linux-x86\_64-gcc-4.8-linaro\_uClibc-0.9.33.2 ➤ tree package                                                                 git:master\*
+		OpenWrt-SDK-ramips-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2 ➤ tree package                                                                 git:master\*
 		package
 		├── helloworld
 		│   ├── Makefile
@@ -182,18 +181,20 @@ Embedded System Lab 2 on WRTnode
 > 
 	> 缺少类库，然后其实我发现我的类库在系统里是存在的：
 > 
-		> locate libc.so.6
+		locate libc.so.6
 > 
 	> 结果：
 > 
-		> /lib/i386-linux-gnu/libc.so.6
-		> /lib64/libc.so.6
+		/lib/i386-linux-gnu/libc.so.6
+		/lib64/libc.so.6
 
 	> 看~明显存在，我用的应该是上面的那个类库，然后我弄了一晚上没弄好，今天所有工作做完终于弄好了。我做的工作包括这些：
 	> 
-	> **第一步（舍去）：**
+	> ###第一步
+	
+	（舍去)
 > 
-	> **第二步：**
+	> ###第二步
 > 
 	> 在你写的代码文件夹下(我写的是个helloworld)下的Makefile里
 > 
@@ -201,33 +202,33 @@ Embedded System Lab 2 on WRTnode
 > 
 	> 就是在
 > 
-		> define Package/helloworld  
-		>         SECTION:=utils  
-		>         CATEGORY:=Utilities  
-		>         TITLE:=Helloworld -- prints a snarky message 
-		>         DEPENDS:=+libc
-		> endef
+		define Package/helloworld  
+		        SECTION:=utils  
+		        CATEGORY:=Utilities  
+		        TITLE:=Helloworld -- prints a snarky message 
+		        DEPENDS:=+libc
+		endef
 
 	> 这个define下面。  
 
-	> **第三步：**
+	> ###第三步
 > 
 	> 也是在Makefile里增加：
 > 
-		> define Package/helloworld/install  
-		>         $(INSTALL_DIR) $(1)/bin  
-		>         $(CP) /lib/i386-linux-gnu/libc.so.6 $(1)/bin
-		>         $(INSTALL_BIN) $(PKG_BUILD_DIR)/helloworld $(1)/bin/  
-		> endef
+		define Package/helloworld/install  
+		        $(INSTALL_DIR) $(1)/bin  
+		        $(CP) /lib/i386-linux-gnu/libc.so.6 $(1)/bin
+		        $(INSTALL_BIN) $(PKG_BUILD_DIR)/helloworld $(1)/bin/  
+		endef
 
 	> 这里多了一行$(CP)的代码。
 > 
-	> **最后一步：**
+	> ###最后一步
 > 
 	> 在`/home/user/attitude/staging_dir/target-mips_r2_uClibc-0.9.33.2/pkginfo`下的`libc.provides`文件里增加两行：
 > 
-		> /lib/i386-linux-gnu/libc.so.6
-		> ~~libc.so.6
+		/lib/i386-linux-gnu/libc.so.6
+		libc.so.6
 
 	这样就搞定了自动链接在本机系统里已经存在、但是SDK没有找到的库。更多资料可以查阅[OpenWRT论坛][7]和[StackOverflow][8]的两个相关问题页面，类似问题还是挺常见的。
 
@@ -245,7 +246,7 @@ Embedded System Lab 2 on WRTnode
 
 	![][image-3]
 
-## 7. 嵌入式板卡本机开发环境
+# 7. 嵌入式板卡本机开发环境
 
 …
 

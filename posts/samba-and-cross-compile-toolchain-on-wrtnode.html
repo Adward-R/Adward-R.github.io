@@ -95,86 +95,84 @@ WRTnode核心板，专用USB线，USB-to-TTL串口线
             <div>
 <h2>Embedded System Lab 2 on WRTnode</h2>
 <hr>
-<h3>1. 器材列表</h3>
+<h2>1. 器材列表</h2>
 <ul>
 <li>WRTnode核心板，专用USB线，USB-to-TTL串口线</li>
 </ul>
-<h3>2. 接线方法</h3>
+<h2>2. 接线方法</h2>
 <ul>
 <li>电插座\&lt;-&gt;手机充电头\&lt;-&gt;专用USB线的单个USB头\&lt;-&gt;专用USB的OTG头\&lt;-&gt;WRTnode核心板\&lt;-&gt;GND、RXD2、TXD2三个针脚\&lt;-&gt;USB-to-TTL线的杜邦线头\&lt;-&gt; USB-to-TTL线的USB头\&lt;-&gt;电脑USB口；</li>
 <li>针脚具体接线方法同第一次实验报告，可在<a href="http://wiki.wrtnode.com/index.php?title=Starting/zh-cn">WRTnode Wiki</a>找到，细节不再作冗余说明；</li>
 <li>实验的大部分流程都是通过<code>$ ssh root@192.168.8.1</code>在Mac OS X的终端中<strong>以root身份</strong>完成的，WRTnode的作用相当于局域网路由器，通过它使得Macbook、手机等终端可以连接Internet。</li>
 </ul>
-<h3>3. Samba配置</h3>
+<h2>3. Samba配置</h2>
 <ul>
 <li>
-<h4>Samba Server Port的安装：</h4>
+<h3>Samba Server Port的安装：</h3>
 <!-- TEASER_END -->
 </li>
 </ul>
 <p>需要在VPN或者代理环境（Shadowsocks透明路由，或者Macbook上的全局和精确模式的PAC分流VPN均可，因为似乎wrtnode的官方源访问不稳定）下，在WRTnode的模拟终端下<code>$ opkg update</code>，然后<code>$ opkg install samba36-server</code>；Samba版本号日后可能有变化。</p>
 <ul>
 <li>
-<h4>Samba Server Port的配置：</h4>
+<h3>Samba Server Port的配置：</h3>
 </li>
-<li>
-<p><strong>配置全局共享参数：</strong></p>
+</ul>
+<h4>1. 配置全局共享参数</h4>
 <p>将<code>/etc/samba/smb.conf.template</code>中原有的限制行<code>invalid users = root</code>注释掉（如果希望以root从本机登录而没有在OpenWRT上安装添加其它用户的模块），其它保持默认即可；</p>
-</li>
-<li>
-<p><strong>配置共享目录和参数：</strong></p>
+<h4>2. 配置共享目录和参数</h4>
 <p>例如要以root身份访问并读写开发板上<code>/root</code>文件夹，便可以创建一个名为<strong>home</strong>的共享，即在<code>/etc/config/samba</code>中修改<strong>sambashare</strong>部分如下：</p>
 <pre class="code literal-block">config sambashare
-        option 'name'                   'home' //共享名称
-        option 'path'                   '/root' //共享文件夹位置
-        option 'read_only'              'no' //远程可以有读写权限
-        option 'guest_ok'               'yes' //可以以客人身份                             option 'create_mask'            '0750' //登录者创建的文件的权限掩码（默认权限）
-        option 'dir_mask'               '0750' //文件夹的默认权限
-        #option 'users'                 'abc'
+    option 'name'           'home' //共享名称
+    option 'path'           '/root' //共享文件夹位置
+    option 'read_only'      'no' //远程可以有读写权限
+    option 'guest_ok'       'yes' //可以以客人身份            
+    option 'create_mask'    '0750' //登录者创建的文件的权限掩码（默认权限）
+    option 'dir_mask'       '0750' //文件夹的默认权限
+    #option 'users'         'abc'
 </pre>
 
 
 <p>当然也可以按照同样格式再配置多个不同的共享目录，共享给本机上的不同（或者相同）用户。</p>
-</li>
-<li>
-<p><strong>配置共享登录的密码：</strong></p>
+<h4>3. 配置共享登录的密码</h4>
 <p>直接运行<code>smbpasswd</code>命令会遇到问题，显示如下错误信息：</p>
-<p>Failed to open /etc/samba/smbpasswd</p>
+<pre class="code literal-block">Failed to open /etc/samba/smbpasswd
+</pre>
+
+
 <p>因此需要先在该位置建立一个空文件，然后再运行<code>$ smbpasswd -a root</code>命令，赋予root被远程共享登录的权限并随之设置其密码。密码会以加密文本方式保存在上述文件中，root用户有权限查看乃至修改（但是不建议）。</p>
-</li>
-<li>
-<p><strong>完成：</strong></p>
+<h4>4. 完成</h4>
 <p><code>$/etc/init.d/samba start</code>启动服务即可；其它参数包括重启服务、设置为开机自启动等。</p>
-</li>
+<ul>
 <li>
-<h4>本机远程登录共享文件夹</h4>
+<h3>本机远程登录共享文件夹</h3>
+</li>
+</ul>
 <p>完成上述配置后，如果是Windows需要在本地安装Samba客户端，而Mac OS X作为*nix操作系统，对于基于NFS的smb协议有较好的支持，可以直接登录，步骤如下：</p>
 <p>打开Finder，<code>cmd+shift+G</code>唤出“Goto”，再按<code>cmd+k</code>，出现如下窗口：</p>
 <p><img alt="" src="../samba-and-cross-compile-toolchain-on-wrtnode/01.png"></p>
 <p>下一步，输入设置的用户名（root）和密码后，成功连接，再选择要加载的宗卷（root），就会打开相应的窗口。至此，已经通过smb协议将WRTnode上的文件路径映射为Mac的一个网络位置，并挂载到了<code>/Volumes/</code>下，如图：</p>
 <p><img alt="" src="../samba-and-cross-compile-toolchain-on-wrtnode/02.png"></p>
 <p>双向的传输和读写都是允许的，并且几乎是立即就能同步完成。</p>
-</li>
-</ul>
-<h3>4. 其它文件传输方式</h3>
+<h2>4. 其它文件传输方式</h2>
 <ul>
 <li>
-<p>WiFi：sftp</p>
+<h3>WiFi：sftp</h3>
 </li>
 <li>
-<p>WiFi：scp</p>
+<h3>WiFi：scp</h3>
 </li>
 <li>
-<p>TTL串口：xmodem</p>
+<h3>TTL串口：xmodem</h3>
 </li>
 </ul>
-<h3>5. 文件传输和共享方法的比较</h3>
-<h3>6. 交叉编译环境搭建</h3>
+<h2>5. 文件传输和共享方法的比较</h2>
+<h2>6. 交叉编译环境搭建</h2>
 <ul>
 <li>
-<h4>第一步：从源码编译固件</h4>
+<h3>第一步：从源码编译固件</h3>
 <p>因为Mac OS X的默认文件系统不区分大小写，而OpenWRT等Linux区分大小写，若在本机上编译会需要分出一块磁盘区域供交叉编译使用，因此选择在阿里云ECS的Ubuntu 14.04 LTS环境下进行编译。</p>
-<p>根据官方指南——<a href="#">「WRTnode静态SDK编译」</a><a href="#">6</a>——的说明，并稍作修改，依次执行了以下步骤：</p>
+<p>根据官方指南——<a href="4">「WRTnode静态SDK编译」</a>——的说明，并稍作修改，依次执行了以下步骤：</p>
 <p>配置Linux编译环境的Dependencies：</p>
 <pre class="code literal-block"><span class="nv">$ </span>sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core gettext
 </pre>
@@ -209,17 +207,17 @@ WRTnode核心板，专用USB线，USB-to-TTL串口线
 <p>经过一段漫长的编译之后生成的固件在 <code>./bin/ramips/openwrt-ramips-mt7620n-wrtnode-squashfs-sysupgrade.bin</code> 。</p>
 </li>
 <li>
-<h4>应用Cross Compile工具链</h4>
+<h3>应用Cross Compile工具链</h3>
 <p>解压上述固件同文件夹<code>ramips/</code>里的SDK压缩包：</p>
 <pre class="code literal-block"><span class="nv">$ </span>tar -jxvf OpenWrt-SDK-ramips-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2**
 </pre>
 
 
 <p>然后进入解压出来的SDK文件夹，会发现其中文件结构与整个wrtnode-sdks源码包非常接近；需要编译的工程文件放置在<code>packages/</code>下，这里为了试验创建了一个<strong>helloworld</strong>，但是print到stdout的内容是“Hell World!”……具体结构如下：</p>
-<pre class="code literal-block">OpenWrt-SDK-ramips-for-linux-x86\_64-gcc-4.8-linaro\_uClibc-0.9.33.2 ➤ ls                                                                           git:master\*
+<pre class="code literal-block">OpenWrt-SDK-ramips-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2 ➤ ls                                                                           git:master\*
 bin        Config-build.in  dl    feeds.conf.default  LICENSE   package     rules.mk  staging\_dir  tmp
 build\_dir  Config.in        docs  include             Makefile  README.SDK  scripts   target
-OpenWrt-SDK-ramips-for-linux-x86\_64-gcc-4.8-linaro\_uClibc-0.9.33.2 ➤ tree package                                                                 git:master\*
+OpenWrt-SDK-ramips-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2 ➤ tree package                                                                 git:master\*
 package
 ├── helloworld
 │   ├── Makefile
@@ -260,47 +258,50 @@ libc.so.6
 <blockquote>
 <p>这个是在我在Openwrt的SDK下编译模块的时候碰到的问题。</p>
 <p>缺少类库，然后其实我发现我的类库在系统里是存在的：</p>
-<pre class="code literal-block">&gt; locate libc.so.6
+<pre class="code literal-block">locate libc.so.6
 </pre>
 
 
 <p>结果：</p>
-<pre class="code literal-block">&gt; /lib/i386-linux-gnu/libc.so.6
-&gt; /lib64/libc.so.6
+<pre class="code literal-block">/lib/i386-linux-gnu/libc.so.6
+/lib64/libc.so.6
 </pre>
 
 
 <p>看~明显存在，我用的应该是上面的那个类库，然后我弄了一晚上没弄好，今天所有工作做完终于弄好了。我做的工作包括这些：</p>
-<p><strong>第一步（舍去）：</strong></p>
-<p><strong>第二步：</strong></p>
+<h4>第一步</h4>
+</blockquote>
+<p>（舍去)</p>
+<blockquote>
+<h4>第二步</h4>
 <p>在你写的代码文件夹下(我写的是个helloworld)下的Makefile里</p>
 <p>增加：<code>DEPENDS:=+libc</code></p>
 <p>就是在</p>
-<pre class="code literal-block">&gt; define Package/helloworld  
-&gt;         SECTION:=utils  
-&gt;         CATEGORY:=Utilities  
-&gt;         TITLE:=Helloworld -- prints a snarky message 
-&gt;         DEPENDS:=+libc
-&gt; endef
+<pre class="code literal-block">define Package/helloworld  
+        SECTION:=utils  
+        CATEGORY:=Utilities  
+        TITLE:=Helloworld -- prints a snarky message 
+        DEPENDS:=+libc
+endef
 </pre>
 
 
 <p>这个define下面。  </p>
-<p><strong>第三步：</strong></p>
+<h4>第三步</h4>
 <p>也是在Makefile里增加：</p>
-<pre class="code literal-block"><span class="err">&gt;</span> <span class="err">define</span> <span class="err">Package/helloworld/install</span> <span class="err"> </span>
-<span class="err">&gt;</span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">$(</span><span class="nv">INSTALL_DIR</span><span class="k">)</span> <span class="k">$(</span>1<span class="k">)</span><span class="err">/bin</span> <span class="err"> </span>
-<span class="err">&gt;</span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">$(</span><span class="nv">CP</span><span class="k">)</span> <span class="err">/lib/i386-linux-gnu/libc.so.6</span> <span class="k">$(</span>1<span class="k">)</span><span class="err">/bin</span>
-<span class="err">&gt;</span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">$(</span><span class="nv">INSTALL_BIN</span><span class="k">)</span> <span class="k">$(</span><span class="nv">PKG_BUILD_DIR</span><span class="k">)</span><span class="err">/helloworld</span> <span class="k">$(</span>1<span class="k">)</span><span class="err">/bin/</span> <span class="err"> </span>
-<span class="err">&gt;</span> <span class="err">endef</span>
+<pre class="code literal-block"><span class="cp">define Package/helloworld/install  </span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">$(</span><span class="nv">INSTALL_DIR</span><span class="k">)</span> <span class="k">$(</span>1<span class="k">)</span><span class="err">/bin</span> <span class="err"> </span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">$(</span><span class="nv">CP</span><span class="k">)</span> <span class="err">/lib/i386-linux-gnu/libc.so.6</span> <span class="k">$(</span>1<span class="k">)</span><span class="err">/bin</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">$(</span><span class="nv">INSTALL_BIN</span><span class="k">)</span> <span class="k">$(</span><span class="nv">PKG_BUILD_DIR</span><span class="k">)</span><span class="err">/helloworld</span> <span class="k">$(</span>1<span class="k">)</span><span class="err">/bin/</span> <span class="err"> </span>
+<span class="cp">endef</span>
 </pre>
 
 
 <p>这里多了一行$(CP)的代码。</p>
-<p><strong>最后一步：</strong></p>
+<h4>最后一步</h4>
 <p>在<code>/home/user/attitude/staging_dir/target-mips_r2_uClibc-0.9.33.2/pkginfo</code>下的<code>libc.provides</code>文件里增加两行：</p>
-<pre class="code literal-block">&gt; /lib/i386-linux-gnu/libc.so.6
-&gt; ~~libc.so.6
+<pre class="code literal-block">/lib/i386-linux-gnu/libc.so.6
+libc.so.6
 </pre>
 
 
@@ -321,7 +322,7 @@ libc.so.6
 <p><img alt="" src="../samba-and-cross-compile-toolchain-on-wrtnode/03.png"></p>
 </li>
 </ul>
-<h3>7. 嵌入式板卡本机开发环境</h3>
+<h2>7. 嵌入式板卡本机开发环境</h2>
 <p>…</p>
 </div>
         </div>

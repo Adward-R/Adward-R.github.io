@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 10 Apr 2015 11:09:34 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Samba and Cross-Compile Toolchain on WRTnode</title><link>http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Embedded System Lab 2 on WRTnode&lt;/h2&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 10 Apr 2015 12:43:42 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Samba and Cross-Compile Toolchain on WRTnode</title><link>http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Embedded System Lab 2 on WRTnode&lt;/h2&gt;
 &lt;hr&gt;
-&lt;h3&gt;1. 器材列表&lt;/h3&gt;
+&lt;h2&gt;1. 器材列表&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;WRTnode核心板，专用USB线，USB-to-TTL串口线&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;2. 接线方法&lt;/h3&gt;
+&lt;h2&gt;2. 接线方法&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;电插座\&amp;lt;-&amp;gt;手机充电头\&amp;lt;-&amp;gt;专用USB线的单个USB头\&amp;lt;-&amp;gt;专用USB的OTG头\&amp;lt;-&amp;gt;WRTnode核心板\&amp;lt;-&amp;gt;GND、RXD2、TXD2三个针脚\&amp;lt;-&amp;gt;USB-to-TTL线的杜邦线头\&amp;lt;-&amp;gt; USB-to-TTL线的USB头\&amp;lt;-&amp;gt;电脑USB口；&lt;/li&gt;
 &lt;li&gt;针脚具体接线方法同第一次实验报告，可在&lt;a href="http://wiki.wrtnode.com/index.php?title=Starting/zh-cn"&gt;WRTnode Wiki&lt;/a&gt;找到，细节不再作冗余说明；&lt;/li&gt;
 &lt;li&gt;实验的大部分流程都是通过&lt;code&gt;$ ssh root@192.168.8.1&lt;/code&gt;在Mac OS X的终端中&lt;strong&gt;以root身份&lt;/strong&gt;完成的，WRTnode的作用相当于局域网路由器，通过它使得Macbook、手机等终端可以连接Internet。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;3. Samba配置&lt;/h3&gt;
+&lt;h2&gt;3. Samba配置&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;h4&gt;Samba Server Port的安装：&lt;/h4&gt;
+&lt;h3&gt;Samba Server Port的安装：&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description><category>WRTnode</category><guid>http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html</guid><pubDate>Fri, 10 Apr 2015 06:50:52 GMT</pubDate></item><item><title>国行电信4G版Moto G 2014之Root与刷ROM恢复谷歌服务</title><link>http://adward-r.lofter.com/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h4&gt;&lt;a href="http://pan.baidu.com/s/1eQphktk"&gt;工具包&lt;/a&gt; 密码: lqy8&lt;/h4&gt;
 &lt;p&gt;原先买Moto G的时候除了缺一款支持电信的手机、对于本体性价比和做工还比较满意之外，一部分原因便是冲着其搭载的原生Android Lollipop 5.0.2系统。可曾想到手的ROM虽然被预装的软件很少（总共6款吧，我Root后也只卸了两款而已，摩托良心），但是阉割了Google Play Service框架和服务，显得空空荡荡；且国内市场能够找到的Service框架都不适配安卓5.0，导致需要GMS的谷歌系应用完全无法正常运行，非常苦恼。于是折腾了一下午终于成功将其改造为本来模样，并尽数获得权限。&lt;/p&gt;
 &lt;p&gt;本文中所述手机型号为Motorola XT1077，若型号不符合，请自行对照各项参数，适用或者更改部分刷机用到的工具。建议照以下内容步骤操作之前，充分了解刷机的风险，比如解锁失去保修、刷错ROM手机变砖乃至Root后需要手动谨慎管理应用权限等。&lt;/p&gt;
