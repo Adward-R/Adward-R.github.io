@@ -214,10 +214,10 @@ WRTnode核心板，专用USB线，USB-to-TTL串口线
 
 
 <p>然后进入解压出来的SDK文件夹，会发现其中文件结构与整个wrtnode-sdks源码包非常接近；需要编译的工程文件放置在<code>packages/</code>下，这里为了试验创建了一个<strong>helloworld</strong>，但是print到stdout的内容是“Hell World!”……具体结构如下：</p>
-<pre class="code literal-block">OpenWrt-SDK-ramips-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2 ➤ ls                                                                           git:master\*
-bin        Config-build.in  dl    feeds.conf.default  LICENSE   package     rules.mk  staging\_dir  tmp
-build\_dir  Config.in        docs  include             Makefile  README.SDK  scripts   target
-OpenWrt-SDK-ramips-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2 ➤ tree package                                                                 git:master\*
+<pre class="code literal-block">OpenWrt-SDK-ramips-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2 ➤ ls                                                                           
+bin        Config-build.in  dl    feeds.conf.default  LICENSE   package     rules.mk  staging_dir  tmp
+build_dir  Config.in        docs  include             Makefile  README.SDK  scripts   target
+OpenWrt-SDK-ramips-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2 ➤ tree package                                                                 
 package
 ├── helloworld
 │   ├── Makefile
