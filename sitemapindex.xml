@@ -17,12 +17,8 @@
   <lastmod>2015-04-09</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://adward-r.lofter.com/categories/cat_cs.xml</loc>
-  <lastmod>2015-03-30</lastmod>
- </sitemap>
- <sitemap>
   <loc>http://adward-r.lofter.com/categories/cat_embedded-systems.xml</loc>
-  <lastmod>2015-04-09</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/cat_other.xml</loc>
@@ -35,10 +31,6 @@
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/cloud.xml</loc>
   <lastmod>2015-04-09</lastmod>
- </sitemap>
- <sitemap>
-  <loc>http://adward-r.lofter.com/categories/computer-science.xml</loc>
-  <lastmod>2015-03-30</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/gfw.xml</loc>
@@ -73,15 +65,19 @@
   <lastmod>2015-04-09</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://adward-r.lofter.com/categories/wrtnode.xml</loc>
+  <lastmod>2015-04-10</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://adward-r.lofter.com/categories/xilinx-ise.xml</loc>
   <lastmod>2015-04-09</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/rss.xml</loc>
-  <lastmod>2015-04-09</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/sitemap.xml</loc>
-  <lastmod>2015-04-09</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </sitemap>
 </sitemapindex>

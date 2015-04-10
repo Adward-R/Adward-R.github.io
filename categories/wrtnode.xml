@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R (WRTnode)</title><link>http://adward-r.lofter.com</link><description></description><atom:link href="http://adward-r.lofter.com/categories/wrtnode.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 10 Apr 2015 11:09:34 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Samba and Cross-Compile Toolchain on WRTnode</title><link>http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Embedded System Lab 2 on WRTnode&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3&gt;1. 器材列表&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;WRTnode核心板，专用USB线，USB-to-TTL串口线&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. 接线方法&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;电插座\&amp;lt;-&amp;gt;手机充电头\&amp;lt;-&amp;gt;专用USB线的单个USB头\&amp;lt;-&amp;gt;专用USB的OTG头\&amp;lt;-&amp;gt;WRTnode核心板\&amp;lt;-&amp;gt;GND、RXD2、TXD2三个针脚\&amp;lt;-&amp;gt;USB-to-TTL线的杜邦线头\&amp;lt;-&amp;gt; USB-to-TTL线的USB头\&amp;lt;-&amp;gt;电脑USB口；&lt;/li&gt;
+&lt;li&gt;针脚具体接线方法同第一次实验报告，可在&lt;a href="http://wiki.wrtnode.com/index.php?title=Starting/zh-cn"&gt;WRTnode Wiki&lt;/a&gt;找到，细节不再作冗余说明；&lt;/li&gt;
+&lt;li&gt;实验的大部分流程都是通过&lt;code&gt;$ ssh root@192.168.8.1&lt;/code&gt;在Mac OS X的终端中&lt;strong&gt;以root身份&lt;/strong&gt;完成的，WRTnode的作用相当于局域网路由器，通过它使得Macbook、手机等终端可以连接Internet。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. Samba配置&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4&gt;Samba Server Port的安装：&lt;/h4&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description><category>WRTnode</category><guid>http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html</guid><pubDate>Fri, 10 Apr 2015 06:50:52 GMT</pubDate></item></channel></rss>
