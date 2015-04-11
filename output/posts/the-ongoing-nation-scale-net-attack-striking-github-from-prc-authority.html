@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>The Ongoing Nation-scale Net Attack Striking GITHUB from PRC Authority | Adward-R</title>
+
+    
+            <link href="../assets/css/bitter.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/main.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+
+    
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html">
+
+
+
+    
+        <!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]-->
+
+    
+
+
+    
+
+    <meta name="author" content="Adward-R">
+    
+    <meta property="og:site_name" content="Adward-R">
+    <meta property="og:title" content="The Ongoing Nation-scale Net Attack Striking GITHUB from PRC Authority">
+    <meta property="og:url" content="http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html">
+    <meta property="og:description" content="来自 http://www.solidot.org/story?sid=43506 的信息:
+第一波是创造性的劫持百度JS文件利用中国海外用户的浏览器每2秒向托管在GitHub上的两个反审查项目发出请求，这一手段被GitHub用弹出JS警告alert()防住；
+第二轮是跨域 \&lt;img&gt; 攻击，被GitHub检查Referer挡住；
+第三波是DDoS攻击GitHub Pages；
+第四波是正在进行">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-03-30T12:09:10+08:00">
+           <meta property="article:tag" content="GFW">
+           <meta property="article:tag" content="Github">
+
+    
+
+    
+
+
+
+</head>
+<body>
+    <section class="social">
+        <ul>
+        
+            <li><a href="../index.html" title="Home"><i class="icon-home"></i></a></li>
+            <li><a href="../archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
+            <li><a href="../categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
+            <li><a href="../rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
+            <li><a href="http://getnikola.com" title="About me"><i class="icon-user"></i></a></li>
+            <li><a href="http://adward-r.me" title="My LOFTER"><i class="icon-twitter"></i></a></li>
+            <li><a href="https://github.com/adward-r" title="My Github"><i class="icon-github"></i></a></li>
+
+        </ul>
+    </section>
+    <section class="page-content">
+        <div class="content" rel="main">
+            
+    <div class="post">
+    
+    <h1 class="p-name entry-title" itemprop="headline name">The Ongoing Nation-scale Net Attack Striking GITHUB from PRC Authority</h1>
+
+        <div class="meta">
+            <div class="authordate">
+                <time class="timeago" datetime="2015-03-30T12:09:10+08:00">2015-03-30 12:09</time>
+            
+
+            
+          |  
+        <a href="the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.mdown" id="sourcelink">Source</a>
+
+            </div>
+            
+        <div itemprop="keywords" class="tags">
+        <ul>
+        Tags : 
+           <li><a class="tag p-category" href="../categories/gfw.html" rel="tag">GFW</a></li>
+           <li><a class="tag p-category" href="../categories/github.html" rel="tag">Github</a></li>
+        </ul>
+        </div>
+
+        </div>
+        <div class="body">
+            <div>
+<blockquote>
+<p>来自 http://www.solidot.org/story?sid=43506 的信息:</p>
+<p>第一波是创造性的劫持百度JS文件利用中国海外用户的浏览器每2秒向托管在GitHub上的两个反审查项目发出请求，这一手段被GitHub用弹出JS警告alert()防住；</p>
+<p>第二轮是跨域 \&lt;img&gt; 攻击，被GitHub检查Referer挡住；</p>
+<p>第三波是DDoS攻击GitHub Pages；</p>
+<p>第四波是正在进行中的TCP SYN洪水攻击，利用TCP协议缺陷发送大量伪造的TCP连接请求，让GitHub耗尽资源。</p>
+</blockquote>
+<p>Hail Github.</p>
+<p>来自大陆地区的针对代码托管和版本管理网站Github的攻击已经以多种形式持续了近100小时，所幸在第一波劫持中我因为使用了PAC自动分流的代理，而并未无意中为这种行径推波助澜；然而昨晚向自己在Github上的代码仓库Push和Sync的时候却发现几乎没有了响应，少量代码的修改Sync了约10分钟，更不用说从终端<code>ssh -T git@github.com</code>都几无回馈。</p>
+<p>因为Gitpages遭到攻击，昨天我的博客（架设在Github Pages上做版本管理）自然也难逃访问速度神慢的困境，本来需要做的测试也只能搁置和推迟。所幸不久之前在v2ex看到了进展，如文首引用所言，多样化而粗暴的攻击手段遭遇Github程序员团队的顽强抵抗，截至3.30上午，Github从杭州电信用ssh和https访问均无明显阻滞，挂代理和不挂代理均可。</p>
+<p>具体事态已经扩展到引起了<a href="http://www.wsj.com/articles/u-s-coding-website-github-hit-with-cyberattack-1427638940">「华尔街日报」</a>的反应，全文引用如下，考虑到国内非代理用户几乎无法访问任何国外主流媒体站点：</p>
+<blockquote>
+<h3>U.S. Coding Website GitHub Hit With Cyberattack</h3>
+<h4>Security experts say attack is likely an attempt by China to shut down anticensorship tools</h4>
+</blockquote>
+<!-- TEASER_END -->
+
+<blockquote>
+<p>By <strong>Eva Dou</strong>
+`March 29, 2015 10:22 a.m. ET
+`
+<strong>BEIJING</strong> — A popular U.S. coding website is enduring an onslaught of Internet traffic meant for China’s most popular search engine, and security experts say the episode likely represents an attempt by China to shut down anticensorship tools.</p>
+<p>The attack on San Francisco-based GitHub Inc., a service used by programmers and major tech firms world-wide to develop software, appears to underscore how China’s Internet censors increasingly reach outside the country to clamp down on content they find objectionable.</p>
+<p>The Cyberspace Administration of China didn’t respond to a request for comment Sunday.</p>
+<p>Security experts said the traffic onslaught—called a distributed denial-of-service attack in Internet circles—directed huge amounts of traffic from overseas users of Chinese search giant Baidu Inc. to GitHub, paralyzing GitHub’s website at times. </p>
+<p>Specifically, the traffic was directed to two GitHub pages that linked to copies of websites banned in China, the experts said. One page was run by Greatfire.org, which helps Chinese users circumvent government censorship, while the other linked to a copy of the New York Times’s Chinese language website.</p>
+<p>The attack began Thursday and was continuing Sunday. According to data on GitHub’s website, users couldn’t reach the site at times during that period.</p>
+<p>Greatfire.org, which doesn’t disclose personal data about its founders, didn’t respond to requests for comment. It asked Twitter users to send it samples of the code behind the hack.</p>
+<p>A spokeswoman for the New York Times declined to comment. It isn’t clear who controls the GitHub site that contains the copy of the paper’s content. The New York Times—like some other foreign media outlets, including The Wall Street Journal— is blocked in China.</p>
+<p>GitHub declined to say what content was targeted in the attack or who it believed was behind the incident. “Based on reports we’ve received, we believe the intent of this attack is to convince us to remove a specific class of content,” GitHub said in a post Friday on its website. </p>
+<p>GitHub said the cyberattack was the largest the website has experienced since it was founded in 2008. It also said early Sunday its efforts had mitigated some of the impact. Greatfire.org and Chinese New York Times pages on GitHub weren’t reachable Sunday, at least by some users.</p>
+<p>Baidu said it wasn’t involved in the attack and its systems weren’t infiltrated. “After careful inspection by Baidu’s security engineers, we have ruled out the possibility of security problems or hacker attacks on our own products,” it said in a statement.</p>
+<p>Mikko Hyponen, the chief research officer of cybersecurity firm F-Secure, said the attack was likely to have involved Chinese authorities because the hackers were able to manipulate Web traffic at a high level of China’s Internet infrastructure. It appeared to be a new type for China, he added. “It had to be someone who had the ability to tamper with all the Internet traffic coming into China.” he said.</p>
+<p>Though Baidu is the largest search engine in China by several measures, the attack appeared to use traffic from its users outside the country, security experts said. When a user navigated to the Baidu search engine, they said, a code was activated that sent continuous requests for data from the user’s computer to GitHub. By tapping overseas users, the hackers made the attack harder to block, because the requests to GitHub came from all over the world and looked like typical requests for information.</p>
+<p>China often blocks individual websites as part of its effort to control Internet content. But because GitHub’s site is encrypted, outside observers can’t tell whether users who go there are seeking ordinary programming code or anticensorship content similar to what Greatfire.org offers. Blocking the whole site would also cut off access for technology companies that use GitHub. China briefly blocked GitHub in 2013 but restored access following outcry from Chinese software developers. </p>
+<p>Greatfire.org’s GitHub page contains links to copies of 10 websites blocked in China, including an uncensored version of the popular social-media service Weibo.</p>
+<p>China’s Web censors have made other recent shows of force. Earlier this year China began directing some traffic from banned websites to seemingly random real websites outside China, temporarily taking those websites offline. At the beginning of the year, China also cracked down on virtual private networks, the most popular type of tool for circumventing the firewall, but many VPNs used in China are now functioning again.</p>
+<p>— Josh Chin contributed to this article.
+<em>Write to Eva Dou at eva.dou@wsj.com </em></p>
+</blockquote>
+<p>这一次吃相实在是太难看了。</p>
+<p><strong><em>Still, hail Github.</em></strong></p>
+</div>
+        </div>
+        
+        <ul class="pager">
+            <li class="previous">
+                <a href="rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html" rel="prev" title="让Windows 8.1与Xilinx ISE 14.7愉快地玩耍">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html" rel="next" title="WRTnode串口上电调试输出信息详解">Next post</a>
+            </li>
+        </ul>
+
+            
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="shortname",
+            disqus_url="http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html",
+        disqus_title="The Ongoing Nation-scale Net Attack Striking GITHUB from PRC Authority",
+        disqus_identifier="cache/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        
+
+    </div>
+
+        
+       <script>var disqus_shortname="shortname";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+
+             
+        <footer id="footer" role="contentinfo">
+            <p>Contents © 2015         <a href="mailto:adwardpeverell@gmail.com">Adward-R</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         </p>
+            
+        </footer>
+
+        </div>
+    </section>
+    
+    
+    
+            <script src="../assets/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+            <script src="../assets/js/jquery.timeago.js" type="text/javascript"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    
+        <script type="text/javascript">
+            $(function(){
+                $('.timeago').timeago();
+            });
+        </script>
+    
+</body>
+</html>

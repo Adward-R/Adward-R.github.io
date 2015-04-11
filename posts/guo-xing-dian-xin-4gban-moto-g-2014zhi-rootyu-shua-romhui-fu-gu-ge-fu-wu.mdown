@@ -1,0 +1,74 @@
+<!-- 
+.. title: 国行电信4G版Moto G 2014之Root与刷ROM恢复谷歌服务
+.. slug: guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu
+.. date: 2015-04-09 20:03:22 UTC+08:00
+.. tags: Moto G,Google
+.. category: Android
+.. link: 
+.. description: 
+.. type: text
+-->
+
+### [工具包][1] 密码: lqy8
+
+原先买Moto G的时候除了缺一款支持电信的手机、对于本体性价比和做工还比较满意之外，一部分原因便是冲着其搭载的原生Android Lollipop 5.0.2系统。可曾想到手的ROM虽然被预装的软件很少（总共6款吧，我Root后也只卸了两款而已，摩托良心），但是阉割了Google Play Service框架和服务，显得空空荡荡；且国内市场能够找到的Service框架都不适配安卓5.0，导致需要GMS的谷歌系应用完全无法正常运行，非常苦恼。于是折腾了一下午终于成功将其改造为本来模样，并尽数获得权限。
+
+本文中所述手机型号为Motorola XT1077，若型号不符合，请自行对照各项参数，适用或者更改部分刷机用到的工具。建议照以下内容步骤操作之前，充分了解刷机的风险，比如解锁失去保修、刷错ROM手机变砖乃至Root后需要手动谨慎管理应用权限等。
+
+刷机环境为Mac OS X Yosemite。记得手机用USB连电脑要打开**开发者模式-\>USB调试**。
+
+## 安装android-sdks
+[下载地址][2]
+<!-- TEASER_END -->
+
+单纯用来刷机的话，Stand-alone SDK Tools已经足够了，因为需要用到的无非也就是adb命令行调试工具+fastboot而已。
+
+当然如果是安卓开发者，也可以通过Android Studio、Intellij IDEA或者Eclipse ADT带的SDK Manager下载。下载前看好自己手机信息里的Android Version和Kernel Build Version，主要根据前者去查相应的SDK Build Number（比如Android 4.4.2对应SDK 19）。完整的SDK很大，一个版本就将近5G，所以用哪个下哪个。什么你问我单独的工具多大？抱歉我也不知道，应该不大……吧……之前装过完整的SDK因此就不需要关心这个了，嗯。
+
+下载和解压后，需要用到的工具都在android-sdks/platform-tools/中，Windows、Mac OS X和Linux的版本是不一样的。如果没有导出环境变量，即使cd到了该文件夹下应该也是要`./adb`和`./fastboot`执行的。
+
+## 安装Motorola手机驱动
+[下载地址][3]
+
+如果是Windows用户这一步兴许可以跳过。
+
+很多教程里链的、或者是Google容易搜出来的国外官网上的Mac驱动都下不动！必须去上面那个链接对应的中文版官方网站下载。
+
+我盘里分享的工具包里也有：**Motorila USB Cable Driver for Mac Yosemite - MDM Installer\_2.2.9.dmg**
+
+## 解锁BootLoader
+这个网上的教程基本都有而且基本都可以用，手机用数据线连电脑并进入fastboot模式（这里是同时按住Volume Down和Power键至少五秒后松开Power，记得不要单独让Power处于按下状态），在终端里使用adb和fastboot获得oem信息，去Motorola官网申请解锁码，再用命令行解锁即可。
+
+[这个教程][4]讲得还不错。
+
+解锁以后看到白屏的警告不要慌。
+
+## 刷Recovery和Root
+这一步有点tricky的。先上两个别的教程里类似手机（比如Moto X）成功了但我失败了的方法（粗体标注的包在云盘分享里都有）：
+
+1. Chainfire的Auto Root方式刷入Root（关键一步）
+	根据LiGux的[这篇文章][5]，用**CF-Auto-Root-titanumtsds-titanretde-xt1068.zip**。文章很有参考意义，但是方法并不完全适用，要做一些变通；猜测主要不成功原因是我在手机进入BootLoader模式后经常从Mac终端莫名访问不到它，甚至`adb devices -l`可以，`fastboot devices`啥也没有……
+
+2. 用**r2-motog-superboot.zip**这个自动Root脚本，方法与前一种很类似，具体方法如果需要了解可以直接Google包名，挺多的。
+
+3. 知乎上[这个言简意赅的答案][6]信息量还是挺大的（包括评论回复也要看），据说可以不需要Root，用TWRP（某第三方Recovery）在手机的fastboot-\>recovery模式下直接刷入MD5码为`367ce76d6b7772c92810720b8b0c931e`的GAPPS for Android L即可，遗憾我没有成功……说得对，国行适配的TWRP要另外去找，大概隐藏在某些论坛深深的角落里orz
+
+**最终成功的方法还是主要借鉴了LiGux，但做了修改，如下：**
+
+- 在正常模式下用`adb push -p [source] [target_dir]`将**busybox.zip**、**UPDATE-SuperSU-v2.46**通过USB传输到手机的内部存储或者外置miniSD卡上（一般是`/storage/emulated/0/`和`/storage/sdcard1/`之类）；这两个工具都在不断更新，最好去Google搜索它们的官网地址然后下载最新版才能保证成功；
+- `adb shell`在终端里进入安卓的内置Shell，`reboot bootloader`重启进入fastboot模式（物理关机再重启不一定每次都可以重新连接上这样……）；
+- 解压第三方Recovery**CWM\_Touch\_Titan\_v2.img**的镜像并置于fastboot工具同目录下（放在手机里的几个安装包都不需要解压，维持\*.zip即可），`fastboot flash recovery CWM_Touch_Titan_v2.img`将CWM装载到闪存的Recovery上，这时手机屏幕会提示成功；
+- 可以用Volume Down向下移动光标、Volume Up确定进入Recovery模式（唔，不是Power，我被坑了至少二十分钟），发现已经是炫酷的骚紫色CWM界面了，还支持触控哦……赶紧干活，不要手贱在上一步的命令以后重启，否则会导致重载最初的BootLoader程序，显示小机器人倒地而亡，强行再重启以后要再刷一次CWM才能正常进入Recovery刷ROM什么的哦；
+- 根据俩\*.zip包放置的位置找到它们并安装，顺序好像是不重要的（我也记不清了），只要都显示成功装上，小机器人没有倒地即可；
+- 重启，发现手机里出现了超级权限管理工具SuperSU，Root成功了！原样把**gapps-lp-20141109-signed.zip**放到手机里，原样进入BootLoader，再刷一次CWM，然后就可以正常安装了。如果没有前导的Root过程，这里是刷不上的（亲测），但是不确定是不是上一步以后不用重启直接刷GAPPS就可以搞定（八成可以）。因为是全新的基于ART而不是Dalvik虚拟机的Android萝莉炮系统，因此对GAPPS的版本要求比较严格。
+
+## 常用命令
+
+## 参考文献（...）
+
+[1]:	http://pan.baidu.com/s/1eQphktk
+[2]:	https://developer.android.com/sdk/installing/index.html
+[3]:	https://motorola-global-zn-ch.custhelp.com/app/answers/detail/a_id/91628
+[4]:	http://bbs.gfan.com/android-7121074-1-1.html
+[5]:	http://ligux.com/?p=133
+[6]:	http://www.zhihu.com/question/27800031/answer/39007940

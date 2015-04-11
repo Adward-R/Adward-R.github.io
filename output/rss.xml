@@ -1,2 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Wed, 18 Mar 2015 15:01:52 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>second~</title><link>http://adward-r.lofter.com/posts/second.html</link><dc:creator>Adward-R</dc:creator><description>&lt;p&gt;edfweewfewewWrite your post here.&lt;/p&gt;</description><guid>http://adward-r.lofter.com/posts/second.html</guid><pubDate>Wed, 18 Mar 2015 15:01:30 GMT</pubDate></item><item><title>Hello</title><link>http://adward-r.lofter.com/posts/hello.html</link><dc:creator>Adward-R</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><guid>http://adward-r.lofter.com/posts/hello.html</guid><pubDate>Wed, 18 Mar 2015 14:52:57 GMT</pubDate></item></channel></rss>
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sat, 11 Apr 2015 09:51:03 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Samba and Cross-Compile Toolchain on WRTnode</title><link>http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Embedded System Lab 2 on WRTnode&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h2&gt;1. 器材列表&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;WRTnode核心板，专用USB线，USB-to-TTL串口线&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 接线方法&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;电插座\&amp;lt;-&amp;gt;手机充电头\&amp;lt;-&amp;gt;专用USB线的单个USB头\&amp;lt;-&amp;gt;专用USB的OTG头\&amp;lt;-&amp;gt;WRTnode核心板\&amp;lt;-&amp;gt;GND、RXD2、TXD2三个针脚\&amp;lt;-&amp;gt;USB-to-TTL线的杜邦线头\&amp;lt;-&amp;gt; USB-to-TTL线的USB头\&amp;lt;-&amp;gt;电脑USB口；&lt;/li&gt;
+&lt;li&gt;针脚具体接线方法同第一次实验报告，可在&lt;a href="http://wiki.wrtnode.com/index.php?title=Starting/zh-cn"&gt;WRTnode Wiki&lt;/a&gt;找到，细节不再作冗余说明；&lt;/li&gt;
+&lt;li&gt;实验的大部分流程都是通过&lt;code&gt;$ ssh root@192.168.8.1&lt;/code&gt;在Mac OS X的终端中&lt;strong&gt;以root身份&lt;/strong&gt;完成的，WRTnode的作用相当于局域网路由器，通过它使得Macbook、手机等终端可以连接Internet。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. Samba配置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h3&gt;Samba Server Port的安装：&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description><category>WRTnode</category><guid>http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html</guid><pubDate>Fri, 10 Apr 2015 06:50:52 GMT</pubDate></item><item><title>国行电信4G版Moto G 2014之Root与刷ROM恢复谷歌服务</title><link>http://adward-r.lofter.com/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h4&gt;&lt;a href="http://pan.baidu.com/s/1eQphktk"&gt;工具包&lt;/a&gt; 密码: lqy8&lt;/h4&gt;
+&lt;p&gt;原先买Moto G的时候除了缺一款支持电信的手机、对于本体性价比和做工还比较满意之外，一部分原因便是冲着其搭载的原生Android Lollipop 5.0.2系统。可曾想到手的ROM虽然被预装的软件很少（总共6款吧，我Root后也只卸了两款而已，摩托良心），但是阉割了Google Play Service框架和服务，显得空空荡荡；且国内市场能够找到的Service框架都不适配安卓5.0，导致需要GMS的谷歌系应用完全无法正常运行，非常苦恼。于是折腾了一下午终于成功将其改造为本来模样，并尽数获得权限。&lt;/p&gt;
+&lt;p&gt;本文中所述手机型号为Motorola XT1077，若型号不符合，请自行对照各项参数，适用或者更改部分刷机用到的工具。建议照以下内容步骤操作之前，充分了解刷机的风险，比如解锁失去保修、刷错ROM手机变砖乃至Root后需要手动谨慎管理应用权限等。&lt;/p&gt;
+&lt;p&gt;刷机环境为Mac OS X Yosemite。记得手机用USB连电脑要打开&lt;strong&gt;开发者模式-&amp;gt;USB调试&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3&gt;安装android-sdks&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://developer.android.com/sdk/installing/index.html"&gt;下载地址&lt;/a&gt;
+&lt;/p&gt;&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Google</category><category>Moto G</category><guid>http://adward-r.lofter.com/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html</guid><pubDate>Thu, 09 Apr 2015 12:03:22 GMT</pubDate></item><item><title>WRTnode串口上电调试输出信息详解</title><link>http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;strong&gt;ZJU - Embedded System Course&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;关于WRTnode上电时在串口终端上看到的那几百行输出信息的解释，Google并没有给出答案，许多名词也是我搜索+看Wiki得来，诸多不准确之处，欢迎指正。&lt;/p&gt;
+&lt;hr&gt;
+&lt;pre class="code literal-block"&gt;//先加载由Manfeel修改过的适配该开发板的U-Boot程序
+
+U-Boot 1.1.3 - Modified by Manfeel (Jul  8 2014 - 18:53:13)
+
+Board: Ralink APSoC
+
+ __  __             ______        _
+|  \/  |           |  ____|      | |
+| \  / | __ _ _ __ | |__ ___  ___| |
+| |\/| |/ _` | '_ \|  __/ _ \/ _ \ |
+| |  | | (_| | | | | | |  __/  __/ |
+|_|  |_|\__,_|_| |_|_|  \___|\___|_|
+&lt;/pre&gt;
+
+
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html"&gt;Read more…&lt;/a&gt; (13 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>OpenWRT</category><guid>http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html</guid><pubDate>Sat, 04 Apr 2015 13:31:30 GMT</pubDate></item><item><title>The Ongoing Nation-scale Net Attack Striking GITHUB from PRC Authority</title><link>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;blockquote&gt;
+&lt;p&gt;来自 http://www.solidot.org/story?sid=43506 的信息:&lt;/p&gt;
+&lt;p&gt;第一波是创造性的劫持百度JS文件利用中国海外用户的浏览器每2秒向托管在GitHub上的两个反审查项目发出请求，这一手段被GitHub用弹出JS警告alert()防住；&lt;/p&gt;
+&lt;p&gt;第二轮是跨域 \&amp;lt;img&amp;gt; 攻击，被GitHub检查Referer挡住；&lt;/p&gt;
+&lt;p&gt;第三波是DDoS攻击GitHub Pages；&lt;/p&gt;
+&lt;p&gt;第四波是正在进行中的TCP SYN洪水攻击，利用TCP协议缺陷发送大量伪造的TCP连接请求，让GitHub耗尽资源。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Hail Github.&lt;/p&gt;
+&lt;p&gt;来自大陆地区的针对代码托管和版本管理网站Github的攻击已经以多种形式持续了近100小时，所幸在第一波劫持中我因为使用了PAC自动分流的代理，而并未无意中为这种行径推波助澜；然而昨晚向自己在Github上的代码仓库Push和Sync的时候却发现几乎没有了响应，少量代码的修改Sync了约10分钟，更不用说从终端&lt;code&gt;ssh -T git@github.com&lt;/code&gt;都几无回馈。&lt;/p&gt;
+&lt;p&gt;因为Gitpages遭到攻击，昨天我的博客（架设在Github Pages上做版本管理）自然也难逃访问速度神慢的困境，本来需要做的测试也只能搁置和推迟。所幸不久之前在v2ex看到了进展，如文首引用所言，多样化而粗暴的攻击手段遭遇Github程序员团队的顽强抵抗，截至3.30上午，Github从杭州电信用ssh和https访问均无明显阻滞，挂代理和不挂代理均可。&lt;/p&gt;
+&lt;p&gt;具体事态已经扩展到引起了&lt;a href="http://www.wsj.com/articles/u-s-coding-website-github-hit-with-cyberattack-1427638940"&gt;「华尔街日报」&lt;/a&gt;的反应，全文引用如下，考虑到国内非代理用户几乎无法访问任何国外主流媒体站点：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3&gt;U.S. Coding Website GitHub Hit With Cyberattack&lt;/h3&gt;
+&lt;h4&gt;Security experts say attack is likely an attempt by China to shut down anticensorship tools&lt;/h4&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>GFW</category><category>Github</category><guid>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</guid><pubDate>Mon, 30 Mar 2015 04:09:10 GMT</pubDate></item><item><title>让Windows 8.1与Xilinx ISE 14.7愉快地玩耍</title><link>http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;ISE 14.7是塞灵思开发的FPGA综合设计开发环境的最新、也是产品线上最后一个版本，之后转向其继承者——基于Eclipse构建的Vivaldo的开发。我从依然使用Thinkpad和Win7时便鼓捣过其10.1、12.4和14.6版本，迁移到OS X平台下后不得已换成Parallels Desktop 10 + Windows 8.1虚拟机方案来安装，期间遇到一些问题，随手整理一些Tips。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Windows</category><category>Xilinx ISE</category><guid>http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html</guid><pubDate>Sat, 21 Mar 2015 14:11:17 GMT</pubDate></item><item><title>云服务纵览与选择</title><link>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;现今互联网上的云服务可谓是山头林立，然而其易用性和可靠性却大相径庭，因此深觉有必要作一番解说，并附上我的个人选择作为参考。这里讨论的是个人云服务，区别于购买VPS、云主机后自行架设的备份或者存储集群。&lt;/p&gt;
+&lt;p&gt;以下提及的诸多国际化的云服务，许多都有可能因为隐私保护、监管难以涉及的问题在中国大陆范围遭到block，如果需要享受乃至依赖这些相对优质的服务，请自行寻找可靠的梯子。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://db.tt/SFgA3uW8"&gt;我的Dropbox邀请链接&lt;/a&gt;   不谢。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Cloud</category><guid>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</guid><pubDate>Fri, 20 Mar 2015 16:10:23 GMT</pubDate></item><item><title>使用静态博客生成器Nikola建立个人主页</title><link>http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Establish Your Individual Blog Using Static Blog Generator NIKOLA&lt;/h2&gt;
+&lt;p&gt;是的，这就是目前这个博客所利用的构建套件，基于Github上特殊的免费代码仓库&lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt;（300M空间）和静态博客生成工具Nikola（链接见底部）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Why Static Websites?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Static websites are safer, use fewer resources, and avoid vendor and platform lock-in.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;相比较WordPress等功能完善强大、插件生态丰富的主流动态博客软件，静态博客软件的功能显得比较有限，但是胜在良好的平台迁移性、极快的渲染速度（根本就是提前渲染好的）以及很低的上手成本。Static Blog不需要配置Apache或者Nginx等服务器端软件来处理页面请求，而是使用Python构建的模拟服务器，serve已经预先渲染好的页面样式，因此响应速度非常令人满意，资源占用很低，环境配置也简化到了一定程度。对于不喜欢过分折腾者，这些特性应该足够使得静态博客软件成为首选。然而遇到问题时，如果对于前端技术没有了解的话恐怕折腾起来也会比较头疼的吧。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Github</category><category>Static Blog</category><guid>http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html</guid><pubDate>Fri, 20 Mar 2015 08:48:58 GMT</pubDate></item><item><title>Markdown Testing</title><link>http://adward-r.lofter.com/posts/markdown-testing.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Begin with a title&lt;/h2&gt;
+&lt;h3&gt;And the second level title...&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;List&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;List &lt;code&gt;include high light&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;second level list items..&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;second level list item italic&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;second level list item that is bold&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;still...&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/markdown-testing.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Markdown</category><guid>http://adward-r.lofter.com/posts/markdown-testing.html</guid><pubDate>Thu, 19 Mar 2015 02:46:36 GMT</pubDate></item></channel></rss>

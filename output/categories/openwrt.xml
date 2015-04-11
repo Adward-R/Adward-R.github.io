@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R (OpenWRT)</title><link>http://adward-r.lofter.com</link><description></description><atom:link href="http://adward-r.lofter.com/categories/openwrt.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 09 Apr 2015 13:57:48 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>WRTnode串口上电调试输出信息详解</title><link>http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;strong&gt;ZJU - Embedded System Course&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;关于WRTnode上电时在串口终端上看到的那几百行输出信息的解释，Google并没有给出答案，许多名词也是我搜索+看Wiki得来，诸多不准确之处，欢迎指正。&lt;/p&gt;
+&lt;hr&gt;
+&lt;pre class="code literal-block"&gt;//先加载由Manfeel修改过的适配该开发板的U-Boot程序
+
+U-Boot 1.1.3 - Modified by Manfeel (Jul  8 2014 - 18:53:13)
+
+Board: Ralink APSoC
+
+ __  __             ______        _
+|  \/  |           |  ____|      | |
+| \  / | __ _ _ __ | |__ ___  ___| |
+| |\/| |/ _` | '_ \|  __/ _ \/ _ \ |
+| |  | | (_| | | | | | |  __/  __/ |
+|_|  |_|\__,_|_| |_|_|  \___|\___|_|
+&lt;/pre&gt;
+
+
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html"&gt;Read more…&lt;/a&gt; (13 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>OpenWRT</category><guid>http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html</guid><pubDate>Sat, 04 Apr 2015 13:31:30 GMT</pubDate></item></channel></rss>

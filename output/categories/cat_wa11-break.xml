@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R (Wa11 Break)</title><link>http://adward-r.lofter.com</link><description></description><atom:link href="http://adward-r.lofter.com/categories/cat_wa11-break.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 09 Apr 2015 13:57:48 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>The Ongoing Nation-scale Net Attack Striking GITHUB from PRC Authority</title><link>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;blockquote&gt;
+&lt;p&gt;来自 http://www.solidot.org/story?sid=43506 的信息:&lt;/p&gt;
+&lt;p&gt;第一波是创造性的劫持百度JS文件利用中国海外用户的浏览器每2秒向托管在GitHub上的两个反审查项目发出请求，这一手段被GitHub用弹出JS警告alert()防住；&lt;/p&gt;
+&lt;p&gt;第二轮是跨域 \&amp;lt;img&amp;gt; 攻击，被GitHub检查Referer挡住；&lt;/p&gt;
+&lt;p&gt;第三波是DDoS攻击GitHub Pages；&lt;/p&gt;
+&lt;p&gt;第四波是正在进行中的TCP SYN洪水攻击，利用TCP协议缺陷发送大量伪造的TCP连接请求，让GitHub耗尽资源。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Hail Github.&lt;/p&gt;
+&lt;p&gt;来自大陆地区的针对代码托管和版本管理网站Github的攻击已经以多种形式持续了近100小时，所幸在第一波劫持中我因为使用了PAC自动分流的代理，而并未无意中为这种行径推波助澜；然而昨晚向自己在Github上的代码仓库Push和Sync的时候却发现几乎没有了响应，少量代码的修改Sync了约10分钟，更不用说从终端&lt;code&gt;ssh -T git@github.com&lt;/code&gt;都几无回馈。&lt;/p&gt;
+&lt;p&gt;因为Gitpages遭到攻击，昨天我的博客（架设在Github Pages上做版本管理）自然也难逃访问速度神慢的困境，本来需要做的测试也只能搁置和推迟。所幸不久之前在v2ex看到了进展，如文首引用所言，多样化而粗暴的攻击手段遭遇Github程序员团队的顽强抵抗，截至3.30上午，Github从杭州电信用ssh和https访问均无明显阻滞，挂代理和不挂代理均可。&lt;/p&gt;
+&lt;p&gt;具体事态已经扩展到引起了&lt;a href="http://www.wsj.com/articles/u-s-coding-website-github-hit-with-cyberattack-1427638940"&gt;「华尔街日报」&lt;/a&gt;的反应，全文引用如下，考虑到国内非代理用户几乎无法访问任何国外主流媒体站点：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3&gt;U.S. Coding Website GitHub Hit With Cyberattack&lt;/h3&gt;
+&lt;h4&gt;Security experts say attack is likely an attempt by China to shut down anticensorship tools&lt;/h4&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>GFW</category><category>Github</category><guid>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</guid><pubDate>Mon, 30 Mar 2015 04:09:10 GMT</pubDate></item></channel></rss>

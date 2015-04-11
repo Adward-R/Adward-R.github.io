@@ -126,8 +126,8 @@ NAVIGATION_LINKS = {
             ('/categories/index.html', 'Tags', 'icon-tags'),
             ('/rss.xml', 'RSS', 'icon-rss'),
             ('http://getnikola.com', 'About me', 'icon-user'),
-            ('https://twitter.com/getnikola', 'My Twitter', 'icon-twitter'),
-            ('https://github.com/getnikola', 'My Github', 'icon-github'),
+            ('http://adward-r.me', 'My LOFTER', 'icon-twitter'),
+            ('https://github.com/adward-r', 'My Github', 'icon-github'),
         )
 }
 # Name of the theme to use.
@@ -566,7 +566,7 @@ GITHUB_REMOTE_NAME = 'origin'
 # }
 
 # Show only teasers in the index pages? Defaults to False.
-# INDEX_TEASERS = False
+INDEX_TEASERS = True
 
 # HTML fragments with the Read more... links.
 # The following tags exist and are replaced for you:
@@ -784,7 +784,7 @@ COMMENT_SYSTEM_ID = "shortname"
 # RSS_LINK = None
 
 # Show only teasers in the RSS feed? Default to True
-# RSS_TEASERS = True
+RSS_TEASER = True
 
 # Strip HTML in the RSS feed? Default to False
 # RSS_PLAIN = False

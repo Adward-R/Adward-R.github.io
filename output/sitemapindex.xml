@@ -5,11 +5,79 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://adward-r.lofter.com/categories/cat_android.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/cat_blog.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/cat_computer-architecture.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/cat_embedded-systems.xml</loc>
+  <lastmod>2015-04-11</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/cat_other.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/cat_wa11-break.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/cloud.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/gfw.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/github.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/google.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/markdown.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/moto-g.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/openwrt.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/static-blog.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/windows.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/wrtnode.xml</loc>
+  <lastmod>2015-04-11</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://adward-r.lofter.com/categories/xilinx-ise.xml</loc>
+  <lastmod>2015-04-09</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://adward-r.lofter.com/rss.xml</loc>
-  <lastmod>2015-03-18</lastmod>
+  <lastmod>2015-04-11</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/sitemap.xml</loc>
-  <lastmod>2015-03-18</lastmod>
+  <lastmod>2015-04-11</lastmod>
  </sitemap>
 </sitemapindex>
