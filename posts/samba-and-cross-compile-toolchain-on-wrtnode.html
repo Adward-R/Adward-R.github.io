@@ -320,10 +320,14 @@ libc.so.6
 
 <p>将ipk文件通过<code>scp</code>传到WRTnode上，用opkg安装后就可以跑了：</p>
 <p><img alt="" src="../samba-and-cross-compile-toolchain-on-wrtnode/03.png"></p>
+<p>这里附上一个helloworld工程文件的完整包供参考，是SDK下面的package包，已经测试编译过，因此可以<code>$ make clean</code>一下再尝试。</p>
+<p><a href="../package.zip">package</a></p>
 </li>
 </ul>
 <h2>7. 嵌入式板卡本机开发环境</h2>
-<p>…</p>
+<p>虽然内存64M将将够，但是16MB的闪存实在是吃紧，因而通用的编译套件无论是巨无霸gcc还是clang都无法在WRTnode上运行，必须依赖交叉编译环境才可以。</p>
+<p>固件自带了Python 2.7，直接用ssh或者串口登录，在板卡上用vi写程序、用python<strong>解释执行</strong>一些不耗很多资源的程序似乎都是没有问题的。</p>
+<p>以上搭建的交叉编译环境是C语言的，测试发现不支持C++，Java更加不用说了。</p>
 </div>
         </div>
         
