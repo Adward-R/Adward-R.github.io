@@ -1,0 +1,61 @@
+<!-- 
+.. title: My RSS Subscriptions
+.. slug: my-rss-subscriptions
+.. date: 2015-04-17 18:00:46 UTC+08:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+-->
+
+存档一下我目前Feedly上的RSS订阅源集合；虽然它家的Android客户端做得不算大气好看、Material Design，但是内容抓取还是比大多数客户端要靠谱，于是乎依然在用。Mac上用的则是Reeder 2，真的很棒。
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+	<head>
+		<title>Subscriptions - RSS</title>
+	</head>
+	<body>
+		<outline text="Friends" title="Friends">
+			<outline htmlUrl="http://blog.littleaprilfool.me/" title="April Pie" xmlUrl="http://blog.littleaprilfool.me/rss" type="rss" text="April Pie"/>
+			<outline htmlUrl="http://rockidog.com/" title="一本正经地瞎扯淡" xmlUrl="http://rockidog.com/feed.xml" type="rss" text="一本正经地瞎扯淡"/>
+			<outline htmlUrl="http://www.xsjxmx.com" title="开拖拉机的熊猫" xmlUrl="http://www.xsjxmx.com/index.php/feed/" type="rss" text="开拖拉机的熊猫"/>
+		</outline>
+		<outline text="Music" title="Music">
+			<outline htmlUrl="http://blog.sina.com.cn/hughke" title="hughke的博客" xmlUrl="http://blog.sina.com.cn/rss/1436337665.xml" type="rss" text="hughke的博客"/>
+			<outline htmlUrl="http://www.5friend.cn" title="一碟沉香 » 古典" xmlUrl="http://www.5friend.cn/archives/category/classic/feed" type="rss" text="一碟沉香 » 古典"/>
+			<outline htmlUrl="http://www.5friend.cn" title="一碟沉香 » 爵士" xmlUrl="http://www.5friend.cn/archives/category/uncategorized/feed" type="rss" text="一碟沉香 » 爵士"/>
+			<outline htmlUrl="http://blog.sina.com.cn/headphoneclub" title="耳机俱乐部小白的BLOG" xmlUrl="http://blog.sina.com.cn/rss/1311376432.xml" type="rss" text="耳机俱乐部小白的BLOG"/>
+			<outline htmlUrl="http://naomafei.blog.163.com" title="脑吗啡的博客" xmlUrl="http://naomafei.blog.163.com/rss/" type="rss" text="脑吗啡的博客"/>
+			<outline htmlUrl="http://blog.sina.com.cn/yyjj" title="静介" xmlUrl="http://blog.sina.com.cn/rss/1228233583.xml" type="rss" text="静介"/>
+		</outline>
+		<outline text="Other" title="Other">
+			<outline htmlUrl="http://www.kanzhihu.com" title="看知乎" xmlUrl="http://www.kanzhihu.com/feed" type="rss" text="看知乎"/>
+			<outline htmlUrl="http://daily.zhihu.com/" title="知乎日报" xmlUrl="http://zhihurss.miantiao.me/dailyrss" type="rss" text="知乎日报"/>
+			<outline htmlUrl="http://daily.zhihu.com/" title="知乎日报2" xmlUrl="http://zhihudaily.dev.malash.net/" type="rss" text="知乎日报2"/>
+			<outline htmlUrl="http://wp.minyueguo.com" title="闽越国" xmlUrl="http://wp.minyueguo.com/feed/" type="rss" text="闽越国"/>
+		</outline>
+		<outline text="Tech" title="Tech">
+			<outline htmlUrl="http://blog.binchen.org/" title="Chen's blog" xmlUrl="http://blog.binchen.org/rss.xml" type="rss" text="Chen's blog"/>
+			<outline htmlUrl="http://blog.pluskid.org" title="Free Mind" xmlUrl="http://blog.pluskid.org/?feed=rss2" type="rss" text="Free Mind"/>
+			<outline htmlUrl="http://freemind.pluskid.org" title="Free Mind" xmlUrl="http://freemind.pluskid.org/rss.xml" type="rss" text="Free Mind"/>
+			<outline htmlUrl="http://lucifr.com" title="Lucifr" xmlUrl="http://lucifr.com/atom.xml" type="rss" text="Lucifr"/>
+			<outline htmlUrl="http://macshuo.com" title="MacTalk-池建强的随想录" xmlUrl="http://macshuo.com/?feed=rss2" type="rss" text="MacTalk-池建强的随想录"/>
+			<outline htmlUrl="http://www.isofts.org" title="Mac志" xmlUrl="http://www.isofts.org/feed/" type="rss" text="Mac志"/>
+			<outline htmlUrl="http://rednaxelafx.iteye.com" title="Script Ahead, Code Behind" xmlUrl="http://rednaxelafx.iteye.com/rss" type="rss" text="Script Ahead, Code Behind"/>
+			<outline title="winter" xmlUrl="http://feed.cnblogs.com/blog/u/37697/rss" type="rss" text="winter"/>
+			<outline htmlUrl="http://rockidog.com/" title="一本正经地瞎扯淡" xmlUrl="http://rockidog.com/feed.xml" type="rss" text="一本正经地瞎扯淡"/>
+			<outline title="刘未鹏 | Mind Hacks" xmlUrl="http://mindhacks.cn/feed/" type="rss" text="刘未鹏 | Mind Hacks"/>
+			<outline title="南极光的专栏" xmlUrl="http://blog.csdn.net/rk2900/rss/list" type="rss" text="南极光的专栏"/>
+			<outline title="博学无忧" xmlUrl="http://www.bo56.com/feed/" type="rss" text="博学无忧"/>
+			<outline title="大茶园丁 - Openwrt" xmlUrl="http://www.wuqiong.info/feed/category/Openwrt/" type="rss" text="大茶园丁 - Openwrt"/>
+			<outline title="少数派" xmlUrl="http://sspai.com/feed" type="rss" text="少数派"/>
+			<outline title="灵犀志趣" xmlUrl="http://www.lingcc.com/feed/" type="rss" text="灵犀志趣"/>
+			<outline title="老赵点滴" xmlUrl="http://blog.zhaojie.me/rss" type="rss" text="老赵点滴"/>
+			<outline htmlUrl="http://coolshell.cn" title="酷 壳 - CoolShell.cn" xmlUrl="http://coolshell.cn/feed" type="rss" text="酷 壳 - CoolShell.cn"/>
+		</outline>
+	</body>
+</opml>
+```
