@@ -158,15 +158,36 @@ WRTnode核心板，专用USB线，USB-to-TTL串口线
 <ul>
 <li>
 <h3>WiFi：sftp</h3>
+<pre class="code literal-block"><span class="nv">$ </span>opkg update
+<span class="nv">$ </span>opkg install vsftpd openssh-sftp-server
+<span class="nv">$ </span>/etc/init.d/vsftpd <span class="nb">enable</span> //设置开机启动
+<span class="nv">$ </span>/etc/init.d/vsftpd start
+</pre>
+
+
+<p>这样之后就可以通过CyberDuck等FTP客户端软件，通过root账户身份验证来访问板子上的文件内容了（默认端口号22）：</p>
+<pre class="code literal-block">![][image-4]
+</pre>
+
+
 </li>
 <li>
 <h3>WiFi：scp</h3>
+<p>即Secure Copy，与ssh(dropbear)使用相同认证方式。</p>
+<p>向WRTnode传输文件：</p>
+<p>scp [-r] [LOCAL_FILE_PATH] root@192.168.8.1:[REMOTE_DIR_PATH]</p>
+<p>从WRTnode下载文件：</p>
+<p>scp [-r] root@192.168.8.1:[REMOTE_FILE_PATH] [LOCAL_DIR_PATH]</p>
 </li>
 <li>
 <h3>TTL串口：xmodem</h3>
+<p>该协议年久失修，使用<code>minicom -s</code>配置了上传和下载路径，使用<code>Meta-Z</code>串口控制选项菜单，但仍未成功（文件消失了orz）。</p>
 </li>
 </ul>
 <h2>5. 文件传输和共享方法的比较</h2>
+<p>总体而言，如果需要长期把玩板子，把板子与PC“捆绑”在一起的话，Samba是比较有效的方案，配置一次，终身享受，对权限和共享目录等也有明确的限制和界定；</p>
+<p>scp十分灵活，传输速度也不错，缺点是直观性不足，也不能建立“共享”模式的长连接。</p>
+<p>sftp比ftp安全，但速度相对低，配置简单、操作直观，但是性能上有一定限制，比如像scp一样递归传输文件夹时有局限等。</p>
 <h2>6. 交叉编译环境搭建</h2>
 <ul>
 <li>
