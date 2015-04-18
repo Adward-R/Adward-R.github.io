@@ -88,7 +88,7 @@ Embedded System Lab 2 on WRTnode
  		
  	这样之后就可以通过CyberDuck等FTP客户端软件，通过root账户身份验证来访问板子上的文件内容了（默认端口号22）：
  	
- 		![][image-4]
+ 	![][image-4]
 
  - ##WiFi：scp
  
@@ -96,12 +96,12 @@ Embedded System Lab 2 on WRTnode
 
  	向WRTnode传输文件：
  			
-       scp [-r] [LOCAL_FILE_PATH] root@192.168.8.1:[REMOTE_DIR_PATH]
+       	scp [-r] [LOCAL_FILE_PATH] root@192.168.8.1:[REMOTE_DIR_PATH]
        
        
   	从WRTnode下载文件：
   	
-  	   scp [-r] root@192.168.8.1:[REMOTE_FILE_PATH] [LOCAL_DIR_PATH]
+  	   	scp [-r] root@192.168.8.1:[REMOTE_FILE_PATH] [LOCAL_DIR_PATH]
 
  - ##TTL串口：xmodem
  

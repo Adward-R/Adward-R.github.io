@@ -166,18 +166,21 @@ WRTnode核心板，专用USB线，USB-to-TTL串口线
 
 
 <p>这样之后就可以通过CyberDuck等FTP客户端软件，通过root账户身份验证来访问板子上的文件内容了（默认端口号22）：</p>
-<pre class="code literal-block">![][image-4]
-</pre>
-
-
+<p><img alt="" src="../samba-and-cross-compile-toolchain-on-wrtnode/04.png"></p>
 </li>
 <li>
 <h3>WiFi：scp</h3>
 <p>即Secure Copy，与ssh(dropbear)使用相同认证方式。</p>
 <p>向WRTnode传输文件：</p>
-<p>scp [-r] [LOCAL_FILE_PATH] root@192.168.8.1:[REMOTE_DIR_PATH]</p>
+<pre class="code literal-block"><span class="n">scp</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span><span class="p">]</span> <span class="p">[</span><span class="n">LOCAL_FILE_PATH</span><span class="p">]</span> <span class="n">root</span><span class="mf">@192.168.8.1</span><span class="o">:</span><span class="p">[</span><span class="n">REMOTE_DIR_PATH</span><span class="p">]</span>
+</pre>
+
+
 <p>从WRTnode下载文件：</p>
-<p>scp [-r] root@192.168.8.1:[REMOTE_FILE_PATH] [LOCAL_DIR_PATH]</p>
+<pre class="code literal-block"><span class="n">scp</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span><span class="p">]</span> <span class="n">root</span><span class="mf">@192.168.8.1</span><span class="o">:</span><span class="p">[</span><span class="n">REMOTE_FILE_PATH</span><span class="p">]</span> <span class="p">[</span><span class="n">LOCAL_DIR_PATH</span><span class="p">]</span>
+</pre>
+
+
 </li>
 <li>
 <h3>TTL串口：xmodem</h3>
