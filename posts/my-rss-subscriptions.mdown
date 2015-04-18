@@ -3,7 +3,7 @@
 .. slug: my-rss-subscriptions
 .. date: 2015-04-17 18:00:46 UTC+08:00
 .. tags: 
-.. category: 
+.. category: Other 
 .. link: 
 .. description: 
 .. type: text
