@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 22 May 2015 13:49:23 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>为MIPS指令集的WRTnode添加系统调用</title><link>http://adward-r.lofter.com/posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Embedded System Lab 5 on WRTnode&lt;/h2&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sat, 20 Jun 2015 14:45:26 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Raspberry Pi 无线网卡配置</title><link>http://adward-r.lofter.com/posts/raspberry-pi-wu-xian-wang-qia-pei-zhi.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;用root权限修改 &lt;code&gt;/etc/network/interfaces&lt;/code&gt; 文件：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ sudo vim /etc/network/interfaces&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;修改后文件内容如下：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;auto lo
+
+iface lo inet loopback  
+iface eth0 inet dhcp
+
+auto wlan0  
+allow-hotplug wlan0  
+iface wlan0 inet dhcp  
+wpa-ssid "JoStudio"  
+wpa-psk "password"
+
+#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+&lt;/pre&gt;
+
+
+&lt;p&gt;若一直没用VNC等进过图形化界面，就请把原来的最后一行注释掉（如上）。&lt;/p&gt;&lt;/div&gt;</description><guid>http://adward-r.lofter.com/posts/raspberry-pi-wu-xian-wang-qia-pei-zhi.html</guid><pubDate>Sat, 20 Jun 2015 14:41:52 GMT</pubDate></item><item><title>为MIPS指令集的WRTnode添加系统调用</title><link>http://adward-r.lofter.com/posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Embedded System Lab 5 on WRTnode&lt;/h2&gt;
 &lt;h2&gt;1. 实验准备&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;WRTnode核心板直插手机充电线作为供电，通过Macbook的终端ssh登录操作，通过浏览器端的Luci配置界面刷固件；&lt;/li&gt;
@@ -159,28 +177,4 @@ Board: Ralink APSoC
 &lt;p&gt;Static websites are safer, use fewer resources, and avoid vendor and platform lock-in.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;相比较WordPress等功能完善强大、插件生态丰富的主流动态博客软件，静态博客软件的功能显得比较有限，但是胜在良好的平台迁移性、极快的渲染速度（根本就是提前渲染好的）以及很低的上手成本。Static Blog不需要配置Apache或者Nginx等服务器端软件来处理页面请求，而是使用Python构建的模拟服务器，serve已经预先渲染好的页面样式，因此响应速度非常令人满意，资源占用很低，环境配置也简化到了一定程度。对于不喜欢过分折腾者，这些特性应该足够使得静态博客软件成为首选。然而遇到问题时，如果对于前端技术没有了解的话恐怕折腾起来也会比较头疼的吧。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Github</category><category>Static Blog</category><guid>http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html</guid><pubDate>Fri, 20 Mar 2015 08:48:58 GMT</pubDate></item><item><title>Markdown Testing</title><link>http://adward-r.lofter.com/posts/markdown-testing.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Begin with a title&lt;/h2&gt;
-&lt;h3&gt;And the second level title...&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;List&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;List &lt;code&gt;include high light&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;second level list items..&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;second level list item italic&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;second level list item that is bold&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;still...&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/markdown-testing.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Markdown</category><guid>http://adward-r.lofter.com/posts/markdown-testing.html</guid><pubDate>Thu, 19 Mar 2015 02:46:36 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Github</category><category>Static Blog</category><guid>http://adward-r.lofter.com/posts/shi-yong-jing-tai-bo-ke-sheng-cheng-qi-nikolajian-li-ge-ren-zhu-ye.html</guid><pubDate>Fri, 20 Mar 2015 08:48:58 GMT</pubDate></item></channel></rss>
