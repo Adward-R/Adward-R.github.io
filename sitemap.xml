@@ -6,7 +6,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://adward-r.lofter.com/2015/index.html</loc>
-  <lastmod>2015-06-20</lastmod>
+  <lastmod>2015-07-13</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/archive.html</loc>
@@ -33,12 +33,20 @@
   <lastmod>2015-04-18</lastmod>
  </url>
  <url>
+  <loc>http://adward-r.lofter.com/categories/cat_server.html</loc>
+  <lastmod>2015-07-13</lastmod>
+ </url>
+ <url>
   <loc>http://adward-r.lofter.com/categories/cat_wa11-break.html</loc>
   <lastmod>2015-04-09</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/cloud.html</loc>
   <lastmod>2015-04-09</lastmod>
+ </url>
+ <url>
+  <loc>http://adward-r.lofter.com/categories/django.html</loc>
+  <lastmod>2015-07-13</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/gfw.html</loc>
@@ -54,7 +62,7 @@
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/index.html</loc>
-  <lastmod>2015-05-22</lastmod>
+  <lastmod>2015-07-13</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/markdown.html</loc>
@@ -67,6 +75,10 @@
  <url>
   <loc>http://adward-r.lofter.com/categories/openwrt.html</loc>
   <lastmod>2015-04-09</lastmod>
+ </url>
+ <url>
+  <loc>http://adward-r.lofter.com/categories/python.html</loc>
+  <lastmod>2015-07-13</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/static-blog.html</loc>
@@ -86,11 +98,11 @@
  </url>
  <url>
   <loc>http://adward-r.lofter.com/index-1.html</loc>
-  <lastmod>2015-06-20</lastmod>
+  <lastmod>2015-07-13</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/index.html</loc>
-  <lastmod>2015-06-20</lastmod>
+  <lastmod>2015-07-13</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html</loc>
@@ -110,7 +122,7 @@
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/raspberry-pi-wu-xian-wang-qia-pei-zhi.html</loc>
-  <lastmod>2015-06-20</lastmod>
+  <lastmod>2015-07-13</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html</loc>
@@ -131,6 +143,10 @@
  <url>
   <loc>http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html</loc>
   <lastmod>2015-04-09</lastmod>
+ </url>
+ <url>
+  <loc>http://adward-r.lofter.com/posts/yong-django-formzuo-deng-lu-chu-cuo-xin-xi-chu-li-de-sample.html</loc>
+  <lastmod>2015-07-13</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</loc>

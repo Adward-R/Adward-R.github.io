@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R (Server)</title><link>http://adward-r.lofter.com</link><description></description><atom:link href="http://adward-r.lofter.com/categories/cat_server.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 12 Jul 2015 16:31:05 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>用Django Form做登录出错信息处理的Sample</title><link>http://adward-r.lofter.com/posts/yong-django-formzuo-deng-lu-chu-cuo-xin-xi-chu-li-de-sample.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;这个学期用基于Python的Django 1.8.2 后端开发框架做了不少活儿，感觉这真是一个为程序员包办各种脏活累活儿的省心Framework :) 使用django.forms提供的API做表单输入的后端验证时遇到了一些坑，大多是因为不了解API的设计哲学所致，基本通过查阅官方文档+搜索StackOverflow解决。这里呈现一个比较通用的登录界面错误信息提示功能的代码片段作为Sample，来归纳一下使用forms时一些需要注意的细节。&lt;/p&gt;
+&lt;p&gt;这是一个多APP的教务系统工程，其中登录验证在层次上写到了“基础信息管理子系统（IMS）”中；每个APP都（理应）把自己所辖的URL放到一个固定的前缀下，在顶层的&lt;code&gt;urls.py&lt;/code&gt;中include每个APP的urls，并对应相应的匹配前缀（比如&lt;code&gt;/ims/login/&lt;/code&gt;在顶层被前缀/ims/匹配，在IMS APP中的urls里只要匹配&lt;code&gt;login/&lt;/code&gt;即可）。示例如下：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="c"&gt;#djcode/urls.py&lt;/span&gt;
+&lt;span class="n"&gt;urlpatterns&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;r'^ims/'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;include&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'IMS.urls'&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;
+&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c"&gt;#IMS/urls.py&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IMS&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;views&lt;/span&gt;
+&lt;span class="c"&gt;#...&lt;/span&gt;
+&lt;span class="n"&gt;urlpatterns&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;r'^login/$'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;views&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loggingin&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;r'^user_auth/'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;views&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user_auth&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;r'^home/$'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;views&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/yong-django-formzuo-deng-lu-chu-cuo-xin-xi-chu-li-de-sample.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Django</category><category>Python</category><guid>http://adward-r.lofter.com/posts/yong-django-formzuo-deng-lu-chu-cuo-xin-xi-chu-li-de-sample.html</guid><pubDate>Sun, 12 Jul 2015 15:18:02 GMT</pubDate></item></channel></rss>
