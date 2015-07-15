@@ -6,7 +6,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://adward-r.lofter.com/2015/index.html</loc>
-  <lastmod>2015-07-13</lastmod>
+  <lastmod>2015-07-15</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/archive.html</loc>
@@ -34,7 +34,7 @@
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/cat_server.html</loc>
-  <lastmod>2015-07-13</lastmod>
+  <lastmod>2015-07-15</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/cat_wa11-break.html</loc>
@@ -46,7 +46,7 @@
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/django.html</loc>
-  <lastmod>2015-07-13</lastmod>
+  <lastmod>2015-07-15</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/gfw.html</loc>
@@ -78,7 +78,7 @@
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/python.html</loc>
-  <lastmod>2015-07-13</lastmod>
+  <lastmod>2015-07-15</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/categories/static-blog.html</loc>
@@ -98,15 +98,19 @@
  </url>
  <url>
   <loc>http://adward-r.lofter.com/index-1.html</loc>
-  <lastmod>2015-07-13</lastmod>
+  <lastmod>2015-07-15</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/index.html</loc>
-  <lastmod>2015-07-13</lastmod>
+  <lastmod>2015-07-15</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html</loc>
   <lastmod>2015-04-10</lastmod>
+ </url>
+ <url>
+  <loc>http://adward-r.lofter.com/posts/how-to-redirect-with-context-in-django.html</loc>
+  <lastmod>2015-07-15</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/markdown-testing.html</loc>
@@ -146,7 +150,7 @@
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/yong-django-formzuo-deng-lu-chu-cuo-xin-xi-chu-li-de-sample.html</loc>
-  <lastmod>2015-07-13</lastmod>
+  <lastmod>2015-07-15</lastmod>
  </url>
  <url>
   <loc>http://adward-r.lofter.com/posts/yun-fu-wu-zong-lan-yu-xuan-ze.html</loc>

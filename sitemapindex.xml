@@ -26,7 +26,7 @@
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/cat_server.xml</loc>
-  <lastmod>2015-07-13</lastmod>
+  <lastmod>2015-07-15</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/cat_wa11-break.xml</loc>
@@ -38,7 +38,7 @@
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/django.xml</loc>
-  <lastmod>2015-07-13</lastmod>
+  <lastmod>2015-07-15</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/gfw.xml</loc>
@@ -66,7 +66,7 @@
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/python.xml</loc>
-  <lastmod>2015-07-13</lastmod>
+  <lastmod>2015-07-15</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/static-blog.xml</loc>
@@ -86,10 +86,10 @@
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/rss.xml</loc>
-  <lastmod>2015-07-13</lastmod>
+  <lastmod>2015-07-15</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/sitemap.xml</loc>
-  <lastmod>2015-07-13</lastmod>
+  <lastmod>2015-07-15</lastmod>
  </sitemap>
 </sitemapindex>

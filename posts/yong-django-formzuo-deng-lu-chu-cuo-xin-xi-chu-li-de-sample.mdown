@@ -131,7 +131,7 @@ Form API定义了两种clean函数，像上面这种写法可以同时在clean()
               <button type="submit" class="btn btn-default">登录</button>
           </div>
       </form>
-  </div>
+  	</div>
   
 	<script>
         //make the size of django-rendered forms suits form-control
