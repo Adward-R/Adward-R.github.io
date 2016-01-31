@@ -3,7 +3,7 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Raspberry Pi 无线网卡配置 | Adward-R</title>
+    <title>My JavaScript Notes | Adward-R</title>
 
     
             <link href="../assets/css/bitter.css" rel="stylesheet" type="text/css">
@@ -14,7 +14,7 @@
     
             <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 
-      <link rel="canonical" href="http://adward-r.lofter.com/posts/raspberry-pi-wu-xian-wang-qia-pei-zhi.html">
+      <link rel="canonical" href="http://adward-r.lofter.com/posts/my-javascript-notes.html">
 
 
 
@@ -29,22 +29,29 @@
     <meta name="author" content="Adward-R">
     
     <meta property="og:site_name" content="Adward-R">
-    <meta property="og:title" content="Raspberry Pi 无线网卡配置">
-    <meta property="og:url" content="http://adward-r.lofter.com/posts/raspberry-pi-wu-xian-wang-qia-pei-zhi.html">
-    <meta property="og:description" content="用root权限修改 /etc/network/interfaces 文件：
-$ sudo vim /etc/network/interfaces
-修改后文件内容如下：
-auto lo
+    <meta property="og:title" content="My JavaScript Notes">
+    <meta property="og:url" content="http://adward-r.lofter.com/posts/my-javascript-notes.html">
+    <meta property="og:description" content='1. 作用域问题
+function func1() {
+    var a1 = b1 = 1;
+    return b1;
+}
+func1();
+console.log(b1);
 
-iface lo inet loopback  
-iface eth0 inet dhcp
+function func2() {
+    var a2 = b2 = 2;
+    return a2;
+}
+func2();
+console.log(a2);
 
-auto wlan0  
-allow-hotplug wlan0  
-iface wlan0 inet dhcp  
-w">
+
+
+以上输出的结果分别是"1"和"null"（'>
     <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2015-06-20T22:41:52+08:00">
+    <meta property="article:published_time" content="2016-01-31T21:59:21+08:00">
+           <meta property="article:tag" content="JavaScript">
 
     
 
@@ -72,51 +79,54 @@ w">
             
     <div class="post">
     
-    <h1 class="p-name entry-title" itemprop="headline name">Raspberry Pi 无线网卡配置</h1>
+    <h1 class="p-name entry-title" itemprop="headline name">My JavaScript Notes</h1>
 
         <div class="meta">
             <div class="authordate">
-                <time class="timeago" datetime="2015-06-20T22:41:52+08:00">2015-06-20 22:41</time>
+                <time class="timeago" datetime="2016-01-31T21:59:21+08:00">2016-01-31 21:59</time>
             
 
             
           |  
-        <a href="raspberry-pi-wu-xian-wang-qia-pei-zhi.mdown" id="sourcelink">Source</a>
+        <a href="my-javascript-notes.mdown" id="sourcelink">Source</a>
 
             </div>
             
+        <div itemprop="keywords" class="tags">
+        <ul>
+        Tags : 
+           <li><a class="tag p-category" href="../categories/javascript.html" rel="tag">JavaScript</a></li>
+        </ul>
+        </div>
 
         </div>
         <div class="body">
             <div>
-<p>用root权限修改 <code>/etc/network/interfaces</code> 文件：</p>
-<p><code>$ sudo vim /etc/network/interfaces</code></p>
-<p>修改后文件内容如下：</p>
-<pre class="code literal-block">auto lo
+<h3>1. 作用域问题</h3>
+<pre class="code literal-block"><span class="kd">function</span> <span class="nx">func1</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">a1</span> <span class="o">=</span> <span class="nx">b1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">b1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">func1</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b1</span><span class="p">);</span>
 
-iface lo inet loopback  
-iface eth0 inet dhcp
-
-auto wlan0  
-allow-hotplug wlan0  
-iface wlan0 inet dhcp  
-wpa-ssid "JoStudio"  
-wpa-psk "password"
-
-#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+<span class="kd">function</span> <span class="nx">func2</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">a2</span> <span class="o">=</span> <span class="nx">b2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">a2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">func2</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a2</span><span class="p">);</span>
 </pre>
 
 
-<p>若一直没用VNC等进过图形化界面，就请把原来的最后一行注释掉（如上）。</p>
+<p>以上输出的结果分别是"1"和"null"（或"a2 is not defined"），乍一看觉得匪夷所思，但是了解了JS的作用域知识以后，迎刃而解：</p>
+<p>用var声明后，a1是func1的本地变量，而中间变量b1<em>没有被声明</em>地直接拿来使用，相当于创造了一个<em>全局变量</em>。本地变量在外部作用域中无法访问是几乎所有编程语言共同的，而根据JS闭包原则，全局变量b1则可以被访问到。</p>
 </div>
         </div>
         
         <ul class="pager">
             <li class="previous">
-                <a href="wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html" rel="prev" title="为MIPS指令集的WRTnode添加系统调用">Previous post</a>
-            </li>
-            <li class="next">
-                <a href="yong-django-formzuo-deng-lu-chu-cuo-xin-xi-chu-li-de-sample.html" rel="next" title="用Django Form做登录出错信息处理的Sample">Next post</a>
+                <a href="how-to-redirect-with-context-in-django.html" rel="prev" title="How to Redirect with Context in Django">Previous post</a>
             </li>
         </ul>
 
@@ -125,9 +135,9 @@ wpa-psk "password"
         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="shortname",
-            disqus_url="http://adward-r.lofter.com/posts/raspberry-pi-wu-xian-wang-qia-pei-zhi.html",
-        disqus_title="Raspberry Pi \u65e0\u7ebf\u7f51\u5361\u914d\u7f6e",
-        disqus_identifier="cache/posts/raspberry-pi-wu-xian-wang-qia-pei-zhi.html",
+            disqus_url="http://adward-r.lofter.com/posts/my-javascript-notes.html",
+        disqus_title="My JavaScript Notes",
+        disqus_identifier="cache/posts/my-javascript-notes.html",
         disqus_config = function () {
             this.language = "en";
         };

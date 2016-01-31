@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Wed, 15 Jul 2015 09:26:49 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>How to Redirect with Context in Django</title><link>http://adward-r.lofter.com/posts/how-to-redirect-with-context-in-django.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;The following question on &lt;a href="http://stackoverflow.com/questions/3624422/how-do-i-redirect-in-django-with-context"&gt;StackOverflow&lt;/a&gt; :&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 31 Jan 2016 14:08:13 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>My JavaScript Notes</title><link>http://adward-r.lofter.com/posts/my-javascript-notes.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h3&gt;1. 作用域问题&lt;/h3&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;func1&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;a1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;b1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;b1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nx"&gt;func1&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;b1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;func2&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;a2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;b2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;a2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nx"&gt;func2&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;以上输出的结果分别是"1"和"null"（或"a2 is not defined"），乍一看觉得匪夷所思，但是了解了JS的作用域知识以后，迎刃而解：&lt;/p&gt;
+&lt;p&gt;用var声明后，a1是func1的本地变量，而中间变量b1&lt;em&gt;没有被声明&lt;/em&gt;地直接拿来使用，相当于创造了一个&lt;em&gt;全局变量&lt;/em&gt;。本地变量在外部作用域中无法访问是几乎所有编程语言共同的，而根据JS闭包原则，全局变量b1则可以被访问到。&lt;/p&gt;&lt;/div&gt;</description><category>JavaScript</category><guid>http://adward-r.lofter.com/posts/my-javascript-notes.html</guid><pubDate>Sun, 31 Jan 2016 13:59:21 GMT</pubDate></item><item><title>How to Redirect with Context in Django</title><link>http://adward-r.lofter.com/posts/how-to-redirect-with-context-in-django.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;The following question on &lt;a href="http://stackoverflow.com/questions/3624422/how-do-i-redirect-in-django-with-context"&gt;StackOverflow&lt;/a&gt; :&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I have a view that validates and saves a form. After the form is saved, I'd like redirect back to a list_object view with a success message "form for customer &lt;code&gt;xyz&lt;/code&gt; was successfully updated..."&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;HttpResponseRedirect&lt;/code&gt; doesn't seem like it would work, because it only has an argument for the url, no way to pass dictionary with it.&lt;/p&gt;
@@ -59,36 +77,7 @@ wpa-psk "password"
 &lt;/pre&gt;
 
 
-&lt;h3&gt;2.2 Makefile&lt;/h3&gt;
-&lt;p&gt;在同目录下的&lt;code&gt;Makefile&lt;/code&gt;中的&lt;code&gt;obj-y&lt;/code&gt;项中添加&lt;code&gt;mysyscall.o&lt;/code&gt;的链接规则（第9行）：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="http://adward-r.lofter.com/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong/arch-mips-kernel-makefile.png"&gt;&lt;/p&gt;
-&lt;h3&gt;2.3 scall32-o32.S&lt;/h3&gt;
-&lt;p&gt;在同目录下的&lt;code&gt;scall32-o32.S&lt;/code&gt;系统调用表中添加新系统调用的声明（这是32位系统），如下图所示，将其中一个&lt;code&gt;sys_ni_syscall&lt;/code&gt;替换为我们的&lt;code&gt;mysyscall&lt;/code&gt;（第517行）；根据右侧注释的标号，这是OpenWRT的第&lt;code&gt;4269&lt;/code&gt;号系统调用。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="http://adward-r.lofter.com/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong/arch-mips-kernel-call-s.png"&gt;&lt;/p&gt;
-&lt;h3&gt;2.4 syscalls.h&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;$ vi {$linux-src}/include/linux/syscalls.h&lt;/code&gt;，如下第199行，添加新系统调用函数的声明（这个文件是non-arch-specific的）：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="http://adward-r.lofter.com/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong/include-linux-syscalls-h.png"&gt;&lt;/p&gt;
-&lt;h2&gt;3. 编写测试程序&lt;/h2&gt;
-&lt;p&gt;用之前交叉编译实验中搭建好的OpenWRT-SDK编译如下src内容的系统调用测试程序（包构建方法同之前的helloworld工程，不加赘述）：&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="cp"&gt;#include &amp;lt;linux/unistd.h&amp;gt;&lt;/span&gt;
-&lt;span class="cp"&gt;#include &amp;lt;sys/syscall.h&amp;gt;&lt;/span&gt;
-&lt;span class="cp"&gt;#define __NR_mysyscall 4269&lt;/span&gt;
-&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;syscall&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__NR_mysyscall&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;&lt;img alt="" src="http://adward-r.lofter.com/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong/compile-test-program.png"&gt;&lt;/p&gt;
-&lt;h2&gt;4. 编译固件并烧录到WRTnode&lt;/h2&gt;
-&lt;p&gt;回到&lt;code&gt;wrtnode-sdk&lt;/code&gt;顶层目录上执行&lt;code&gt;$ make [V=s]&lt;/code&gt;重新编译固件，编译完成后的固件见Lab 2的参考链接；&lt;/p&gt;
-&lt;p&gt;将编译完成后的&lt;code&gt;*.bin&lt;/code&gt;文件传回Macbook，通过浏览器访问&lt;code&gt;192.168.8.1&lt;/code&gt;的Luci配置界面，在导航栏上选择&lt;strong&gt;system -&amp;gt; backup / flash firmware&lt;/strong&gt;刷固件；待WRTnode蓝灯闪烁，重新出现信号并能够连接上时，将测试程序的可执行文件通过scp传送到板子，ssh上板子，执行如下测试：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="http://adward-r.lofter.com/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong/succeed-on-wrtnode.png"&gt;&lt;/p&gt;
-&lt;p&gt;可以看到系统日志里面输出了新的系统调用打印的信息，添加成功。&lt;/p&gt;
-&lt;h2&gt;5. 参考资料&lt;/h2&gt;
-&lt;h4&gt;[树莓派上为内核添加系统调用]&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;http://blog.csdn.net/rk2900/article/details/8848093&lt;/code&gt;&lt;/p&gt;&lt;/div&gt;</description><category>WRTnode</category><guid>http://adward-r.lofter.com/posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html</guid><pubDate>Fri, 22 May 2015 12:50:36 GMT</pubDate></item><item><title>My RSS Subscriptions</title><link>http://adward-r.lofter.com/posts/my-rss-subscriptions.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;存档一下我目前Feedly上的RSS订阅源集合；虽然它家的Android客户端做得不算大气好看、Material Design，但是内容抓取还是比大多数客户端要靠谱，于是乎依然在用。Mac上用的则是Reeder 2，真的很棒。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>WRTnode</category><guid>http://adward-r.lofter.com/posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html</guid><pubDate>Fri, 22 May 2015 12:50:36 GMT</pubDate></item><item><title>My RSS Subscriptions</title><link>http://adward-r.lofter.com/posts/my-rss-subscriptions.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;存档一下我目前Feedly上的RSS订阅源集合；虽然它家的Android客户端做得不算大气好看、Material Design，但是内容抓取还是比大多数客户端要靠谱，于是乎依然在用。Mac上用的则是Reeder 2，真的很棒。&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span class="cp"&gt;&amp;lt;?xml version="1.0" encoding="UTF-8"?&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;opml&lt;/span&gt; &lt;span class="na"&gt;version=&lt;/span&gt;&lt;span class="s"&gt;"1.0"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
     &lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
@@ -190,5 +179,4 @@ Board: Ralink APSoC
 &lt;h3&gt;U.S. Coding Website GitHub Hit With Cyberattack&lt;/h3&gt;
 &lt;h4&gt;Security experts say attack is likely an attempt by China to shut down anticensorship tools&lt;/h4&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>GFW</category><category>Github</category><guid>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</guid><pubDate>Mon, 30 Mar 2015 04:09:10 GMT</pubDate></item><item><title>让Windows 8.1与Xilinx ISE 14.7愉快地玩耍</title><link>http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;ISE 14.7是塞灵思开发的FPGA综合设计开发环境的最新、也是产品线上最后一个版本，之后转向其继承者——基于Eclipse构建的Vivaldo的开发。我从依然使用Thinkpad和Win7时便鼓捣过其10.1、12.4和14.6版本，迁移到OS X平台下后不得已换成Parallels Desktop 10 + Windows 8.1虚拟机方案来安装，期间遇到一些问题，随手整理一些Tips。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Windows</category><category>Xilinx ISE</category><guid>http://adward-r.lofter.com/posts/rang-windows-81yu-xilinx-ise-147yu-kuai-di-wan-shua.html</guid><pubDate>Sat, 21 Mar 2015 14:11:17 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>GFW</category><category>Github</category><guid>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</guid><pubDate>Mon, 30 Mar 2015 04:09:10 GMT</pubDate></item></channel></rss>

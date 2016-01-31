@@ -32,6 +32,8 @@ Embedded System Lab 5 on WRTnode
 		printk("New syscall!\n");
 	}
 	
+<!-- TEASER_END -->
+	
 ## 2.2 Makefile
 
 在同目录下的`Makefile`中的`obj-y`项中添加`mysyscall.o`的链接规则（第9行）：

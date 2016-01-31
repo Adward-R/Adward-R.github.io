@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R (WRTnode)</title><link>http://adward-r.lofter.com</link><description></description><atom:link href="http://adward-r.lofter.com/categories/wrtnode.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 22 May 2015 13:49:23 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>为MIPS指令集的WRTnode添加系统调用</title><link>http://adward-r.lofter.com/posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Embedded System Lab 5 on WRTnode&lt;/h2&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R (WRTnode)</title><link>http://adward-r.lofter.com</link><description></description><atom:link href="http://adward-r.lofter.com/categories/wrtnode.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 31 Jan 2016 14:08:13 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>为MIPS指令集的WRTnode添加系统调用</title><link>http://adward-r.lofter.com/posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Embedded System Lab 5 on WRTnode&lt;/h2&gt;
 &lt;h2&gt;1. 实验准备&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;WRTnode核心板直插手机充电线作为供电，通过Macbook的终端ssh登录操作，通过浏览器端的Luci配置界面刷固件；&lt;/li&gt;
@@ -17,36 +17,7 @@
 &lt;/pre&gt;
 
 
-&lt;h3&gt;2.2 Makefile&lt;/h3&gt;
-&lt;p&gt;在同目录下的&lt;code&gt;Makefile&lt;/code&gt;中的&lt;code&gt;obj-y&lt;/code&gt;项中添加&lt;code&gt;mysyscall.o&lt;/code&gt;的链接规则（第9行）：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="http://adward-r.lofter.com/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong/arch-mips-kernel-makefile.png"&gt;&lt;/p&gt;
-&lt;h3&gt;2.3 scall32-o32.S&lt;/h3&gt;
-&lt;p&gt;在同目录下的&lt;code&gt;scall32-o32.S&lt;/code&gt;系统调用表中添加新系统调用的声明（这是32位系统），如下图所示，将其中一个&lt;code&gt;sys_ni_syscall&lt;/code&gt;替换为我们的&lt;code&gt;mysyscall&lt;/code&gt;（第517行）；根据右侧注释的标号，这是OpenWRT的第&lt;code&gt;4269&lt;/code&gt;号系统调用。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="http://adward-r.lofter.com/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong/arch-mips-kernel-call-s.png"&gt;&lt;/p&gt;
-&lt;h3&gt;2.4 syscalls.h&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;$ vi {$linux-src}/include/linux/syscalls.h&lt;/code&gt;，如下第199行，添加新系统调用函数的声明（这个文件是non-arch-specific的）：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="http://adward-r.lofter.com/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong/include-linux-syscalls-h.png"&gt;&lt;/p&gt;
-&lt;h2&gt;3. 编写测试程序&lt;/h2&gt;
-&lt;p&gt;用之前交叉编译实验中搭建好的OpenWRT-SDK编译如下src内容的系统调用测试程序（包构建方法同之前的helloworld工程，不加赘述）：&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="cp"&gt;#include &amp;lt;linux/unistd.h&amp;gt;&lt;/span&gt;
-&lt;span class="cp"&gt;#include &amp;lt;sys/syscall.h&amp;gt;&lt;/span&gt;
-&lt;span class="cp"&gt;#define __NR_mysyscall 4269&lt;/span&gt;
-&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;syscall&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__NR_mysyscall&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;&lt;img alt="" src="http://adward-r.lofter.com/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong/compile-test-program.png"&gt;&lt;/p&gt;
-&lt;h2&gt;4. 编译固件并烧录到WRTnode&lt;/h2&gt;
-&lt;p&gt;回到&lt;code&gt;wrtnode-sdk&lt;/code&gt;顶层目录上执行&lt;code&gt;$ make [V=s]&lt;/code&gt;重新编译固件，编译完成后的固件见Lab 2的参考链接；&lt;/p&gt;
-&lt;p&gt;将编译完成后的&lt;code&gt;*.bin&lt;/code&gt;文件传回Macbook，通过浏览器访问&lt;code&gt;192.168.8.1&lt;/code&gt;的Luci配置界面，在导航栏上选择&lt;strong&gt;system -&amp;gt; backup / flash firmware&lt;/strong&gt;刷固件；待WRTnode蓝灯闪烁，重新出现信号并能够连接上时，将测试程序的可执行文件通过scp传送到板子，ssh上板子，执行如下测试：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="http://adward-r.lofter.com/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong/succeed-on-wrtnode.png"&gt;&lt;/p&gt;
-&lt;p&gt;可以看到系统日志里面输出了新的系统调用打印的信息，添加成功。&lt;/p&gt;
-&lt;h2&gt;5. 参考资料&lt;/h2&gt;
-&lt;h4&gt;[树莓派上为内核添加系统调用]&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;http://blog.csdn.net/rk2900/article/details/8848093&lt;/code&gt;&lt;/p&gt;&lt;/div&gt;</description><category>WRTnode</category><guid>http://adward-r.lofter.com/posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html</guid><pubDate>Fri, 22 May 2015 12:50:36 GMT</pubDate></item><item><title>Samba and Cross-Compile Toolchain on WRTnode</title><link>http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Embedded System Lab 2 on WRTnode&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>WRTnode</category><guid>http://adward-r.lofter.com/posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html</guid><pubDate>Fri, 22 May 2015 12:50:36 GMT</pubDate></item><item><title>Samba and Cross-Compile Toolchain on WRTnode</title><link>http://adward-r.lofter.com/posts/samba-and-cross-compile-toolchain-on-wrtnode.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h2&gt;Embedded System Lab 2 on WRTnode&lt;/h2&gt;
 &lt;hr&gt;
 &lt;h2&gt;1. 器材列表&lt;/h2&gt;
 &lt;ul&gt;
