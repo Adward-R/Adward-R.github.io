@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 15 Feb 2016 07:41:04 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>My Notes of Python 3</title><link>http://adward-r.lofter.com/posts/my-notes-of-python-3.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h3&gt;1. 函数参数&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 15 Feb 2016 07:44:34 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>My Notes of Python 3</title><link>http://adward-r.lofter.com/posts/my-notes-of-python-3.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h3&gt;1. 函数参数&lt;/h3&gt;
 &lt;h4&gt;1) 默认参数&lt;/h4&gt;
 &lt;p&gt;Python函数在定义的时候，默认参数（比如&lt;code&gt;L&lt;/code&gt;）的值就被计算出来了；每次调用该函数，如果改变了&lt;code&gt;L&lt;/code&gt;的内容，则下次调用时，默认参数的内容就变了，不再是函数定义时的值了。所以，定义默认参数时，必须指向不变对象。&lt;/p&gt;
 &lt;h3&gt;2. 继承与多态&lt;/h3&gt;
@@ -21,33 +21,7 @@
 
 
 &lt;p&gt;或者针对带参数的decorator：&lt;/p&gt;
-&lt;p&gt;用法：&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;@log('execute')
-def now():
-    print('2015-3-25')
-&lt;/pre&gt;
-
-
-&lt;p&gt;效果相当于：&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;now = log('execute')(now)
-&lt;/pre&gt;
-
-
-&lt;p&gt;实现：&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;functools&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;decorator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="nd"&gt;@functools.wraps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;wrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kw&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-            &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;():'&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kw&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;wrapper&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;decorator&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;&lt;code&gt;@functools.wraps(func)&lt;/code&gt;的作用之一是&lt;code&gt;wrapper.__name__ = func.__name__&lt;/code&gt; .&lt;/p&gt;&lt;/div&gt;</description><category>Python</category><guid>http://adward-r.lofter.com/posts/my-notes-of-python-3.html</guid><pubDate>Mon, 15 Feb 2016 05:50:27 GMT</pubDate></item><item><title>My JavaScript Notes</title><link>http://adward-r.lofter.com/posts/my-javascript-notes.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h3&gt;1. 作用域问题&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/my-notes-of-python-3.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>Python</category><guid>http://adward-r.lofter.com/posts/my-notes-of-python-3.html</guid><pubDate>Mon, 15 Feb 2016 05:50:27 GMT</pubDate></item><item><title>My JavaScript Notes</title><link>http://adward-r.lofter.com/posts/my-javascript-notes.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h3&gt;1. 作用域问题&lt;/h3&gt;
 &lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;func1&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;a1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;b1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;b1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -65,7 +39,8 @@ def now():
 
 
 &lt;p&gt;以上输出的结果分别是"1"和"null"（或"a2 is not defined"），乍一看觉得匪夷所思，但是了解了JS的作用域知识以后，迎刃而解：&lt;/p&gt;
-&lt;p&gt;用var声明后，a1是func1的本地变量，而中间变量b1&lt;em&gt;没有被声明&lt;/em&gt;地直接拿来使用，相当于创造了一个&lt;em&gt;全局变量&lt;/em&gt;。本地变量在外部作用域中无法访问是几乎所有编程语言共同的，而根据JS闭包原则，全局变量b1则可以被访问到。&lt;/p&gt;&lt;/div&gt;</description><category>JavaScript</category><guid>http://adward-r.lofter.com/posts/my-javascript-notes.html</guid><pubDate>Sun, 31 Jan 2016 13:59:21 GMT</pubDate></item><item><title>How to Redirect with Context in Django</title><link>http://adward-r.lofter.com/posts/how-to-redirect-with-context-in-django.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;The following question on &lt;a href="http://stackoverflow.com/questions/3624422/how-do-i-redirect-in-django-with-context"&gt;StackOverflow&lt;/a&gt; :&lt;/p&gt;
+&lt;p&gt;用var声明后，a1是func1的本地变量，而中间变量b1&lt;em&gt;没有被声明&lt;/em&gt;地直接拿来使用，相当于创造了一个&lt;em&gt;全局变量&lt;/em&gt;。本地变量在外部作用域中无法访问是几乎所有编程语言共同的，而根据JS闭包原则，全局变量b1则可以被访问到。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/my-javascript-notes.html"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>JavaScript</category><guid>http://adward-r.lofter.com/posts/my-javascript-notes.html</guid><pubDate>Sun, 31 Jan 2016 13:59:21 GMT</pubDate></item><item><title>How to Redirect with Context in Django</title><link>http://adward-r.lofter.com/posts/how-to-redirect-with-context-in-django.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;p&gt;The following question on &lt;a href="http://stackoverflow.com/questions/3624422/how-do-i-redirect-in-django-with-context"&gt;StackOverflow&lt;/a&gt; :&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I have a view that validates and saves a form. After the form is saved, I'd like redirect back to a list_object view with a success message "form for customer &lt;code&gt;xyz&lt;/code&gt; was successfully updated..."&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;HttpResponseRedirect&lt;/code&gt; doesn't seem like it would work, because it only has an argument for the url, no way to pass dictionary with it.&lt;/p&gt;

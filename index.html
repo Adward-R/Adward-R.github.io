@@ -91,33 +91,7 @@
 
 
 <p>或者针对带参数的decorator：</p>
-<p>用法：</p>
-<pre class="code literal-block">@log('execute')
-def now():
-    print('2015-3-25')
-</pre>
-
-
-<p>效果相当于：</p>
-<pre class="code literal-block">now = log('execute')(now)
-</pre>
-
-
-<p>实现：</p>
-<pre class="code literal-block"><span class="kn">import</span> <span class="nn">functools</span>
-
-<span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-        <span class="nd">@functools.wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s">():'</span> <span class="o">%</span> <span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
-            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">wrapper</span>
-    <span class="k">return</span> <span class="n">decorator</span>
-</pre>
-
-
-<p><code>@functools.wraps(func)</code>的作用之一是<code>wrapper.__name__ = func.__name__</code> .</p>
+<p class="more"><a href="posts/my-notes-of-python-3.html">Read more…</a></p>
 </div>
             </div>
         </div>
@@ -164,6 +138,7 @@ def now():
 
 <p>以上输出的结果分别是"1"和"null"（或"a2 is not defined"），乍一看觉得匪夷所思，但是了解了JS的作用域知识以后，迎刃而解：</p>
 <p>用var声明后，a1是func1的本地变量，而中间变量b1<em>没有被声明</em>地直接拿来使用，相当于创造了一个<em>全局变量</em>。本地变量在外部作用域中无法访问是几乎所有编程语言共同的，而根据JS闭包原则，全局变量b1则可以被访问到。</p>
+<p class="more"><a href="posts/my-javascript-notes.html">Read more…</a></p>
 </div>
             </div>
         </div>

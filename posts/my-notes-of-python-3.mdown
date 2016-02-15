@@ -35,6 +35,8 @@ Python函数在定义的时候，默认参数（比如`L`）的值就被计算�
 
 或者针对带参数的decorator：
 
+<!-- TEASER_END -->
+
 用法：
 
 	@log('execute')
