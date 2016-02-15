@@ -46,6 +46,82 @@
         <div class="content" rel="main">
             
         <div class="post">
+            <h1 class="title"><a href="posts/my-notes-of-python-3.html">My Notes of Python 3</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2016-02-15T13:50:27+08:00">2016-02-15 13:50</time>
+                </div>
+                <div class="stats">
+                    
+        
+    <a href="posts/my-notes-of-python-3.html#disqus_thread" data-disqus-identifier="cache/posts/my-notes-of-python-3.html">Comments</a>
+
+
+                </div>
+            
+        <div itemprop="keywords" class="tags">
+        <ul>
+        Tags : 
+           <li><a class="tag p-category" href="categories/python.html" rel="tag">Python</a></li>
+        </ul>
+        </div>
+
+            </div>
+            <div class="body">
+                <div>
+<h3>1. 函数参数</h3>
+<h4>1) 默认参数</h4>
+<p>Python函数在定义的时候，默认参数（比如<code>L</code>）的值就被计算出来了；每次调用该函数，如果改变了<code>L</code>的内容，则下次调用时，默认参数的内容就变了，不再是函数定义时的值了。所以，定义默认参数时，必须指向不变对象。</p>
+<h3>2. 继承与多态</h3>
+<h4>1) 实例属性与类属性</h4>
+<p>相同名称的实例属性将屏蔽掉类属性，但是当你删除实例属性后，再使用相同的名称，访问到的将是类属性。</p>
+<h4>2) 动态语言的鸭子类型</h4>
+<h3>3. 函数式编程</h3>
+<h4>1) 装饰器</h4>
+<p>一个完整的decorator的写法如下：</p>
+<pre class="code literal-block"><span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@functools.wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'call </span><span class="si">%s</span><span class="s">():'</span> <span class="o">%</span> <span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+</pre>
+
+
+<p>或者针对带参数的decorator：</p>
+<p>用法：</p>
+<pre class="code literal-block">@log('execute')
+def now():
+    print('2015-3-25')
+</pre>
+
+
+<p>效果相当于：</p>
+<pre class="code literal-block">now = log('execute')(now)
+</pre>
+
+
+<p>实现：</p>
+<pre class="code literal-block"><span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="nd">@functools.wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s">():'</span> <span class="o">%</span> <span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+</pre>
+
+
+<p><code>@functools.wraps(func)</code>的作用之一是<code>wrapper.__name__ = func.__name__</code> .</p>
+</div>
+            </div>
+        </div>
+        <div class="post">
             <h1 class="title"><a href="posts/my-javascript-notes.html">My JavaScript Notes</a></h1>
             <div class="meta">
                 <div class="authordate">
@@ -454,50 +530,6 @@ Board: Ralink APSoC
 
 
 <p class="more"><a href="posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html">Read more…</a></p>
-</div>
-            </div>
-        </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html">The Ongoing Nation-scale Net Attack Striking GITHUB from PRC Authority</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2015-03-30T12:09:10+08:00">2015-03-30 12:09</time>
-                </div>
-                <div class="stats">
-                    
-        
-    <a href="posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html#disqus_thread" data-disqus-identifier="cache/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html">Comments</a>
-
-
-                </div>
-            
-        <div itemprop="keywords" class="tags">
-        <ul>
-        Tags : 
-           <li><a class="tag p-category" href="categories/gfw.html" rel="tag">GFW</a></li>
-           <li><a class="tag p-category" href="categories/github.html" rel="tag">Github</a></li>
-        </ul>
-        </div>
-
-            </div>
-            <div class="body">
-                <div>
-<blockquote>
-<p>来自 http://www.solidot.org/story?sid=43506 的信息:</p>
-<p>第一波是创造性的劫持百度JS文件利用中国海外用户的浏览器每2秒向托管在GitHub上的两个反审查项目发出请求，这一手段被GitHub用弹出JS警告alert()防住；</p>
-<p>第二轮是跨域 \&lt;img&gt; 攻击，被GitHub检查Referer挡住；</p>
-<p>第三波是DDoS攻击GitHub Pages；</p>
-<p>第四波是正在进行中的TCP SYN洪水攻击，利用TCP协议缺陷发送大量伪造的TCP连接请求，让GitHub耗尽资源。</p>
-</blockquote>
-<p>Hail Github.</p>
-<p>来自大陆地区的针对代码托管和版本管理网站Github的攻击已经以多种形式持续了近100小时，所幸在第一波劫持中我因为使用了PAC自动分流的代理，而并未无意中为这种行径推波助澜；然而昨晚向自己在Github上的代码仓库Push和Sync的时候却发现几乎没有了响应，少量代码的修改Sync了约10分钟，更不用说从终端<code>ssh -T git@github.com</code>都几无回馈。</p>
-<p>因为Gitpages遭到攻击，昨天我的博客（架设在Github Pages上做版本管理）自然也难逃访问速度神慢的困境，本来需要做的测试也只能搁置和推迟。所幸不久之前在v2ex看到了进展，如文首引用所言，多样化而粗暴的攻击手段遭遇Github程序员团队的顽强抵抗，截至3.30上午，Github从杭州电信用ssh和https访问均无明显阻滞，挂代理和不挂代理均可。</p>
-<p>具体事态已经扩展到引起了<a href="http://www.wsj.com/articles/u-s-coding-website-github-hit-with-cyberattack-1427638940">「华尔街日报」</a>的反应，全文引用如下，考虑到国内非代理用户几乎无法访问任何国外主流媒体站点：</p>
-<blockquote>
-<h3>U.S. Coding Website GitHub Hit With Cyberattack</h3>
-<h4>Security experts say attack is likely an attempt by China to shut down anticensorship tools</h4>
-</blockquote>
-<p class="more"><a href="posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html">Read more…</a></p>
 </div>
             </div>
         </div>

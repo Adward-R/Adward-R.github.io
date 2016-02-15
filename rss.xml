@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 31 Jan 2016 14:08:13 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>My JavaScript Notes</title><link>http://adward-r.lofter.com/posts/my-javascript-notes.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h3&gt;1. 作用域问题&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Adward-R</title><link>http://adward-r.lofter.com</link><description>This is a demo site for Nikola.</description><atom:link href="http://adward-r.lofter.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 15 Feb 2016 07:41:04 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>My Notes of Python 3</title><link>http://adward-r.lofter.com/posts/my-notes-of-python-3.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h3&gt;1. 函数参数&lt;/h3&gt;
+&lt;h4&gt;1) 默认参数&lt;/h4&gt;
+&lt;p&gt;Python函数在定义的时候，默认参数（比如&lt;code&gt;L&lt;/code&gt;）的值就被计算出来了；每次调用该函数，如果改变了&lt;code&gt;L&lt;/code&gt;的内容，则下次调用时，默认参数的内容就变了，不再是函数定义时的值了。所以，定义默认参数时，必须指向不变对象。&lt;/p&gt;
+&lt;h3&gt;2. 继承与多态&lt;/h3&gt;
+&lt;h4&gt;1) 实例属性与类属性&lt;/h4&gt;
+&lt;p&gt;相同名称的实例属性将屏蔽掉类属性，但是当你删除实例属性后，再使用相同的名称，访问到的将是类属性。&lt;/p&gt;
+&lt;h4&gt;2) 动态语言的鸭子类型&lt;/h4&gt;
+&lt;h3&gt;3. 函数式编程&lt;/h3&gt;
+&lt;h4&gt;1) 装饰器&lt;/h4&gt;
+&lt;p&gt;一个完整的decorator的写法如下：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;functools&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="nd"&gt;@functools.wraps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;wrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kw&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'call &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;():'&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kw&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;wrapper&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;或者针对带参数的decorator：&lt;/p&gt;
+&lt;p&gt;用法：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;@log('execute')
+def now():
+    print('2015-3-25')
+&lt;/pre&gt;
+
+
+&lt;p&gt;效果相当于：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;now = log('execute')(now)
+&lt;/pre&gt;
+
+
+&lt;p&gt;实现：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;functools&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;decorator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="nd"&gt;@functools.wraps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;wrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kw&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;():'&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kw&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;wrapper&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;decorator&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;&lt;code&gt;@functools.wraps(func)&lt;/code&gt;的作用之一是&lt;code&gt;wrapper.__name__ = func.__name__&lt;/code&gt; .&lt;/p&gt;&lt;/div&gt;</description><category>Python</category><guid>http://adward-r.lofter.com/posts/my-notes-of-python-3.html</guid><pubDate>Mon, 15 Feb 2016 05:50:27 GMT</pubDate></item><item><title>My JavaScript Notes</title><link>http://adward-r.lofter.com/posts/my-javascript-notes.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;h3&gt;1. 作用域问题&lt;/h3&gt;
 &lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;func1&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;a1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;b1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;b1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -164,19 +212,4 @@ Board: Ralink APSoC
 &lt;/pre&gt;
 
 
-&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html"&gt;Read more…&lt;/a&gt; (13 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>OpenWRT</category><guid>http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html</guid><pubDate>Sat, 04 Apr 2015 13:31:30 GMT</pubDate></item><item><title>The Ongoing Nation-scale Net Attack Striking GITHUB from PRC Authority</title><link>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</link><dc:creator>Adward-R</dc:creator><description>&lt;div&gt;&lt;blockquote&gt;
-&lt;p&gt;来自 http://www.solidot.org/story?sid=43506 的信息:&lt;/p&gt;
-&lt;p&gt;第一波是创造性的劫持百度JS文件利用中国海外用户的浏览器每2秒向托管在GitHub上的两个反审查项目发出请求，这一手段被GitHub用弹出JS警告alert()防住；&lt;/p&gt;
-&lt;p&gt;第二轮是跨域 \&amp;lt;img&amp;gt; 攻击，被GitHub检查Referer挡住；&lt;/p&gt;
-&lt;p&gt;第三波是DDoS攻击GitHub Pages；&lt;/p&gt;
-&lt;p&gt;第四波是正在进行中的TCP SYN洪水攻击，利用TCP协议缺陷发送大量伪造的TCP连接请求，让GitHub耗尽资源。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Hail Github.&lt;/p&gt;
-&lt;p&gt;来自大陆地区的针对代码托管和版本管理网站Github的攻击已经以多种形式持续了近100小时，所幸在第一波劫持中我因为使用了PAC自动分流的代理，而并未无意中为这种行径推波助澜；然而昨晚向自己在Github上的代码仓库Push和Sync的时候却发现几乎没有了响应，少量代码的修改Sync了约10分钟，更不用说从终端&lt;code&gt;ssh -T git@github.com&lt;/code&gt;都几无回馈。&lt;/p&gt;
-&lt;p&gt;因为Gitpages遭到攻击，昨天我的博客（架设在Github Pages上做版本管理）自然也难逃访问速度神慢的困境，本来需要做的测试也只能搁置和推迟。所幸不久之前在v2ex看到了进展，如文首引用所言，多样化而粗暴的攻击手段遭遇Github程序员团队的顽强抵抗，截至3.30上午，Github从杭州电信用ssh和https访问均无明显阻滞，挂代理和不挂代理均可。&lt;/p&gt;
-&lt;p&gt;具体事态已经扩展到引起了&lt;a href="http://www.wsj.com/articles/u-s-coding-website-github-hit-with-cyberattack-1427638940"&gt;「华尔街日报」&lt;/a&gt;的反应，全文引用如下，考虑到国内非代理用户几乎无法访问任何国外主流媒体站点：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;h3&gt;U.S. Coding Website GitHub Hit With Cyberattack&lt;/h3&gt;
-&lt;h4&gt;Security experts say attack is likely an attempt by China to shut down anticensorship tools&lt;/h4&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>GFW</category><category>Github</category><guid>http://adward-r.lofter.com/posts/the-ongoing-nation-scale-net-attack-striking-github-from-prc-authority.html</guid><pubDate>Mon, 30 Mar 2015 04:09:10 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html"&gt;Read more…&lt;/a&gt; (13 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>OpenWRT</category><guid>http://adward-r.lofter.com/posts/wrtnodechuan-kou-shang-dian-diao-shi-shu-chu-xin-xi-xiang-jie.html</guid><pubDate>Sat, 04 Apr 2015 13:31:30 GMT</pubDate></item></channel></rss>

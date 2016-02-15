@@ -1,0 +1,62 @@
+<!-- 
+.. title: My Notes of Python 3
+.. slug: my-notes-of-python-3
+.. date: 2016-02-15 13:50:27 UTC+08:00
+.. tags: Python
+.. category: Web
+.. link: 
+.. description: 
+.. type: text
+-->
+
+## 1. 函数参数
+### 1) 默认参数
+Python函数在定义的时候，默认参数（比如`L`）的值就被计算出来了；每次调用该函数，如果改变了`L`的内容，则下次调用时，默认参数的内容就变了，不再是函数定义时的值了。所以，定义默认参数时，必须指向不变对象。
+
+## 2. 继承与多态
+### 1) 实例属性与类属性
+
+相同名称的实例属性将屏蔽掉类属性，但是当你删除实例属性后，再使用相同的名称，访问到的将是类属性。
+
+### 2) 动态语言的鸭子类型
+
+## 3. 函数式编程
+### 1) 装饰器
+一个完整的decorator的写法如下：
+
+	import functools
+
+	def log(func):
+   		@functools.wraps(func)
+	   	def wrapper(*args, **kw):
+			print('call %s():' % func.__name__)
+		   	return func(*args, **kw)
+		return wrapper
+
+或者针对带参数的decorator：
+
+用法：
+
+	@log('execute')
+	def now():
+   		print('2015-3-25')
+   		
+效果相当于：
+
+	now = log('execute')(now)
+	
+实现：
+
+
+	import functools
+
+	def log(text):
+   		def decorator(func):
+       		@functools.wraps(func)
+		    def wrapper(*args, **kw):
+          		print('%s %s():' % (text, func.__name__))
+            	return func(*args, **kw)
+		    return wrapper
+	    return decorator
+	    
+`@functools.wraps(func)`的作用之一是`wrapper.__name__ = func.__name__` .
