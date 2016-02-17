@@ -9,7 +9,8 @@
 .. type: text
 -->
 
-##1. 作用域问题
+## 1. 作用域问题
+### 1）隐式全局变量声明
 	function func1() {
 		var a1 = b1 = 1;
 		return b1;
@@ -29,3 +30,76 @@
 用var声明后，a1是func1的本地变量，而中间变量b1*没有被声明*地直接拿来使用，相当于创造了一个*全局变量*。本地变量在外部作用域中无法访问是几乎所有编程语言共同的，而根据JS闭包原则，全局变量b1则可以被访问到。
 
 <!-- TEASER_END -->
+
+### 2) 变量提升
+JavaScript的函数定义有个特点，它会先扫描整个函数体的语句，把所有申明的变量“提升”到函数顶部：但是只提升函数的声明，不提升赋值。
+
+例如：
+
+	'use strict';
+
+	function foo() {
+   		var x = 'Hello, ' + y;
+	   	alert(x);
+    	var y = 'Bob';
+	}
+
+	foo();
+	
+在引擎看来相当于：
+
+	function foo() {
+    	var y; // 提升变量y的申明
+	    var x = 'Hello, ' + y;
+   		alert(x);
+    	y = 'Bob';
+	}
+	
+函数声明的变量名字和值都会提升，而函数表达式只提升名字，例如：
+
+	a();
+	b();
+
+	function a(){
+   		//....
+	}
+
+	var b = function () {
+    	//....
+	}
+
+a()能正常调用，而b()会报错。其实并非任何特殊规则作怪，只是因为第一种会先加载，不管函数调用的先后，而第二种，只有在给b赋值的时候才去加载那个函数，然后赋值给b变量。
+
+## 2. 匿名函数与闭包
+### 1) 箭头函数
+箭头函数看上去是匿名函数的一种简写，但实际上，箭头函数和匿名函数有个明显的区别：箭头函数内部的this是词法作用域，由上下文确定。
+
+由于JavaScript函数对this绑定的错误处理，下面的例子无法得到预期结果：
+
+	var obj = {
+    	birth: 1990,
+	    getAge: function () {
+        	var b = this.birth; // 1990
+	        var fn = function () {
+   		        return new Date().getFullYear() - this.birth; // this指向window或undefined
+        	};
+        	//var fn = () => new Date().getFullYear() - this.birth; // this指向obj对象
+	        return fn();
+   		 }
+	};
+	
+用箭头函数改写上述obj，把fn的定义换成下面注释的那行。现在，箭头函数完全修复了this的指向，this总是指向词法作用域，也就是外层调用者obj：`obj.getAge(); // 25`.
+
+如果使用箭头函数，以前的那种hack写法：`var that = this;`就不再需要了。
+
+另外，由于this在箭头函数中已经按照词法作用域绑定了，所以，用`call()`或者`apply()`调用箭头函数时，无法对this进行绑定，即传入的第一个参数被忽略：
+
+	var obj = {
+    	birth: 1990,
+	    getAge: function (year) {
+   			var b = this.birth; // 1990
+        	var fn = (y) => y - this.birth; // this.birth仍是1990
+        	return fn.call({birth:2000}, year);
+    	}
+	};
+	obj.getAge(2015); // 25

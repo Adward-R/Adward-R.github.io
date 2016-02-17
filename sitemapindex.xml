@@ -34,7 +34,7 @@
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/cat_web.xml</loc>
-  <lastmod>2016-02-15</lastmod>
+  <lastmod>2016-02-17</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/cloud.xml</loc>
@@ -58,7 +58,7 @@
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/javascript.xml</loc>
-  <lastmod>2016-02-15</lastmod>
+  <lastmod>2016-02-17</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/categories/markdown.xml</loc>
@@ -94,10 +94,10 @@
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/rss.xml</loc>
-  <lastmod>2016-02-15</lastmod>
+  <lastmod>2016-02-17</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://adward-r.lofter.com/sitemap.xml</loc>
-  <lastmod>2016-02-15</lastmod>
+  <lastmod>2016-02-17</lastmod>
  </sitemap>
 </sitemapindex>
