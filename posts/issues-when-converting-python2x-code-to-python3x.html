@@ -2,20 +2,19 @@
 <html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
     <head>
     <meta charset="utf-8">
-    <meta name="description" content="This is a demo site for Nikola.">
     <meta name="viewport" content="width=device-width">
-    <title>Adward-R | Adward-R</title>
+    <title>Issues When Converting Python2.x Code to Python3.x | Adward-R</title>
 
     
-            <link href="assets/css/bitter.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/main.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/rst.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/code.css" rel="stylesheet" type="text/css">
+            <link href="../assets/css/bitter.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/main.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/code.css" rel="stylesheet" type="text/css">
 
     
-            <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 
-      <link rel="canonical" href="http://adward-r.lofter.com/index.html">
+      <link rel="canonical" href="http://adward-r.lofter.com/posts/issues-when-converting-python2x-code-to-python3x.html">
 
 
 
@@ -25,6 +24,25 @@
     
 
 
+    
+
+    <meta name="author" content="Adward-R">
+    
+    <meta property="og:site_name" content="Adward-R">
+    <meta property="og:title" content="Issues When Converting Python2.x Code to Python3.x">
+    <meta property="og:url" content="http://adward-r.lofter.com/posts/issues-when-converting-python2x-code-to-python3x.html">
+    <meta property="og:description" content="收藏的原文网址貌似在地震中无法打开了 0 0 转载一下。
+使用2to3将代码移植到Python 3
+0. 概述
+几乎所有的Python 2程序都需要一些修改才能正常地运行在Python 3的环境下。为了简化这个转换过程，Python 3自带了一个叫做2to3的实用脚本(Utility Script)，这个脚本会将你的Python 2程序源文件作为输入，然后自动将其转换到Python 3的形式。案例">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2016-02-21T15:45:11+08:00">
+           <meta property="article:tag" content="Python">
+
+    
+
+    
+
 
 
 </head>
@@ -32,10 +50,10 @@
     <section class="social">
         <ul>
         
-            <li><a href="#" title="Home"><i class="icon-home"></i></a></li>
-            <li><a href="archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
-            <li><a href="categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
-            <li><a href="rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
+            <li><a href="../index.html" title="Home"><i class="icon-home"></i></a></li>
+            <li><a href="../archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
+            <li><a href="../categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
+            <li><a href="../rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
             <li><a href="http://getnikola.com" title="About me"><i class="icon-user"></i></a></li>
             <li><a href="http://adward-r.me" title="My LOFTER"><i class="icon-twitter"></i></a></li>
             <li><a href="https://github.com/adward-r" title="My Github"><i class="icon-github"></i></a></li>
@@ -45,34 +63,35 @@
     <section class="page-content">
         <div class="content" rel="main">
             
-        <div class="post">
-            <h1 class="title"><a href="posts/issues-when-converting-python2x-code-to-python3x.html">Issues When Converting Python2.x Code to Python3.x</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2016-02-21T15:45:11+08:00">2016-02-21 15:45</time>
-                </div>
-                <div class="stats">
-                    
-        
-    <a href="posts/issues-when-converting-python2x-code-to-python3x.html#disqus_thread" data-disqus-identifier="cache/posts/issues-when-converting-python2x-code-to-python3x.html">Comments</a>
+    <div class="post">
+    
+    <h1 class="p-name entry-title" itemprop="headline name">Issues When Converting Python2.x Code to Python3.x</h1>
 
+        <div class="meta">
+            <div class="authordate">
+                <time class="timeago" datetime="2016-02-21T15:45:11+08:00">2016-02-21 15:45</time>
+            
 
-                </div>
+            
+          |  
+        <a href="issues-when-converting-python2x-code-to-python3x.mdown" id="sourcelink">Source</a>
+
+            </div>
             
         <div itemprop="keywords" class="tags">
         <ul>
         Tags : 
-           <li><a class="tag p-category" href="categories/python.html" rel="tag">Python</a></li>
+           <li><a class="tag p-category" href="../categories/python.html" rel="tag">Python</a></li>
         </ul>
         </div>
 
-            </div>
-            <div class="body">
-                <div>
+        </div>
+        <div class="body">
+            <div>
 <p>收藏的原文网址貌似在<s>地震</s>中无法打开了 0 0 转载一下。</p>
 <h2>使用2to3将代码移植到Python 3</h2>
 <h2>0. 概述</h2>
-<p>几乎所有的Python 2程序都需要一些修改才能正常地运行在Python 3的环境下。为了简化这个转换过程，Python 3自带了一个叫做2to3的实用脚本(Utility Script)，这个脚本会将你的Python 2程序源文件作为输入，然后自动将其转换到Python 3的形式。<a href="posts/%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6:%E5%B0%86chardet%E7%A7%BB%E6%A4%8D%E5%88%B0Python%203(porting%20chardet%20to%20Python%203)">案例研究:将chardet移植到Python 3(porting chardet to Python 3)</a>描述了如何运行这个脚本，然后展示了一些它不能自动修复的情况。这篇附录描述了它能够自动修复的内容。</p>
+<p>几乎所有的Python 2程序都需要一些修改才能正常地运行在Python 3的环境下。为了简化这个转换过程，Python 3自带了一个叫做2to3的实用脚本(Utility Script)，这个脚本会将你的Python 2程序源文件作为输入，然后自动将其转换到Python 3的形式。<a href="%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6:%E5%B0%86chardet%E7%A7%BB%E6%A4%8D%E5%88%B0Python%203(porting%20chardet%20to%20Python%203)">案例研究:将chardet移植到Python 3(porting chardet to Python 3)</a>描述了如何运行这个脚本，然后展示了一些它不能自动修复的情况。这篇附录描述了它能够自动修复的内容。</p>
 <h2>1. print语句</h2>
 <p>在Python 2里，print是一个语句。无论你想输出什么，只要将它们放在print关键字后边就可以。在Python 3里，print()是一个函数。就像其他的函数一样，print()需要你将想要输出的东西作为参数传给它。</p>
 <p>Notes | Python 2 | Python 3
@@ -1001,441 +1020,43 @@ do_stuff(a_list)</p>
 <p>☞
 © 2001–9 Mark Pilgrim</p>
 </div>
-            </div>
         </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/my-notes-of-python-3.html">My Notes of Python 3</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2016-02-15T13:50:27+08:00">2016-02-15 13:50</time>
-                </div>
-                <div class="stats">
-                    
         
-    <a href="posts/my-notes-of-python-3.html#disqus_thread" data-disqus-identifier="cache/posts/my-notes-of-python-3.html">Comments</a>
-
-
-                </div>
-            
-        <div itemprop="keywords" class="tags">
-        <ul>
-        Tags : 
-           <li><a class="tag p-category" href="categories/python.html" rel="tag">Python</a></li>
-        </ul>
-        </div>
-
-            </div>
-            <div class="body">
-                <div>
-<h3>1. 函数参数</h3>
-<h4>1) 默认参数</h4>
-<p>Python函数在定义的时候，默认参数（比如<code>L</code>）的值就被计算出来了；每次调用该函数，如果改变了<code>L</code>的内容，则下次调用时，默认参数的内容就变了，不再是函数定义时的值了。所以，定义默认参数时，必须指向不变对象。</p>
-<h3>2. 继承与多态</h3>
-<h4>1) 实例属性与类属性</h4>
-<p>相同名称的实例属性将屏蔽掉类属性，但是当你删除实例属性后，再使用相同的名称，访问到的将是类属性。</p>
-<h4>2) 动态语言的鸭子类型</h4>
-<h3>3. 函数式编程</h3>
-<h4>1) 装饰器</h4>
-<p>一个完整的decorator的写法如下：</p>
-<pre class="code literal-block"><span class="kn">import</span> <span class="nn">functools</span>
-
-<span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="nd">@functools.wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'call </span><span class="si">%s</span><span class="s">():'</span> <span class="o">%</span> <span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">wrapper</span>
-</pre>
-
-
-<p>或者针对带参数的decorator：</p>
-<p class="more"><a href="posts/my-notes-of-python-3.html">Read more…</a></p>
-</div>
-            </div>
-        </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/my-javascript-notes.html">My JavaScript Notes</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2016-01-31T21:59:21+08:00">2016-01-31 21:59</time>
-                </div>
-                <div class="stats">
-                    
-        
-    <a href="posts/my-javascript-notes.html#disqus_thread" data-disqus-identifier="cache/posts/my-javascript-notes.html">Comments</a>
-
-
-                </div>
-            
-        <div itemprop="keywords" class="tags">
-        <ul>
-        Tags : 
-           <li><a class="tag p-category" href="categories/javascript.html" rel="tag">JavaScript</a></li>
-        </ul>
-        </div>
-
-            </div>
-            <div class="body">
-                <div>
-<h3>1. 作用域问题</h3>
-<h4>1）隐式全局变量声明</h4>
-<pre class="code literal-block"><span class="kd">function</span> <span class="nx">func1</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">a1</span> <span class="o">=</span> <span class="nx">b1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">return</span> <span class="nx">b1</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nx">func1</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b1</span><span class="p">);</span>
-
-<span class="kd">function</span> <span class="nx">func2</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">a2</span> <span class="o">=</span> <span class="nx">b2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="k">return</span> <span class="nx">a2</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nx">func2</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a2</span><span class="p">);</span>
-</pre>
-
-
-<p>以上输出的结果分别是"1"和"null"（或"a2 is not defined"），乍一看觉得匪夷所思，但是了解了JS的作用域知识以后，迎刃而解：</p>
-<p>用var声明后，a1是func1的本地变量，而中间变量b1<em>没有被声明</em>地直接拿来使用，相当于创造了一个<em>全局变量</em>。本地变量在外部作用域中无法访问是几乎所有编程语言共同的，而根据JS闭包原则，全局变量b1则可以被访问到。</p>
-<p class="more"><a href="posts/my-javascript-notes.html">Read more…</a></p>
-</div>
-            </div>
-        </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/how-to-redirect-with-context-in-django.html">How to Redirect with Context in Django</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2015-07-15T12:21:50+08:00">2015-07-15 12:21</time>
-                </div>
-                <div class="stats">
-                    
-        
-    <a href="posts/how-to-redirect-with-context-in-django.html#disqus_thread" data-disqus-identifier="cache/posts/how-to-redirect-with-context-in-django.html">Comments</a>
-
-
-                </div>
-            
-        <div itemprop="keywords" class="tags">
-        <ul>
-        Tags : 
-           <li><a class="tag p-category" href="categories/django.html" rel="tag">Django</a></li>
-           <li><a class="tag p-category" href="categories/python.html" rel="tag">Python</a></li>
-        </ul>
-        </div>
-
-            </div>
-            <div class="body">
-                <div>
-<p>The following question on <a href="http://stackoverflow.com/questions/3624422/how-do-i-redirect-in-django-with-context">StackOverflow</a> :</p>
-<blockquote>
-<p>I have a view that validates and saves a form. After the form is saved, I'd like redirect back to a list_object view with a success message "form for customer <code>xyz</code> was successfully updated..."</p>
-<p><code>HttpResponseRedirect</code> doesn't seem like it would work, because it only has an argument for the url, no way to pass dictionary with it.</p>
-<p>I've tried modifying my wrapper for object_list to take a dict as a parameter that has the necessary context. I the return a call to this wrapper from inside the view that saves the form. However, when the page is rendered, the url is '/customer_form/' rather than '/list_customers/'. I tried modifying the request object, before passing it to the object_list wrapper, but that did not work.</p>
-</blockquote>
-<p class="more"><a href="posts/how-to-redirect-with-context-in-django.html">Read more…</a></p>
-</div>
-            </div>
-        </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/yong-django-formzuo-deng-lu-chu-cuo-xin-xi-chu-li-de-sample.html">用Django Form做登录出错信息处理的Sample</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2015-07-12T23:18:02+08:00">2015-07-12 23:18</time>
-                </div>
-                <div class="stats">
-                    
-        
-    <a href="posts/yong-django-formzuo-deng-lu-chu-cuo-xin-xi-chu-li-de-sample.html#disqus_thread" data-disqus-identifier="cache/posts/yong-django-formzuo-deng-lu-chu-cuo-xin-xi-chu-li-de-sample.html">Comments</a>
-
-
-                </div>
-            
-        <div itemprop="keywords" class="tags">
-        <ul>
-        Tags : 
-           <li><a class="tag p-category" href="categories/django.html" rel="tag">Django</a></li>
-           <li><a class="tag p-category" href="categories/python.html" rel="tag">Python</a></li>
-        </ul>
-        </div>
-
-            </div>
-            <div class="body">
-                <div>
-<p>这个学期用基于Python的Django 1.8.2 后端开发框架做了不少活儿，感觉这真是一个为程序员包办各种脏活累活儿的省心Framework :) 使用django.forms提供的API做表单输入的后端验证时遇到了一些坑，大多是因为不了解API的设计哲学所致，基本通过查阅官方文档+搜索StackOverflow解决。这里呈现一个比较通用的登录界面错误信息提示功能的代码片段作为Sample，来归纳一下使用forms时一些需要注意的细节。</p>
-<p>这是一个多APP的教务系统工程，其中登录验证在层次上写到了“基础信息管理子系统（IMS）”中；每个APP都（理应）把自己所辖的URL放到一个固定的前缀下，在顶层的<code>urls.py</code>中include每个APP的urls，并对应相应的匹配前缀（比如<code>/ims/login/</code>在顶层被前缀/ims/匹配，在IMS APP中的urls里只要匹配<code>login/</code>即可）。示例如下：</p>
-<pre class="code literal-block"><span class="c">#djcode/urls.py</span>
-<span class="n">urlpatterns</span> <span class="o">+=</span> <span class="p">[</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r'^ims/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'IMS.urls'</span><span class="p">)),</span>
-<span class="p">]</span>
-
-<span class="c">#IMS/urls.py</span>
-<span class="kn">from</span> <span class="nn">IMS</span> <span class="kn">import</span> <span class="n">views</span>
-<span class="c">#...</span>
-<span class="n">urlpatterns</span> <span class="o">+=</span> <span class="p">[</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r'^login/$'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">loggingin</span><span class="p">),</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r'^user_auth/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">user_auth</span><span class="p">),</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r'^home/$'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">home</span><span class="p">),</span>
-<span class="p">]</span>
-</pre>
-
-
-<p class="more"><a href="posts/yong-django-formzuo-deng-lu-chu-cuo-xin-xi-chu-li-de-sample.html">Read more…</a></p>
-</div>
-            </div>
-        </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/raspberry-pi-wu-xian-wang-qia-pei-zhi.html">Raspberry Pi 无线网卡配置</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2015-06-20T22:41:52+08:00">2015-06-20 22:41</time>
-                </div>
-                <div class="stats">
-                    
-        
-    <a href="posts/raspberry-pi-wu-xian-wang-qia-pei-zhi.html#disqus_thread" data-disqus-identifier="cache/posts/raspberry-pi-wu-xian-wang-qia-pei-zhi.html">Comments</a>
-
-
-                </div>
-            
-
-            </div>
-            <div class="body">
-                <div>
-<p>用root权限修改 <code>/etc/network/interfaces</code> 文件：</p>
-<p><code>$ sudo vim /etc/network/interfaces</code></p>
-<p>修改后文件内容如下：</p>
-<pre class="code literal-block">auto lo
-
-iface lo inet loopback  
-iface eth0 inet dhcp
-
-auto wlan0  
-allow-hotplug wlan0  
-iface wlan0 inet dhcp  
-wpa-ssid "JoStudio"  
-wpa-psk "password"
-
-#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
-</pre>
-
-
-<p>若一直没用VNC等进过图形化界面，就请把原来的最后一行注释掉（如上）。</p>
-</div>
-            </div>
-        </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html">为MIPS指令集的WRTnode添加系统调用</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2015-05-22T20:50:36+08:00">2015-05-22 20:50</time>
-                </div>
-                <div class="stats">
-                    
-        
-    <a href="posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html#disqus_thread" data-disqus-identifier="cache/posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html">Comments</a>
-
-
-                </div>
-            
-        <div itemprop="keywords" class="tags">
-        <ul>
-        Tags : 
-           <li><a class="tag p-category" href="categories/wrtnode.html" rel="tag">WRTnode</a></li>
-        </ul>
-        </div>
-
-            </div>
-            <div class="body">
-                <div>
-<h2>Embedded System Lab 5 on WRTnode</h2>
-<h2>1. 实验准备</h2>
-<ul>
-<li>WRTnode核心板直插手机充电线作为供电，通过Macbook的终端ssh登录操作，通过浏览器端的Luci配置界面刷固件；</li>
-<li>交叉编译环境搭建参照 <code>http://adward-r.github.io/posts/samba-and-cross-compile-toolchain-on-wrtnode.html</code>，我在之前这一步的时候已经下载好了WRTnode定制版本的OpenWRT源码，并编译了固件，中间文件和配置文件都放在了自己的VPS上，编译起来会比较快，也不需要修改配置了。</li>
-</ul>
-<h2>2. 添加系统调用</h2>
-<p>以下<code>{$linux-src}</code>路径指的是sdk目录下的<code>build_dir/target-*/linux-ramips_mt7620n/linux-*/</code>，内部文件目录结构即与一般Linux Kernel版本源码相似。</p>
-<p>例如，在我的VPS上是<code>~/OpenWrt/wrtnode-sdk/build_dir/target-mipsel_24kec+dsp_uClibc-0.9.33.2/linux-ramips_mt7620n/linux-3.10.49/</code>。注意编译需要在非root用户下进行。</p>
-<h3>2.1 mysyscall.c</h3>
-<p><code>$ cd {$linux-src}/arch/mips/kernel/</code>，新建<code>mysyscall.c</code>文件作为新增的系统调用的实现代码，效果是在日志中输出一行文字：</p>
-<pre class="code literal-block"><span class="cp">#include &lt;linux/kernel.h&gt;</span>
-<span class="kt">void</span> <span class="nf">mysyscall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printk</span><span class="p">(</span><span class="s">"New syscall!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-<span class="p">}</span>
-</pre>
-
-
-<p class="more"><a href="posts/wei-mipszhi-ling-ji-de-wrtnodetian-jia-xi-tong-diao-yong.html">Read more…</a></p>
-</div>
-            </div>
-        </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/my-rss-subscriptions.html">My RSS Subscriptions</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2015-04-17T18:00:46+08:00">2015-04-17 18:00</time>
-                </div>
-                <div class="stats">
-                    
-        
-    <a href="posts/my-rss-subscriptions.html#disqus_thread" data-disqus-identifier="cache/posts/my-rss-subscriptions.html">Comments</a>
-
-
-                </div>
-            
-
-            </div>
-            <div class="body">
-                <div>
-<p>存档一下我目前Feedly上的RSS订阅源集合；虽然它家的Android客户端做得不算大气好看、Material Design，但是内容抓取还是比大多数客户端要靠谱，于是乎依然在用。Mac上用的则是Reeder 2，真的很棒。</p>
-<pre class="code literal-block"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;opml</span> <span class="na">version=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;head&gt;</span>
-        <span class="nt">&lt;title&gt;</span>Subscriptions - RSS<span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;/head&gt;</span>
-    <span class="nt">&lt;body&gt;</span>
-        <span class="nt">&lt;outline</span> <span class="na">text=</span><span class="s">"Friends"</span> <span class="na">title=</span><span class="s">"Friends"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://blog.littleaprilfool.me/"</span> <span class="na">title=</span><span class="s">"April Pie"</span> <span class="na">xmlUrl=</span><span class="s">"http://blog.littleaprilfool.me/rss"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"April Pie"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://rockidog.com/"</span> <span class="na">title=</span><span class="s">"一本正经地瞎扯淡"</span> <span class="na">xmlUrl=</span><span class="s">"http://rockidog.com/feed.xml"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"一本正经地瞎扯淡"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://www.xsjxmx.com"</span> <span class="na">title=</span><span class="s">"开拖拉机的熊猫"</span> <span class="na">xmlUrl=</span><span class="s">"http://www.xsjxmx.com/index.php/feed/"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"开拖拉机的熊猫"</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/outline&gt;</span>
-        <span class="nt">&lt;outline</span> <span class="na">text=</span><span class="s">"Music"</span> <span class="na">title=</span><span class="s">"Music"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://blog.sina.com.cn/hughke"</span> <span class="na">title=</span><span class="s">"hughke的博客"</span> <span class="na">xmlUrl=</span><span class="s">"http://blog.sina.com.cn/rss/1436337665.xml"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"hughke的博客"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://www.5friend.cn"</span> <span class="na">title=</span><span class="s">"一碟沉香 » 古典"</span> <span class="na">xmlUrl=</span><span class="s">"http://www.5friend.cn/archives/category/classic/feed"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"一碟沉香 » 古典"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://www.5friend.cn"</span> <span class="na">title=</span><span class="s">"一碟沉香 » 爵士"</span> <span class="na">xmlUrl=</span><span class="s">"http://www.5friend.cn/archives/category/uncategorized/feed"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"一碟沉香 » 爵士"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://blog.sina.com.cn/headphoneclub"</span> <span class="na">title=</span><span class="s">"耳机俱乐部小白的BLOG"</span> <span class="na">xmlUrl=</span><span class="s">"http://blog.sina.com.cn/rss/1311376432.xml"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"耳机俱乐部小白的BLOG"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://naomafei.blog.163.com"</span> <span class="na">title=</span><span class="s">"脑吗啡的博客"</span> <span class="na">xmlUrl=</span><span class="s">"http://naomafei.blog.163.com/rss/"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"脑吗啡的博客"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://blog.sina.com.cn/yyjj"</span> <span class="na">title=</span><span class="s">"静介"</span> <span class="na">xmlUrl=</span><span class="s">"http://blog.sina.com.cn/rss/1228233583.xml"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"静介"</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/outline&gt;</span>
-        <span class="nt">&lt;outline</span> <span class="na">text=</span><span class="s">"Other"</span> <span class="na">title=</span><span class="s">"Other"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://www.kanzhihu.com"</span> <span class="na">title=</span><span class="s">"看知乎"</span> <span class="na">xmlUrl=</span><span class="s">"http://www.kanzhihu.com/feed"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"看知乎"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://daily.zhihu.com/"</span> <span class="na">title=</span><span class="s">"知乎日报"</span> <span class="na">xmlUrl=</span><span class="s">"http://zhihurss.miantiao.me/dailyrss"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"知乎日报"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://daily.zhihu.com/"</span> <span class="na">title=</span><span class="s">"知乎日报2"</span> <span class="na">xmlUrl=</span><span class="s">"http://zhihudaily.dev.malash.net/"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"知乎日报2"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://wp.minyueguo.com"</span> <span class="na">title=</span><span class="s">"闽越国"</span> <span class="na">xmlUrl=</span><span class="s">"http://wp.minyueguo.com/feed/"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"闽越国"</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/outline&gt;</span>
-        <span class="nt">&lt;outline</span> <span class="na">text=</span><span class="s">"Tech"</span> <span class="na">title=</span><span class="s">"Tech"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://blog.binchen.org/"</span> <span class="na">title=</span><span class="s">"Chen's blog"</span> <span class="na">xmlUrl=</span><span class="s">"http://blog.binchen.org/rss.xml"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"Chen's blog"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://blog.pluskid.org"</span> <span class="na">title=</span><span class="s">"Free Mind"</span> <span class="na">xmlUrl=</span><span class="s">"http://blog.pluskid.org/?feed=rss2"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"Free Mind"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://freemind.pluskid.org"</span> <span class="na">title=</span><span class="s">"Free Mind"</span> <span class="na">xmlUrl=</span><span class="s">"http://freemind.pluskid.org/rss.xml"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"Free Mind"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://lucifr.com"</span> <span class="na">title=</span><span class="s">"Lucifr"</span> <span class="na">xmlUrl=</span><span class="s">"http://lucifr.com/atom.xml"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"Lucifr"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://macshuo.com"</span> <span class="na">title=</span><span class="s">"MacTalk-池建强的随想录"</span> <span class="na">xmlUrl=</span><span class="s">"http://macshuo.com/?feed=rss2"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"MacTalk-池建强的随想录"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://www.isofts.org"</span> <span class="na">title=</span><span class="s">"Mac志"</span> <span class="na">xmlUrl=</span><span class="s">"http://www.isofts.org/feed/"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"Mac志"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://rednaxelafx.iteye.com"</span> <span class="na">title=</span><span class="s">"Script Ahead, Code Behind"</span> <span class="na">xmlUrl=</span><span class="s">"http://rednaxelafx.iteye.com/rss"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"Script Ahead, Code Behind"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">title=</span><span class="s">"winter"</span> <span class="na">xmlUrl=</span><span class="s">"http://feed.cnblogs.com/blog/u/37697/rss"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"winter"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://rockidog.com/"</span> <span class="na">title=</span><span class="s">"一本正经地瞎扯淡"</span> <span class="na">xmlUrl=</span><span class="s">"http://rockidog.com/feed.xml"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"一本正经地瞎扯淡"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">title=</span><span class="s">"刘未鹏 | Mind Hacks"</span> <span class="na">xmlUrl=</span><span class="s">"http://mindhacks.cn/feed/"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"刘未鹏 | Mind Hacks"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">title=</span><span class="s">"南极光的专栏"</span> <span class="na">xmlUrl=</span><span class="s">"http://blog.csdn.net/rk2900/rss/list"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"南极光的专栏"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">title=</span><span class="s">"博学无忧"</span> <span class="na">xmlUrl=</span><span class="s">"http://www.bo56.com/feed/"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"博学无忧"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">title=</span><span class="s">"大茶园丁 - Openwrt"</span> <span class="na">xmlUrl=</span><span class="s">"http://www.wuqiong.info/feed/category/Openwrt/"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"大茶园丁 - Openwrt"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">title=</span><span class="s">"少数派"</span> <span class="na">xmlUrl=</span><span class="s">"http://sspai.com/feed"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"少数派"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">title=</span><span class="s">"灵犀志趣"</span> <span class="na">xmlUrl=</span><span class="s">"http://www.lingcc.com/feed/"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"灵犀志趣"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">title=</span><span class="s">"老赵点滴"</span> <span class="na">xmlUrl=</span><span class="s">"http://blog.zhaojie.me/rss"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"老赵点滴"</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;outline</span> <span class="na">htmlUrl=</span><span class="s">"http://coolshell.cn"</span> <span class="na">title=</span><span class="s">"酷 壳 - CoolShell.cn"</span> <span class="na">xmlUrl=</span><span class="s">"http://coolshell.cn/feed"</span> <span class="na">type=</span><span class="s">"rss"</span> <span class="na">text=</span><span class="s">"酷 壳 - CoolShell.cn"</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/outline&gt;</span>
-    <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/opml&gt;</span>
-</pre>
-</div>
-            </div>
-        </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/samba-and-cross-compile-toolchain-on-wrtnode.html">Samba and Cross-Compile Toolchain on WRTnode</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2015-04-10T14:50:52+08:00">2015-04-10 14:50</time>
-                </div>
-                <div class="stats">
-                    
-        
-    <a href="posts/samba-and-cross-compile-toolchain-on-wrtnode.html#disqus_thread" data-disqus-identifier="cache/posts/samba-and-cross-compile-toolchain-on-wrtnode.html">Comments</a>
-
-
-                </div>
-            
-        <div itemprop="keywords" class="tags">
-        <ul>
-        Tags : 
-           <li><a class="tag p-category" href="categories/wrtnode.html" rel="tag">WRTnode</a></li>
-        </ul>
-        </div>
-
-            </div>
-            <div class="body">
-                <div>
-<h2>Embedded System Lab 2 on WRTnode</h2>
-<hr>
-<h2>1. 器材列表</h2>
-<ul>
-<li>WRTnode核心板，专用USB线，USB-to-TTL串口线</li>
-</ul>
-<h2>2. 接线方法</h2>
-<ul>
-<li>电插座\&lt;-&gt;手机充电头\&lt;-&gt;专用USB线的单个USB头\&lt;-&gt;专用USB的OTG头\&lt;-&gt;WRTnode核心板\&lt;-&gt;GND、RXD2、TXD2三个针脚\&lt;-&gt;USB-to-TTL线的杜邦线头\&lt;-&gt; USB-to-TTL线的USB头\&lt;-&gt;电脑USB口；</li>
-<li>针脚具体接线方法同第一次实验报告，可在<a href="http://wiki.wrtnode.com/index.php?title=Starting/zh-cn">WRTnode Wiki</a>找到，细节不再作冗余说明；</li>
-<li>实验的大部分流程都是通过<code>$ ssh root@192.168.8.1</code>在Mac OS X的终端中<strong>以root身份</strong>完成的，WRTnode的作用相当于局域网路由器，通过它使得Macbook、手机等终端可以连接Internet。</li>
-</ul>
-<h2>3. Samba配置</h2>
-<ul>
-<li>
-<h3>Samba Server Port的安装：</h3>
-<p class="more"><a href="posts/samba-and-cross-compile-toolchain-on-wrtnode.html">Read more…</a></p>
-</li>
-</ul>
-</div>
-            </div>
-        </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html">国行电信4G版Moto G 2014之Root与刷ROM恢复谷歌服务</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2015-04-09T20:03:22+08:00">2015-04-09 20:03</time>
-                </div>
-                <div class="stats">
-                    
-        
-    <a href="posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html#disqus_thread" data-disqus-identifier="cache/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html">Comments</a>
-
-
-                </div>
-            
-        <div itemprop="keywords" class="tags">
-        <ul>
-        Tags : 
-           <li><a class="tag p-category" href="categories/google.html" rel="tag">Google</a></li>
-           <li><a class="tag p-category" href="categories/moto-g.html" rel="tag">Moto G</a></li>
-        </ul>
-        </div>
-
-            </div>
-            <div class="body">
-                <div>
-<h4>
-<a href="http://pan.baidu.com/s/1eQphktk">工具包</a> 密码: lqy8</h4>
-<p>原先买Moto G的时候除了缺一款支持电信的手机、对于本体性价比和做工还比较满意之外，一部分原因便是冲着其搭载的原生Android Lollipop 5.0.2系统。可曾想到手的ROM虽然被预装的软件很少（总共6款吧，我Root后也只卸了两款而已，摩托良心），但是阉割了Google Play Service框架和服务，显得空空荡荡；且国内市场能够找到的Service框架都不适配安卓5.0，导致需要GMS的谷歌系应用完全无法正常运行，非常苦恼。于是折腾了一下午终于成功将其改造为本来模样，并尽数获得权限。</p>
-<p>本文中所述手机型号为Motorola XT1077，若型号不符合，请自行对照各项参数，适用或者更改部分刷机用到的工具。建议照以下内容步骤操作之前，充分了解刷机的风险，比如解锁失去保修、刷错ROM手机变砖乃至Root后需要手动谨慎管理应用权限等。</p>
-<p>刷机环境为Mac OS X Yosemite。记得手机用USB连电脑要打开<strong>开发者模式-&gt;USB调试</strong>。</p>
-<h3>安装android-sdks</h3>
-<p><a href="https://developer.android.com/sdk/installing/index.html">下载地址</a>
-</p>
-<p class="more"><a href="posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html">Read more…</a></p>
-</div>
-            </div>
-        </div>
-    
-        <nav class="postindexpager">
         <ul class="pager">
-            <li class="next">
-                <a href="index-1.html" rel="next">Older posts</a>
+            <li class="previous">
+                <a href="my-notes-of-python-3.html" rel="prev" title="My Notes of Python 3">Previous post</a>
             </li>
         </ul>
-        </nav>
 
-    
+            
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="shortname",
+            disqus_url="http://adward-r.lofter.com/posts/issues-when-converting-python2x-code-to-python3x.html",
+        disqus_title="Issues When Converting Python2.x Code to Python3.x",
+        disqus_identifier="cache/posts/issues-when-converting-python2x-code-to-python3x.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        
+
+    </div>
+
         
        <script>var disqus_shortname="shortname";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 
-
-    
 
 
              
@@ -1449,8 +1070,8 @@ wpa-psk "password"
     
     
     
-            <script src="assets/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-            <script src="assets/js/jquery.timeago.js" type="text/javascript"></script>
+            <script src="../assets/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+            <script src="../assets/js/jquery.timeago.js" type="text/javascript"></script>
     
 <!-- Social buttons -->
 <div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
