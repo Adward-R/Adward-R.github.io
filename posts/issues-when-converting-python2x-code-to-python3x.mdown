@@ -21,6 +21,8 @@
 
 在Python 2里，print是一个语句。无论你想输出什么，只要将它们放在print关键字后边就可以。在Python 3里，print()是一个函数。就像其他的函数一样，print()需要你将想要输出的东西作为参数传给它。
 
+ <!-- TEASER_END -->
+
 Notes | Python 2 | Python 3
 ---|---|---
 ① | print | print()

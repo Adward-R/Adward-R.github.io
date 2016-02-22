@@ -94,6 +94,8 @@
 <p>几乎所有的Python 2程序都需要一些修改才能正常地运行在Python 3的环境下。为了简化这个转换过程，Python 3自带了一个叫做2to3的实用脚本(Utility Script)，这个脚本会将你的Python 2程序源文件作为输入，然后自动将其转换到Python 3的形式。<a href="%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6:%E5%B0%86chardet%E7%A7%BB%E6%A4%8D%E5%88%B0Python%203(porting%20chardet%20to%20Python%203)">案例研究:将chardet移植到Python 3(porting chardet to Python 3)</a>描述了如何运行这个脚本，然后展示了一些它不能自动修复的情况。这篇附录描述了它能够自动修复的内容。</p>
 <h2>1. print语句</h2>
 <p>在Python 2里，print是一个语句。无论你想输出什么，只要将它们放在print关键字后边就可以。在Python 3里，print()是一个函数。就像其他的函数一样，print()需要你将想要输出的东西作为参数传给它。</p>
+<!-- TEASER_END -->
+
 <p>Notes | Python 2 | Python 3
 ---|---|---
 ① | print | print()
