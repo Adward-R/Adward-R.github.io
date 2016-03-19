@@ -46,6 +46,40 @@
         <div class="content" rel="main">
             
         <div class="post">
+            <h1 class="title"><a href="posts/translating-sorec-social-recommendation-using-probabilistic-matrix-factorization.html">Translating SoRec: Social Recommendation Using Probabilistic Matrix Factorization</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2016-03-19T21:26:14+08:00">2016-03-19 21:26</time>
+                </div>
+                <div class="stats">
+                    
+        
+    <a href="posts/translating-sorec-social-recommendation-using-probabilistic-matrix-factorization.html#disqus_thread" data-disqus-identifier="cache/posts/translating-sorec-social-recommendation-using-probabilistic-matrix-factorization.html">Comments</a>
+
+
+                </div>
+            
+
+            </div>
+            <div class="body">
+                <div>
+<h2>SoRec: 基于概率矩阵分解的社交化推荐</h2>
+<hr>
+<h2>1. 介绍</h2>
+<p><em>推荐系统（Recommender Systems）</em>的职责是尝试为<em>用户（User）</em>提议他们可能会感兴趣的<em>项目（Item, 譬如电影、书籍、音乐、新闻、网页、图片，等等）</em>。一类典型的推荐系统是基于<em>协同过滤（Collaborative Filtering，以下简称CF）</em>构建的，即一种通过收集与目标相似的其他用户（或其他的商品）的评分信息，来自动预测某位活跃用户的兴趣倾向的技术手段。构成CF的理论基础的一个重要假设是，活跃用户们会更倾向于喜爱那些与他们相似的用户也喜爱的项目 <strong>[13]</strong>。基于这个简洁有效的直觉，CF被应用于许多大型、著名的商业系统中，如Amazon。然而，受限于CF技术的本质，基于它的推荐系统存在以下一系列的固有弱点：</p>
+<ul>
+<li>
+<p>(1) 由于User-Item的打分矩阵经常十分稀疏（商业推荐系统中的有效评分数据的密度通常占不到1% <strong>[19]</strong>），<em>基于记忆（Memory-based，或称启发式</em> <strong>[10]，[12]，[13]，[24]</strong> <em>）</em>的CF算法常常无法为目标用户找到类似用户的配对，因为各种计算相似程度的方法，如<em>PCC（the Pearson Correlation Coefficient）</em>和<em>余弦方法(Cosine Method）</em>，都假设被计算的一对用户至少有对一些相同的项目或物品进行过打分；更有甚者，几乎所有基于记忆或<em>基于模型（Model-based</em> <strong>[8]，[9]，[18]，[20]</strong><em>）</em>的CF算法都无法处理那些从未给任何项目评分的用户的情况。</p>
+</li>
+<li>
+<p>(2) 在现实中，我们经常向我们信得过的朋友询问电影、音乐和书籍等的推荐，并且我们的口味与个性很容易就受到身边人的影响。因此，那些传统的只挖掘<em>“用户-项目”打分矩阵（User-item Rating Matrix，以下简称“U-I矩阵”）</em>来给出推荐的推荐系统的输出就显得有些不切实际了。</p>
+</li>
+</ul>
+<p class="more"><a href="posts/translating-sorec-social-recommendation-using-probabilistic-matrix-factorization.html">Read more…</a></p>
+</div>
+            </div>
+        </div>
+        <div class="post">
             <h1 class="title"><a href="posts/issues-when-converting-python2x-code-to-python3x.html">Issues When Converting Python2.x Code to Python3.x</a></h1>
             <div class="meta">
                 <div class="authordate">
@@ -457,43 +491,6 @@ wpa-psk "password"
 <p class="more"><a href="posts/samba-and-cross-compile-toolchain-on-wrtnode.html">Read more…</a></p>
 </li>
 </ul>
-</div>
-            </div>
-        </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html">国行电信4G版Moto G 2014之Root与刷ROM恢复谷歌服务</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2015-04-09T20:03:22+08:00">2015-04-09 20:03</time>
-                </div>
-                <div class="stats">
-                    
-        
-    <a href="posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html#disqus_thread" data-disqus-identifier="cache/posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html">Comments</a>
-
-
-                </div>
-            
-        <div itemprop="keywords" class="tags">
-        <ul>
-        Tags : 
-           <li><a class="tag p-category" href="categories/google.html" rel="tag">Google</a></li>
-           <li><a class="tag p-category" href="categories/moto-g.html" rel="tag">Moto G</a></li>
-        </ul>
-        </div>
-
-            </div>
-            <div class="body">
-                <div>
-<h4>
-<a href="http://pan.baidu.com/s/1eQphktk">工具包</a> 密码: lqy8</h4>
-<p>原先买Moto G的时候除了缺一款支持电信的手机、对于本体性价比和做工还比较满意之外，一部分原因便是冲着其搭载的原生Android Lollipop 5.0.2系统。可曾想到手的ROM虽然被预装的软件很少（总共6款吧，我Root后也只卸了两款而已，摩托良心），但是阉割了Google Play Service框架和服务，显得空空荡荡；且国内市场能够找到的Service框架都不适配安卓5.0，导致需要GMS的谷歌系应用完全无法正常运行，非常苦恼。于是折腾了一下午终于成功将其改造为本来模样，并尽数获得权限。</p>
-<p>本文中所述手机型号为Motorola XT1077，若型号不符合，请自行对照各项参数，适用或者更改部分刷机用到的工具。建议照以下内容步骤操作之前，充分了解刷机的风险，比如解锁失去保修、刷错ROM手机变砖乃至Root后需要手动谨慎管理应用权限等。</p>
-<p>刷机环境为Mac OS X Yosemite。记得手机用USB连电脑要打开<strong>开发者模式-&gt;USB调试</strong>。</p>
-<h3>安装android-sdks</h3>
-<p><a href="https://developer.android.com/sdk/installing/index.html">下载地址</a>
-</p>
-<p class="more"><a href="posts/guo-xing-dian-xin-4gban-moto-g-2014zhi-rootyu-shua-romhui-fu-gu-ge-fu-wu.html">Read more…</a></p>
 </div>
             </div>
         </div>
